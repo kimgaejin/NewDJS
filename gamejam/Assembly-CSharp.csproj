@@ -64,6 +64,7 @@
     <Compile Include="Assets\ColorToPrefeb.cs" />
     <Compile Include="Assets\jump.cs" />
     <Compile Include="Assets\LevelGenerator.cs" />
+    <Compile Include="Assets\Player.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/USER/Documents/GitHub/NewDJS/gamejam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

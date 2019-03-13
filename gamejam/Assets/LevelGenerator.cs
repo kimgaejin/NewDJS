@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour {
         }
 
     }
+    // 타일맵 생성코드 잘 나오는지에 대한 것은 도트 맵에 해당되는 컬러가 있을시에 그 위치를 찍어줌
     void GenerateTile(int x, int y) {
         Color pixelColor = map.GetPixel(x, y);
         if (pixelColor.a == 0)
