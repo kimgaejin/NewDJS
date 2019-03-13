@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1CA99C3E-28A7-45B5-1B77-C83BB8950533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJS", "DJS.csproj", "{1E72B9F4-7BC2-E69F-BCB6-428606860180}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1CA99C3E-28A7-45B5-1B77-C83BB8950533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CA99C3E-28A7-45B5-1B77-C83BB8950533}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CA99C3E-28A7-45B5-1B77-C83BB8950533}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CA99C3E-28A7-45B5-1B77-C83BB8950533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E72B9F4-7BC2-E69F-BCB6-428606860180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E72B9F4-7BC2-E69F-BCB6-428606860180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E72B9F4-7BC2-E69F-BCB6-428606860180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E72B9F4-7BC2-E69F-BCB6-428606860180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
