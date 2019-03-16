@@ -5,23 +5,35 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public float moveSpeed = 1.0f;
+    public float jumpPower = 10.0f;
 
     Rigidbody2D rigid;
 
+    public static Player playerInstance;
+
     private void Awake()
     {
+        if (Player.playerInstance == null) Player.playerInstance = this;
+
         rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Update ()
     {
+        // 좌우이동
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))  
         {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        }
+
+        // 점프(키보드입력, 무제한 점프)
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
     //기본적인 틀
@@ -35,6 +47,7 @@ public class Player : MonoBehaviour {
        
         }
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag.Equals("green") || col.gameObject.tag.Equals("blue"))
