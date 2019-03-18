@@ -11,8 +11,14 @@ public class Player : MonoBehaviour {
 
     public static Player playerInstance;
 
+    
+    private int Stage; //스테이지 저장변수
+    
     private void Awake()
     {
+        Stage = PlayerPrefs.GetInt("Stage"); //게임 시작시 현재까지 깬 스테이지 로드
+
+
         if (Player.playerInstance == null) Player.playerInstance = this;
 
         rigid = GetComponent<Rigidbody2D>();
@@ -59,13 +65,27 @@ public class Player : MonoBehaviour {
      
 
         }
-        if (col.gameObject.tag.Equals("la"))
+        if (col.gameObject.tag.Equals(""))
         {
           
         }
-        if (col.gameObject.tag.Equals("goal"))
+        if (col.gameObject.tag.Equals(""))
         {
           
         }
+        //게임 스테이지 저장
+        if (col.gameObject.tag.Equals("Flag1-1"))
+        {
+            PlayerPrefs.SetInt("Stage", 1); // 플레그 접촉시 스테이지 저장
+        }
+        if (col.gameObject.tag.Equals("Flag1-2"))
+        {
+
+        }
+        if (col.gameObject.tag.Equals("Flag1-3"))
+        {
+
+        }
+        ///
     }
 }
