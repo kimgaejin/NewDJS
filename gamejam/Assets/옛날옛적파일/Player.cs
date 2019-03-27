@@ -7,6 +7,10 @@ public class Player : MonoBehaviour {
     public float moveSpeed = 1.0f;
     public float jumpPower = 10.0f;
 
+    private bool isGround = false;
+    private int jumpCount = 0;  // 땅을 밟으면 2가 된다. 점프할때마다 1씩 감소. 0보다 낮으면 점프 불가.
+    private int maxJumpNum = 2;
+
     Rigidbody2D rigid;
 
     public static Player playerInstance;
@@ -17,14 +21,14 @@ public class Player : MonoBehaviour {
     private void Awake()
     {
         Stage = PlayerPrefs.GetInt("Stage"); //게임 시작시 현재까지 깬 스테이지 로드
-
+        jumpCount = maxJumpNum;
 
         if (Player.playerInstance == null) Player.playerInstance = this;
 
         rigid = GetComponent<Rigidbody2D>();
     }
-
-    private void Update ()
+    
+    private void FixedUpdate ()
     {
         // 좌우이동
         if (Input.GetKey(KeyCode.A))
@@ -36,11 +40,18 @@ public class Player : MonoBehaviour {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
 
-        // 점프(키보드입력, 무제한 점프)
-        if (Input.GetKeyDown(KeyCode.J))
+        if (jumpCount > 0)
         {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            // 점프(키보드입력, 무제한 점프)
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, 0);
+                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                jumpCount--;
+            }
         }
+
+       
     }
     //기본적인 틀
     //각 프리팹에 해당되는 컬러네임으로 오브젝트를 식별
@@ -87,5 +98,13 @@ public class Player : MonoBehaviour {
 
         }
         ///
+    }
+
+    public void SetCanJump()
+    {
+        // 2019-03-27 문성현
+        // 바닥에 닿은 상태라고 알리는 것.
+        isGround = true;
+        jumpCount = maxJumpNum;
     }
 }
