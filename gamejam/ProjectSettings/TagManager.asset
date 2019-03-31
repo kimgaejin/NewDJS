@@ -13,6 +13,10 @@ TagManager:
   - blue
   - goal
   - la
+  - potalA
+  - potalB
+  - potalA1
+  - potalB1
   layers:
   - Default
   - TransparentFX

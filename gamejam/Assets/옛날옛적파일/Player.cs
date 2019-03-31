@@ -15,9 +15,14 @@ public class Player : MonoBehaviour {
 
     public static Player playerInstance;
 
-    
+    //포탈 관련 변수
+    public int potal_on;
+    public GameObject potalA;
+    public GameObject potalB;
+    //
+
     private int Stage; //스테이지 저장변수
-    
+
     private void Awake()
     {
         Stage = PlayerPrefs.GetInt("Stage"); //게임 시작시 현재까지 깬 스테이지 로드
@@ -50,8 +55,20 @@ public class Player : MonoBehaviour {
                 jumpCount--;
             }
         }
+        // 포탈 이동관련 함수
+        if (potal_on == 1 && Input.GetKeyDown(KeyCode.W)) {
+            playerInstance.transform.position = new Vector2(potalB.transform.position.x, potalB.transform.position.y);
+            potal_on = 0;
+        }
+        if (potal_on == 2 && Input.GetKeyDown(KeyCode.W))
+        {
+            playerInstance.transform.position = new Vector2(potalA.transform.position.x, potalA.transform.position.y);
+            potal_on = 0;
+        }
+        /////
 
-       
+
+
     }
     //기본적인 틀
     //각 프리팹에 해당되는 컬러네임으로 오브젝트를 식별
@@ -63,6 +80,7 @@ public class Player : MonoBehaviour {
         {
        
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -97,7 +115,27 @@ public class Player : MonoBehaviour {
         {
 
         }
-        ///
+        /////포탈 충돌관련 함수
+        for (int i = 0; i < 10; i++)
+        {
+            if (col.gameObject.tag.Equals("potalA" + i))
+            {
+                potal_on = 1;
+                potalB = GameObject.FindWithTag("potalB" + i);
+ 
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (col.gameObject.tag.Equals("potalB" + i))
+            {
+                potal_on = 2;
+                potalA = GameObject.FindWithTag("potalA" + i);
+
+            }
+        }
+        ///////////////////////////////////////
     }
 
     public void SetCanJump()
