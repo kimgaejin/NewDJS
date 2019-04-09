@@ -17,6 +17,7 @@ TagManager:
   - potalB
   - potalA1
   - potalB1
+  - stapler
   layers:
   - Default
   - TransparentFX
