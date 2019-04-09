@@ -2,12 +2,20 @@
 
 
 public class LevelGenerator : MonoBehaviour {
+
+    public bool isOperated = false;
+
     public Texture2D map;
     public ColorToPrefeb[] colorMappings;
+
 	// Use this for initialization
 	void Start () {
+
+        if (isOperated == false) return;
+
         GenerateLevel();
 	}
+
     void GenerateLevel() {
         for (int x = 0; x < map.width; x++) {
             for (int y = 0; y < map.height; y++) {
