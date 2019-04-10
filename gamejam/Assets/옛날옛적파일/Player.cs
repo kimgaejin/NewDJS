@@ -21,6 +21,9 @@ public class Player : MonoBehaviour {
     public GameObject potalB;
     //
 
+    public GameObject light;
+    public Transform lightPos;
+
     private int Stage; //스테이지 저장변수
 
     private void Awake()
@@ -66,8 +69,11 @@ public class Player : MonoBehaviour {
             potal_on = 0;
         }
         /////
-
-
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Light();
+        }
+       
 
     }
     //기본적인 틀
@@ -144,5 +150,15 @@ public class Player : MonoBehaviour {
         // 바닥에 닿은 상태라고 알리는 것.
         isGround = true;
         jumpCount = maxJumpNum;
+    }
+
+    void Light()
+    {
+        CreateLight();
+    }
+
+    void CreateLight()
+    {
+        Instantiate(light, lightPos.position, lightPos.rotation);
     }
 }
