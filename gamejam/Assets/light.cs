@@ -6,11 +6,19 @@ public class light : MonoBehaviour
 {
     public float speed = 1.0f;
     public int wasd;
+    public int start;
 
     // Start is called before the first frame update
     void Start()
     {
         wasd = 0;
+        if (Player.key_down == 'D') {
+            start = 0;
+        }
+        else if (Player.key_down == 'A')
+        {
+            start = 1;
+        }
     }
 
     // Update is called once per frame
@@ -18,7 +26,13 @@ public class light : MonoBehaviour
     {
         if (wasd == 0)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            if (start == 0)
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            }
+            else if (start == 1 ) {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+            }
         }
         else if (wasd == 1) {
             transform.position += Vector3.up * speed * Time.deltaTime;

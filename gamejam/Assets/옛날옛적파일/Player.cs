@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
     public static Player playerInstance;
 
     //포탈 관련 변수
-    public char key_down;
+    public static char key_down;
     public GameObject potalA;
     public GameObject potalB;
     //
