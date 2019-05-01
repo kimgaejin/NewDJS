@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
     public static Player playerInstance;
 
     //포탈 관련 변수
-    public int potal_on;
+    public char key_down;
     public GameObject potalA;
     public GameObject potalB;
     //
@@ -42,10 +42,12 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            key_down = 'A';
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            key_down = 'D';
         }
 
         if (jumpCount > 0)
@@ -58,17 +60,7 @@ public class Player : MonoBehaviour {
                 jumpCount--;
             }
         }
-        // 포탈 이동관련 함수
-        if (potal_on == 1 && Input.GetKeyDown(KeyCode.W)) {
-            playerInstance.transform.position = new Vector2(potalB.transform.position.x, potalB.transform.position.y);
-            potal_on = 0;
-        }
-        if (potal_on == 2 && Input.GetKeyDown(KeyCode.W))
-        {
-            playerInstance.transform.position = new Vector2(potalA.transform.position.x, potalA.transform.position.y);
-            potal_on = 0;
-        }
-        /////
+ 
         if (Input.GetKeyDown(KeyCode.F))
         {
             Light();
@@ -126,18 +118,33 @@ public class Player : MonoBehaviour {
         {
             if (col.gameObject.tag.Equals("potalA" + i))
             {
-                potal_on = 1;
                 potalB = GameObject.FindWithTag("potalB" + i);
- 
+                if (key_down == 'A')
+                {
+                    playerInstance.transform.position = new Vector2((10 * potalB.transform.position.x - 7) / 10, potalB.transform.position.y);
+                }
+                else if (key_down == 'D')
+                {
+                    playerInstance.transform.position = new Vector2((10 * potalB.transform.position.x + 7) / 10, potalB.transform.position.y);
+                }
+
             }
+
         }
 
         for (int i = 0; i < 10; i++)
         {
             if (col.gameObject.tag.Equals("potalB" + i))
             {
-                potal_on = 2;
                 potalA = GameObject.FindWithTag("potalA" + i);
+                if (key_down == 'A')
+                {
+                    playerInstance.transform.position = new Vector2((10 * potalA.transform.position.x - 7) / 10, potalA.transform.position.y);
+                }
+                else if (key_down == 'D')
+                {
+                    playerInstance.transform.position = new Vector2((10 * potalA.transform.position.x + 7) / 10, potalA.transform.position.y);
+                }
 
             }
         }
