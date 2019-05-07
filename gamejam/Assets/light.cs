@@ -8,6 +8,14 @@ public class light : MonoBehaviour
     public int wasd;
     public int start;
 
+
+    //포탈 관련 변수
+    public static char key_down;
+    public GameObject potalA;
+    public GameObject potalB;
+    //
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +51,44 @@ public class light : MonoBehaviour
         {
             wasd = 1;
         }
+        /////포탈 충돌관련 함수
+        for (int i = 0; i < 10; i++)
+        {
+            if (col.gameObject.tag.Equals("potalA" + i))
+            {
+     
+                potalB = GameObject.FindWithTag("potalB" + i);
+               if (Player.key_down == 'A')
+               {
+                    transform.position = new Vector2((10 * potalB.transform.position.x - 7) / 10, potalB.transform.position.y);
+               }
+               else if (Player.key_down == 'D')
+               {
+                  Debug.Log("asdfasdfasdf");
+                  transform.position = new Vector2((10 * potalB.transform.position.x + 7) / 10, potalB.transform.position.y);
+               }
+
+            }
+
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (col.gameObject.tag.Equals("potalB" + i))
+            {
+                potalA = GameObject.FindWithTag("potalA" + i);
+                if (Player.key_down == 'A')
+                {
+                   transform.position = new Vector2((10 * potalA.transform.position.x - 7) / 10, potalA.transform.position.y);
+                }
+                else if (Player.key_down == 'D')
+                {
+                   transform.position = new Vector2((10 * potalA.transform.position.x + 7) / 10, potalA.transform.position.y);
+                }
+
+            }
+        }
+        ///////////////////////////////////////
     }
+
 }

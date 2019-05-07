@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 214712556}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpPower: 7
-  potal_on: 0
   potalA: {fileID: 0}
   potalB: {fileID: 0}
   light: {fileID: 7648602931713139832, guid: 45db9e4f2b2100a44855db3e688b993b, type: 3}

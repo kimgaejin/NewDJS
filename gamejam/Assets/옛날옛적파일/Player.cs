@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
     
     private void FixedUpdate ()
     {
+      
         // 좌우이동
         if (Input.GetKey(KeyCode.A))
         {
@@ -87,9 +88,9 @@ public class Player : MonoBehaviour {
         {
           
         }
-        if (col.gameObject.tag.Equals("red"))
+        if (col.gameObject.tag.Equals("Player"))
         {
-     
+            Debug.Log("asdfasdfasdf");
 
         }
         if (col.gameObject.tag.Equals(""))
@@ -121,11 +122,11 @@ public class Player : MonoBehaviour {
                 potalB = GameObject.FindWithTag("potalB" + i);
                 if (key_down == 'A')
                 {
-                    playerInstance.transform.position = new Vector2((10 * potalB.transform.position.x - 7) / 10, potalB.transform.position.y);
+                    transform.position = new Vector2((10 * potalB.transform.position.x - 7) / 10, potalB.transform.position.y);
                 }
                 else if (key_down == 'D')
                 {
-                    playerInstance.transform.position = new Vector2((10 * potalB.transform.position.x + 7) / 10, potalB.transform.position.y);
+                    transform.position = new Vector2((10 * potalB.transform.position.x + 7) / 10, potalB.transform.position.y);
                 }
 
             }
@@ -139,11 +140,11 @@ public class Player : MonoBehaviour {
                 potalA = GameObject.FindWithTag("potalA" + i);
                 if (key_down == 'A')
                 {
-                    playerInstance.transform.position = new Vector2((10 * potalA.transform.position.x - 7) / 10, potalA.transform.position.y);
+                   transform.position = new Vector2((10 * potalA.transform.position.x - 7) / 10, potalA.transform.position.y);
                 }
                 else if (key_down == 'D')
                 {
-                    playerInstance.transform.position = new Vector2((10 * potalA.transform.position.x + 7) / 10, potalA.transform.position.y);
+                    transform.position = new Vector2((10 * potalA.transform.position.x + 7) / 10, potalA.transform.position.y);
                 }
 
             }
