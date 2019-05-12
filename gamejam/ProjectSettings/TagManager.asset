@@ -23,7 +23,6 @@ TagManager:
   - mirror23
   - mirror34
   - mirror41
-  - mirrorup
   layers:
   - Default
   - TransparentFX
