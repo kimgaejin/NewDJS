@@ -18,8 +18,12 @@ TagManager:
   - potalA1
   - potalB1
   - stapler
-  - mirrorup
   - light
+  - mirror12
+  - mirror23
+  - mirror34
+  - mirror41
+  - mirrorup
   layers:
   - Default
   - TransparentFX
