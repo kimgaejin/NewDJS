@@ -23,6 +23,10 @@ TagManager:
   - mirror23
   - mirror34
   - mirror41
+  - 812R456
+  - 123R567
+  - 234R678
+  - 345R781
   layers:
   - Default
   - TransparentFX

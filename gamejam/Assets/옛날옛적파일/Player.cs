@@ -50,6 +50,41 @@ public class Player : MonoBehaviour {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             key_down = 'D';
         }
+        if (Input.GetKey(KeyCode.Alpha1)) {
+            key_down = '1';
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            key_down = '2';
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            key_down = '3';
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            key_down = '4';
+        }
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            key_down = '5';
+        }
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            key_down = '6';
+        }
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            key_down = '7';
+        }
+        if (Input.GetKey(KeyCode.Alpha8))
+        {
+            key_down = '8';
+        }
+        if (Input.GetKey(KeyCode.Alpha9))
+        {
+            key_down = '9';
+        }
 
         if (jumpCount > 0)
         {
