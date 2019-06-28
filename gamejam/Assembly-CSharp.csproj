@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\AttachMoving.cs" />
     <Compile Include="Assets\Script\Lever_MoveOne.cs" />
     <Compile Include="Assets\Script\light.cs" />
     <Compile Include="Assets\Script\mirror.cs" />

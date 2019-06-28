@@ -69,14 +69,17 @@ public class Lever_MoveOne : MonoBehaviour
             fixedPos = target.transform.position + arrow.normalized * Time.deltaTime;
             distance = points[nextInd] - target.transform.position;
 
-            if ((distance.x * beforeDistance.x < 0 || distance.y * beforeDistance.y < 0)
-                || (distance.x == 0 && distance.y == 0))
+            if (Vector3.Distance(target.position, points[nextInd]) < 0.1f)
             {
                 curIndex++;
                 if (curIndex >= indexSize) curIndex = 0;
+                beforeDistance = points[curIndex];
             }
-
-            beforeDistance = distance;
+            else
+            {
+                beforeDistance = distance;
+            }
+           
         }
         
     }
