@@ -71,6 +71,7 @@
     <Compile Include="Assets\옛날옛적파일\LevelGenerator.cs" />
     <Compile Include="Assets\옛날옛적파일\Player.cs" />
     <Compile Include="Assets\옛날옛적파일\PlayerFoot.cs" />
+    <None Include="Assets\#ForLevelDesign\Prefab\Lever_move설명서.txt" />
     <Reference Include="Cinemachine">
       <HintPath>F:/#MakingGames/NewDJS/gamejam/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
