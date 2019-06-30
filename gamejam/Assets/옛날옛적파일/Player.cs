@@ -35,7 +35,27 @@ public class Player : MonoBehaviour {
 
         rigid = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Debug.Log("Press J");
+        }
+
+        if (jumpCount > 0)
+        {
+            // 점프(키보드입력, 무제한 점프)
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                Debug.Log("Jump");
+                rigid.velocity = new Vector2(rigid.velocity.x, 0);
+                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                jumpCount--;
+            }
+        }
+    }
+
     private void FixedUpdate ()
     {
       
@@ -86,16 +106,7 @@ public class Player : MonoBehaviour {
             key_down = '9';
         }
 
-        if (jumpCount > 0)
-        {
-            // 점프(키보드입력, 무제한 점프)
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                rigid.velocity = new Vector2(rigid.velocity.x, 0);
-                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-                jumpCount--;
-            }
-        }
+        
  
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -189,8 +200,6 @@ public class Player : MonoBehaviour {
 
     public void SetCanJump()
     {
-        // 2019-03-27 문성현
-        // 바닥에 닿은 상태라고 알리는 것.
         isGround = true;
         jumpCount = maxJumpNum;
     }
