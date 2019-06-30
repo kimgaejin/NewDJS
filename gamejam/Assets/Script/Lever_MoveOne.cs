@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Lever_MoveOne : MonoBehaviour
 {
-    Vector3[] points;
-    Transform target;
+    private Vector3[] points;
+    private Transform target;
+    private Animator anim;
 
     public bool operateWhenLeverIsRight = true;
 
@@ -40,8 +41,6 @@ public class Lever_MoveOne : MonoBehaviour
             {
                 points[i] = pointsParent.GetChild(i).position;
             }
-            Debug.Log("localPos: " + pointsParent.GetChild(0).localPosition);
-            Debug.Log("pos: " + pointsParent.GetChild(0).position);
         }
 
         {   // target 오브젝트 초기 위치 설정
@@ -52,8 +51,11 @@ public class Lever_MoveOne : MonoBehaviour
                 fixedPos = points[0];
             }
             catch { }
+        }
 
-           
+        {
+            Transform graphic = transform.GetChild(0);
+            anim = graphic.GetComponent<Animator>();
         }
     }
 
@@ -82,6 +84,8 @@ public class Lever_MoveOne : MonoBehaviour
            
         }
         
+       
+
     }
 
     private void FixedUpdate()
@@ -116,6 +120,9 @@ public class Lever_MoveOne : MonoBehaviour
             isLeverLeft = true;
             isLeverRight = false;
         }
+
+        if (isPlayerLeftBefore && isPlayerRight) anim.SetTrigger("handleToRight");
+        if (isPlayerRightBefore && isPlayerLeft) anim.SetTrigger("handleToLeft");
 
         isPlayerLeftBefore = isPlayerLeft;
         isPlayerRightBefore = isPlayerRight;
