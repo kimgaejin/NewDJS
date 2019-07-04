@@ -10,6 +10,7 @@ public class Lever_MoveOne : MonoBehaviour
     private Animator anim;
 
     public bool operateWhenLeverIsRight = true;
+    public bool isPointsTransparentInGame = true;
 
     // player의 transform.position으로 판독.
     private bool isPlayerLeft;
@@ -40,6 +41,15 @@ public class Lever_MoveOne : MonoBehaviour
             for (int i = 0; i < size; i++)
             {
                 points[i] = pointsParent.GetChild(i).position;
+            }
+
+            if (isPointsTransparentInGame)
+            {
+                Color transparent = new Vector4(0, 0, 0, 0);
+                for (int i = 0; i < size; i++)
+                {
+                    pointsParent.GetChild(i).GetComponent<SpriteRenderer>().color = transparent;
+                }
             }
         }
 
