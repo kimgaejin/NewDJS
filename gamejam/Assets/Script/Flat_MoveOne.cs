@@ -8,7 +8,6 @@ public class Flat_MoveOne : MonoBehaviour
     private Transform target;
     private Animator anim;
 
-    public bool operateWhenLeverIsRight = true;
     public bool isPointsTransparentInGame = true;
 
     private bool isPressedBefore = false;
@@ -65,8 +64,6 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("curInd: " + curIndex);
-
         if (isPressed)
         {
             if (curIndex < 0) curIndex++;
@@ -113,6 +110,7 @@ public class Flat_MoveOne : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            anim.SetTrigger("press");
             isPressed = true;
         }
     }
@@ -121,6 +119,7 @@ public class Flat_MoveOne : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            anim.SetTrigger("depress");
             isPressed = false;
         }
     }
