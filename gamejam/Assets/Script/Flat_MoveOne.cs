@@ -79,6 +79,7 @@ public class Flat_MoveOne : MonoBehaviour
                 if (Vector3.Distance(target.position, points[nextInd]) < 0.1f)
                 {
                     curIndex++;
+                    target.position = points[curIndex];
                 }
 
             }
@@ -97,7 +98,9 @@ public class Flat_MoveOne : MonoBehaviour
 
                 if (Vector3.Distance(target.position, points[curIndex]) < 0.1f)
                 {
+                    target.position = points[curIndex];
                     curIndex--;
+                   
                 }
 
             }

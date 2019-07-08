@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\light.cs" />
     <Compile Include="Assets\Script\mirror.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
+    <Compile Include="Assets\Script\SnakeBlock.cs" />
     <Compile Include="Assets\옛날옛적파일\ColorToPrefeb.cs" />
     <Compile Include="Assets\옛날옛적파일\jump.cs" />
     <Compile Include="Assets\옛날옛적파일\LevelGenerator.cs" />
