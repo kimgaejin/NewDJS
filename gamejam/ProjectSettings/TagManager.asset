@@ -28,6 +28,7 @@ TagManager:
   - 234R678
   - 345R781
   - platform
+  - danger
   layers:
   - Default
   - TransparentFX

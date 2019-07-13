@@ -11,7 +11,12 @@ public class Player : MonoBehaviour {
     private int jumpCount = 0;  // 땅을 밟으면 2가 된다. 점프할때마다 1씩 감소. 0보다 낮으면 점프 불가.
     private int maxJumpNum = 2;
 
+    private bool isDead = false;
+
     Rigidbody2D rigid;
+    SpriteRenderer spr;
+    Animator anim;
+    Color normalColor;
 
     public static Player playerInstance;
 
@@ -34,10 +39,16 @@ public class Player : MonoBehaviour {
         if (Player.playerInstance == null) Player.playerInstance = this;
 
         rigid = GetComponent<Rigidbody2D>();
+        spr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        normalColor = spr.color;
     }
 
     private void Update()
     {
+        // 죽으면 조작 불가
+        if (isDead) return;
+
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("Press J");
@@ -58,7 +69,9 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate ()
     {
-      
+        // 죽으면 조작 불가
+        if (isDead) return;
+
         // 좌우이동
         if (Input.GetKey(KeyCode.A))
         {
@@ -125,11 +138,19 @@ public class Player : MonoBehaviour {
         {
        
         }
-        
+
+      
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.tag.Equals("danger"))
+        {
+            StartCoroutine("Dead");
+
+        }
+
         if (col.gameObject.tag.Equals("green") || col.gameObject.tag.Equals("blue"))
         {
           
@@ -212,5 +233,48 @@ public class Player : MonoBehaviour {
     void CreateLight()
     {
         Instantiate(light, lightPos.position, lightPos.rotation);
+    }
+
+    private void Revival()
+    {
+        anim.enabled = true;
+        spr.color = normalColor;
+        transform.position = new Vector3(-2.2f, 4, 0);
+        isDead = false;
+    }
+
+    IEnumerator Dead()
+    {
+        WaitForSeconds wait5 = new WaitForSeconds(0.05f);
+        WaitForSeconds wait100 = new WaitForSeconds(1.0f);
+
+
+        isDead = true;
+        anim.enabled = false;
+
+        while (true)
+        {
+            Color dec = spr.color / 20;
+            dec.a = 0;
+            for (int i = 0; i < 20; i++)
+            {
+                spr.color -= dec;
+                yield return wait5;
+            }
+
+            float transparentAlpha = spr.color.a / 20;
+            Color transparentColor = new Color(0, 0, 0, transparentAlpha);
+
+            for (int i = 0; i < 20; i++)
+            {
+                spr.color -= transparentColor;
+                yield return wait5;
+            }
+
+            yield return wait100;
+
+            Revival();
+            yield break;
+        }
     }
 }
