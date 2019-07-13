@@ -12,6 +12,7 @@ public class Flat_MoveOne : MonoBehaviour
 
     private bool isPressedBefore = false;
     private bool isPressed = false;
+    private int curPressingObject = 0;
 
     //private Vector3 beforeDistance = Vector3.zero;
     private Vector3 distance = Vector3.zero;
@@ -111,19 +112,35 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        // 움직일 수 있는 강체만
+        Rigidbody2D rigid = collision.transform.GetComponent<Rigidbody2D>();
+
+        if (rigid 
+            && rigid.bodyType == RigidbodyType2D.Dynamic)
         {
-            anim.SetTrigger("press");
-            isPressed = true;
+            curPressingObject++;
+            if (curPressingObject == 1)
+            {
+                anim.SetTrigger("press");
+                isPressed = true;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        Rigidbody2D rigid = collision.transform.GetComponent<Rigidbody2D>();
+
+        if (rigid 
+            && rigid.bodyType == RigidbodyType2D.Dynamic)
         {
-            anim.SetTrigger("depress");
-            isPressed = false;
+            curPressingObject--;
+
+            if (curPressingObject <= 0)
+            {
+                anim.SetTrigger("depress");
+                isPressed = false;
+            }
         }
     }
 }
