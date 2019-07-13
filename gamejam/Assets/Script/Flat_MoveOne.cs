@@ -105,7 +105,7 @@ public class Flat_MoveOne : MonoBehaviour
 
             }
         }
-
+        //Debug.Log("Speed: " + 100*(fixedPos - target.transform.position));
         target.transform.position = fixedPos;
     }
 

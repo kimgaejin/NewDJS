@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class SnakeBlock : MonoBehaviour
 {
+    const int MAX_TRACKS = 100;
+
     GameObject [] blocks;
-    Vector3 [] tracks;
+    public int [] blockInd;
+    public Vector3 [] tracks;
+    public int curTrack = 0;
 
     Vector3 beforePos;
+    //Vector3 curArrow = Vector3.zero;
+    float beforeXDiff;
+    float beforeYDiff;
+    Vector3 beforeVecDiff;
 
     int blockSize = 0;
 
@@ -15,6 +23,7 @@ public class SnakeBlock : MonoBehaviour
     {
         blockSize = transform.childCount;
 
+        // blocks 할당
         blocks = new GameObject[blockSize];
         int num = 0;
         int notPlatformSize = 0 ;
@@ -25,106 +34,117 @@ public class SnakeBlock : MonoBehaviour
                 notPlatformSize++;
                 continue;
             }
-            blocks[num++] = transform.GetChild(i).gameObject;
+            blocks[num] = transform.GetChild(i).gameObject;
+            num++;
         }
-        beforePos = transform.position;
         blockSize -= notPlatformSize;
 
-        tracks = new Vector3[blockSize + 1];
-        InitTrack();
+        blockInd = new int[blockSize];
+        tracks = new Vector3[MAX_TRACKS];
         
-    }
+        // 초기 tracks 할당
+        for (int i = 0 ; i < blockSize; i++)
+        {
+            tracks[i] = blocks[blockSize - 1 - i].transform.position;
+            blockInd[i] = blockSize - 1 - i;
+        }
+        tracks[blockSize] = transform.position;
 
-    private void Start()
-    {
-        //StartCoroutine("SetTrackWithInterval");
+        beforePos = transform.position;
+        curTrack = blockSize;
+
     }
 
     private void Update()
     {
-       
+        LogTrack();
 
         // 하위 블록이 하나도 없다면 SnakeBlock이 의미가 없다.
         if (blockSize <= 0) return;
 
-        if (beforePos != transform.position)
+        // 스네이크 블록의 머리가 움직이지 않았다면 모두 움직이지 않는다.
+        if (beforePos == transform.position) return;
+
+        // 언제나 가장 앞 track은 스네이크 머리
+        tracks[curTrack+1] = transform.position;
+
+        // 방향이 바뀌면 새로운 Track 추가
+        float curXDiff = transform.position.x - beforePos.x;
+        float curYDiff = transform.position.y - beforePos.y;
+        Vector3 curVec = new Vector3(curXDiff, curYDiff, 0);
+
+
+
+        //if (Mathf.Abs(curXDiff - beforeXDiff) > 0.005f || Mathf.Abs(curYDiff - beforeYDiff) > 0.005f) 
+        Vector3 directionDiffer = curVec - beforeVecDiff;
+        if ( directionDiffer.x > 0.01f || directionDiffer.y > 0.01f)
         {
-            Vector3 parentDifference = transform.position - beforePos;
+           // Debug.Log("direction: " + directionDiffer);
+           // Debug.Log("방향전환" + (curVec - beforeVecDiff).magnitude);
+           // Debug.Log("cur: "+curVec.x + " "+curVec.y +" Be: "+ beforeVecDiff.x + " "+ beforeVecDiff.y);
+            //Debug.Log("normal: " + (double)(transform.position - beforePos).normalized.x + " " + (double)(transform.position - beforePos).normalized.y);
+            //Debug.Log("arrow: " + (double)curArrow.x +" " + (double)curArrow.y);
+            // Debug.Log(((transform.position - beforePos).normalized) * 10 + " "+(curArrow) * 10 + "방향변경" + (Vector3.Distance((transform.position - beforePos).normalized, curArrow)));
+            AddTrack();
 
-            for (int i = 0; i < blockSize; i++)
+            beforeXDiff = curXDiff;
+            beforeYDiff = curYDiff;
+            beforeVecDiff = new Vector3(beforeXDiff, beforeYDiff, 0);
+            //curArrow = curVec;
+        }
+
+        Vector3 parentDifference = transform.position - beforePos;
+
+        for (int i = 0; i < blockSize; i++)
+        {
+            Vector3 blockPos = blocks[i].transform.position;
+
+            blockPos -= parentDifference;
+
+            if (Vector3.Distance(blocks[i].transform.position, tracks[blockInd[i]+1]) < 0.1f)
             {
-                //Debug.Log("track:" +tracks[i]);
-                //Debug.Log("blokcs: " + blocks[i].transform.position);
+                // Debug.Log( blocks[i].name+": " + Vector3.Distance(blocks[i].transform.position, tracks[blockInd[i]]));
+                Debug.Log(blocks[i].name + ": " + blockInd[i]);
+                 
+                blockInd[i]++;
+                if (blockInd[i] >= MAX_TRACKS) blockInd[i] = 0;
+                blockPos = tracks[blockInd[i]];
+                //Debug.Log(blocks[i].name + " is on track " + blockInd[i]);
 
-                //Debug.Log(tracks[i] + " - " + blocks[i].transform.position + " = "+ (tracks[i] - blocks[i].transform.position));
-
-                Vector3 dir = tracks[i] - blocks[i].transform.position;
-            
-                blocks[i].transform.position += dir.normalized * Time.deltaTime;
-
-                blocks[i].transform.position -= parentDifference;
-                //Debug.DrawRay(blocks[i].transform.position, parentDifference, Color.red);
+            }
+            else
+            {
+                Debug.Log("going: " + (tracks[blockInd[i] + 1] - blockPos).normalized.x + " " + (tracks[blockInd[i] + 1] - blockPos).normalized.y);
+                blockPos += (tracks[blockInd[i]+1] - blockPos).normalized * Time.deltaTime;
             }
 
 
-            if (Vector3.Distance(blocks[0].transform.position, tracks[0]) < 0.05f)
-            {
-                AdjustBlock();
-
-                SetTrack();
-                LogTrack();
-            }
-
-
-            beforePos = transform.position;
+            blocks[i].transform.position = blockPos;
         }
+
+        beforePos = transform.position;
     }
 
-    private void InitTrack()
+    private void AddTrack()
     {
-        tracks[0] = transform.position;
-        for (int i = 0; i<blockSize; i++)
-        {
-            tracks[i+1] = blocks[i].transform.position;
-        }
+        curTrack++;
+        if (curTrack == MAX_TRACKS) curTrack = 0;
+
+        Vector3 target = transform.position;
+        tracks[curTrack] = target;
     }
-
-    private void SetTrack()
-    {
-        // 현재 위치가 track[0]. 1, 2, 3, ... 은 [0]으로부터 n 시간 전
-        // n 시간은 SetTrack을 언제 호출하느냐에 따라 다름
-
-        if (transform.position != tracks[0])
-        {
-            for (int i = blockSize - 1; i > 0; i--)
-            {
-                tracks[i] = tracks[i - 1];
-            }
-            tracks[0] = transform.position;
-        }
-    }
-
-    private IEnumerator SetTrackWithInterval()
-    {
-        WaitForSeconds wait50 = new WaitForSeconds(0.1f);
-        while (true)
-        {
-            yield return wait50;
-            SetTrack();
-            
-        }
-    }
-
+    
     private void LogTrack()
     {
         for (int i = 0; i < blockSize; i++)
         {
-            Debug.DrawRay(blocks[i].transform.position ,tracks[i]-blocks[i].transform.position);
+            Debug.DrawRay(blocks[i].transform.position ,tracks[blockInd[i]]-blocks[i].transform.position);
         }
     }
 
     private void AdjustBlock()
     {
+        Debug.Log("adjust");
         for (int i = 0; i < blockSize; i++)
         {
             blocks[i].transform.position = tracks[i];
