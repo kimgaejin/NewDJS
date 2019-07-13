@@ -8,15 +8,17 @@ public class SnakeBlock : MonoBehaviour
 
     GameObject [] blocks;
     public int [] blockInd;
-    public Vector3 [] tracks;
     public int curTrack = 0;
+
+    public Vector3 [] tracks;
+
+    float speed = 0;    // 부모가 움직이는 스피드를 이어받음.
 
     Vector3 beforePos;
     //Vector3 curArrow = Vector3.zero;
     float beforeXDiff;
     float beforeYDiff;
     Vector3 beforeVecDiff;
-
     int blockSize = 0;
 
     private void Awake()
@@ -55,7 +57,7 @@ public class SnakeBlock : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         LogTrack();
 
@@ -66,25 +68,24 @@ public class SnakeBlock : MonoBehaviour
         if (beforePos == transform.position) return;
 
         // 언제나 가장 앞 track은 스네이크 머리
-        tracks[curTrack+1] = transform.position;
+        int ind = curTrack + 1;
+        if (ind >= MAX_TRACKS) ind = 0;
+        tracks[ind] = transform.position;
 
         // 방향이 바뀌면 새로운 Track 추가
+        // 방향이 바뀌었다는 것을 A:(전전->전) 이동방향과 B:(전->지금) 이동방향이 차이가 있는지를 식별함
+        // 그런데 가끔 A와 B가 동일함에도 -상수, +상수 만큼의 차이가 1프레임 사이에서 발생할 때가 있음.
+        // Flat_Move에서 움직이는건 FixedUpdate, 이곳은 Update 함수였기에 그 차이가 생긴거라고 생각 됨.
+        // 이곳을 FixedUpdate 함수로 고친 후 부터 비교적 잘 돌아감.
         float curXDiff = transform.position.x - beforePos.x;
         float curYDiff = transform.position.y - beforePos.y;
         Vector3 curVec = new Vector3(curXDiff, curYDiff, 0);
-
-
-
-        //if (Mathf.Abs(curXDiff - beforeXDiff) > 0.005f || Mathf.Abs(curYDiff - beforeYDiff) > 0.005f) 
         Vector3 directionDiffer = curVec - beforeVecDiff;
-        if ( directionDiffer.x > 0.01f || directionDiffer.y > 0.01f)
+
+        // 방향이 바뀌었음 (이동하는 방향의 x, y가 오차 이상 이동)
+        if ( Mathf.Abs(directionDiffer.x) > 0.01f || Mathf.Abs(directionDiffer.y) > 0.01f)
         {
-           // Debug.Log("direction: " + directionDiffer);
-           // Debug.Log("방향전환" + (curVec - beforeVecDiff).magnitude);
-           // Debug.Log("cur: "+curVec.x + " "+curVec.y +" Be: "+ beforeVecDiff.x + " "+ beforeVecDiff.y);
-            //Debug.Log("normal: " + (double)(transform.position - beforePos).normalized.x + " " + (double)(transform.position - beforePos).normalized.y);
-            //Debug.Log("arrow: " + (double)curArrow.x +" " + (double)curArrow.y);
-            // Debug.Log(((transform.position - beforePos).normalized) * 10 + " "+(curArrow) * 10 + "방향변경" + (Vector3.Distance((transform.position - beforePos).normalized, curArrow)));
+            Debug.Log("방향전환 " + directionDiffer.x + " " + directionDiffer.y);
             AddTrack();
 
             beforeXDiff = curXDiff;
@@ -94,28 +95,33 @@ public class SnakeBlock : MonoBehaviour
         }
 
         Vector3 parentDifference = transform.position - beforePos;
+        speed = parentDifference.magnitude;
 
+        // 스네이크 블록의 각 몸통들이 이동
         for (int i = 0; i < blockSize; i++)
         {
             Vector3 blockPos = blocks[i].transform.position;
 
             blockPos -= parentDifference;
 
-            if (Vector3.Distance(blocks[i].transform.position, tracks[blockInd[i]+1]) < 0.1f)
+
+            float distanceOfAim = Vector3.Distance(blockPos, tracks[blockInd[i] + 1]);
+            if (distanceOfAim <= speed)
             {
-                // Debug.Log( blocks[i].name+": " + Vector3.Distance(blocks[i].transform.position, tracks[blockInd[i]]));
-                Debug.Log(blocks[i].name + ": " + blockInd[i]);
-                 
+                Debug.Log("동일");
                 blockInd[i]++;
                 if (blockInd[i] >= MAX_TRACKS) blockInd[i] = 0;
                 blockPos = tracks[blockInd[i]];
-                //Debug.Log(blocks[i].name + " is on track " + blockInd[i]);
+
+                float reminderSpeed = speed - distanceOfAim;
+               // Debug.Log("remainSpeed: " + reminderSpeed);
+                blockPos += (tracks[blockInd[i] + 1] - blockPos).normalized * reminderSpeed;
 
             }
             else
             {
-                Debug.Log("going: " + (tracks[blockInd[i] + 1] - blockPos).normalized.x + " " + (tracks[blockInd[i] + 1] - blockPos).normalized.y);
-                blockPos += (tracks[blockInd[i]+1] - blockPos).normalized * Time.deltaTime;
+                Debug.Log("ㅠ");
+                blockPos += (tracks[blockInd[i] + 1] - blockPos).normalized * speed;
             }
 
 
@@ -128,7 +134,7 @@ public class SnakeBlock : MonoBehaviour
     private void AddTrack()
     {
         curTrack++;
-        if (curTrack == MAX_TRACKS) curTrack = 0;
+        if (curTrack >= MAX_TRACKS) curTrack = 0;
 
         Vector3 target = transform.position;
         tracks[curTrack] = target;
@@ -138,6 +144,7 @@ public class SnakeBlock : MonoBehaviour
     {
         for (int i = 0; i < blockSize; i++)
         {
+            Debug.DrawRay(tracks[blockInd[i]], tracks[blockInd[i]+1] - tracks[blockInd[i]], Color.red);
             Debug.DrawRay(blocks[i].transform.position ,tracks[blockInd[i]]-blocks[i].transform.position);
         }
     }
