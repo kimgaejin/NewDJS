@@ -27,7 +27,7 @@ public class Flat_MoveOne : MonoBehaviour
     {
         {   // 오브젝트가 이동할 경로인 points에 대한 초기화
             Transform pointsParent;
-            pointsParent = this.transform.FindChild("Points");
+            pointsParent = this.transform.Find("Points");
 
             int size = pointsParent.childCount;
             indexSize = size;

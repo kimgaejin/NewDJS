@@ -29,6 +29,10 @@ TagManager:
   - 345R781
   - platform
   - danger
+  - Dropping
+  - shelf1
+  - shelf2
+  - shelf3
   layers:
   - Default
   - TransparentFX
