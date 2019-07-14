@@ -139,7 +139,8 @@ public class Player : MonoBehaviour {
        
         }
 
-      
+       
+
 
     }
 
@@ -169,6 +170,8 @@ public class Player : MonoBehaviour {
         {
           
         }
+
+
         //게임 스테이지 저장
         if (col.gameObject.tag.Equals("Flag1-1"))
         {
@@ -220,6 +223,17 @@ public class Player : MonoBehaviour {
         ///////////////////////////////////////
     }
 
+   
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag.Equals("windzoneup"))
+        {
+            
+            transform.position += Vector3.up * 3 * Time.deltaTime;
+        }
+    }
+
+ 
     public void SetCanJump()
     {
         isGround = true;

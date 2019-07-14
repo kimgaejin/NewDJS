@@ -33,6 +33,9 @@ TagManager:
   - shelf1
   - shelf2
   - shelf3
+  - windzone
+  - windwoneup
+  - windzoneup
   layers:
   - Default
   - TransparentFX
