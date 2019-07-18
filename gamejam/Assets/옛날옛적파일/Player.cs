@@ -65,6 +65,34 @@ public class Player : MonoBehaviour {
                 jumpCount--;
             }
         }
+        if (Portal.Portal_A == 1)
+        {
+            Debug.Log("Portal_A");
+            if (key_down == 'A')
+            {
+                transform.position = new Vector2((10 * PortalB.Portal_B_pos.x - 7) / 10, PortalB.Portal_B_pos.y);
+                Portal.Portal_A = 0;
+            }
+            else if (key_down == 'D')
+            {
+                transform.position = new Vector2((10 * PortalB.Portal_B_pos.x + 7) / 10, PortalB.Portal_B_pos.y);
+                Portal.Portal_A = 0;
+            }
+
+        }
+        if (PortalB.Portal_B == 1) {
+            Debug.Log("Portal_B");
+            if (key_down == 'A')
+            {
+                transform.position = new Vector2((10 * Portal.Portal_A_pos.x - 7) / 10, Portal.Portal_A_pos.y);
+                PortalB.Portal_B = 0;
+            }
+            else if (key_down == 'D')
+            {
+                transform.position = new Vector2((10 * Portal.Portal_A_pos.x + 7) / 10, Portal.Portal_A_pos.y);
+                PortalB.Portal_B = 0;
+            }
+        }
     }
 
     private void FixedUpdate ()
@@ -77,6 +105,7 @@ public class Player : MonoBehaviour {
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
             key_down = 'A';
+       
         }
         if (Input.GetKey(KeyCode.D))
         {

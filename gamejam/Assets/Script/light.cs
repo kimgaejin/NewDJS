@@ -234,6 +234,39 @@ public class light : MonoBehaviour
             }
         }
         /////포탈 충돌관련 함수
+        ///
+        if (col.gameObject.tag.Equals("PortalA")) {
+          
+            if (wasd == 7)
+            {
+               
+                transform.position = new Vector2((10 * PortalB.Light_Portal_B_pos.x + 7) / 10, PortalB.Light_Portal_B_pos.y);
+                Portal.Light_Portal_A = 0;
+            }
+            else if (wasd == 3)
+            {
+               
+                transform.position = new Vector2((10 * PortalB.Light_Portal_B_pos.x - 7) / 10, PortalB.Light_Portal_B_pos.y);
+                Portal.Light_Portal_A = 0;
+            }
+        }
+        if (col.gameObject.tag.Equals("PortalB"))
+        {
+            if (wasd == 3)
+            {
+                Debug.Log("aasss");
+                transform.position = new Vector2((10 * Portal.Light_Portal_A_pos.x - 7) / 10, Portal.Light_Portal_A_pos.y);
+                PortalB.Light_Portal_B = 0;
+            }
+            else if (wasd == 7)
+            {
+                Debug.Log("aasss");
+                transform.position = new Vector2((10 * Portal.Light_Portal_A_pos.x + 7) / 10, Portal.Light_Portal_A_pos.y);
+                PortalB.Light_Portal_B = 0;
+            }
+        }
+
+
         for (int i = 0; i < 10; i++)
         {
             if (col.gameObject.tag.Equals("potalA" + i))

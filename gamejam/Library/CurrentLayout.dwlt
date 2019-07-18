@@ -138,9 +138,9 @@ MonoBehaviour:
     width: 1536
     height: 731
   m_MinSize: {x: 883, y: 498}
-  m_MaxSize: {x: 18004, y: 14048}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 169
+  controlID: 18
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,9 +163,9 @@ MonoBehaviour:
     width: 1211
     height: 731
   m_MinSize: {x: 606, y: 498}
-  m_MaxSize: {x: 14002, y: 14048}
+  m_MaxSize: {x: 14006, y: 14048}
   vertical: 1
-  controlID: 140
+  controlID: 19
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 606, y: 224}
   m_MaxSize: {x: 12006, y: 4024}
   vertical: 0
-  controlID: 77
+  controlID: 20
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,10 +267,10 @@ MonoBehaviour:
     y: 448
     width: 1211
     height: 283
-  m_MinSize: {x: 472, y: 274}
-  m_MaxSize: {x: 14002, y: 10024}
+  m_MinSize: {x: 476, y: 274}
+  m_MaxSize: {x: 14006, y: 10024}
   vertical: 0
-  controlID: 141
+  controlID: 83
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,8 +317,8 @@ MonoBehaviour:
     y: 0
     width: 586
     height: 283
-  m_MinSize: {x: 240, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 244, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -2542
+  m_LastSelectedObjectID: 34086
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -410,9 +410,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1c390000
-      m_LastClickedID: 0
-      m_ExpandedIDs: ecf7ffff
+      m_SelectedIDs: c688ffff
+      m_LastClickedID: -30522
+      m_ExpandedIDs: 66f9ffffd4fbffff76110000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -467,9 +467,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.6678013, y: 3.5833397, z: -0.0657427}
+    m_Target: {x: -8.82, y: 2.49, z: -0.07245897}
     speed: 2
-    m_Value: {x: -1.6678013, y: 3.5833397, z: -0.0657427}
+    m_Value: {x: -8.82, y: 2.49, z: -0.07245897}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -501,9 +501,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.13765
+    m_Target: 5.8032174
     speed: 2
-    m_Value: 9.13765
+    m_Value: 5.8032174
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -560,8 +560,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -574,18 +574,18 @@ MonoBehaviour:
       y: 17
       width: 447
       height: 411
-    m_Scale: {x: 0.5456543, y: 0.5456543}
-    m_Translation: {x: 223.5, y: 205.5}
+    m_Scale: {x: 0.7119551, y: 0.711955}
+    m_Translation: {x: 264.30948, y: 206.19547}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -409.6
-      y: -376.6121
-      width: 819.2
-      height: 753.2242
+      x: -371.2446
+      y: -289.61868
+      width: 627.84863
+      height: 577.2837
     m_MinimalGUI: 1
   m_defaultScale: 0.5456543
   m_TargetTexture: {fileID: 0}
@@ -757,20 +757,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script
+    - Assets/prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Script
+  - Assets/prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\USER\Documents\GitHub\NewDJS\gamejam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 158}
-    m_SelectedIDs: 5e340000
-    m_LastClickedID: 13406
-    m_ExpandedIDs: 0000000010310000f43100000c32000018320000a8320000c2320000fa320000083300003033000082330000d833000008340000423400008434000076350000c0380000c2380000c4380000c6380000c8380000ca380000cc380000ce38000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f20f0000
+    m_LastClickedID: 4082
+    m_ExpandedIDs: 00000000820b0000660c00007e0c00008a0c00001e0d0000380d0000700d00007e0d0000a80d0000fe0d0000540e0000840e0000be0e0000000f0000f20f0000723000007430000076300000783000007a3000007c3000007e3000008030000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -798,7 +798,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000010310000f43100000c32000018320000a8320000c2320000fa320000083300003033000082330000d833000008340000423400008434000076350000c0380000c2380000c4380000c6380000c8380000ca380000cc380000ce380000
+    m_ExpandedIDs: 00000000820b0000660c00007e0c00008a0c00001e0d0000380d0000700d00007e0d0000a80d0000fe0d0000540e0000840e0000be0e0000000f0000f20f0000723000007430000076300000783000007a3000007c3000007e30000080300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -829,15 +829,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000fe420000cccb0000cc2600001820f5ffd428edffb4260000bc090000a0270000a4270000fc2a0000742b00009e2c0000fe2b0000b6280000e43300001e2d0000ba2900009228000000000000302a00007e2c000000370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: dieblock
-      m_OriginalName: dieblock
+      m_Name: light
+      m_OriginalName: light
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 14620
+      m_UserData: 4184
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 143}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 224
 --- !u!114 &22
