@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/spring.unity
+- path: "Assets/#ForLevelDesign/LevelDesignScene - \uBCF5\uC0AC\uBCF8.unity"
   isLoaded: 1
   isActive: 1

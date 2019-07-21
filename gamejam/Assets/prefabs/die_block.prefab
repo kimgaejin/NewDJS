@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002011017614645078}
-  - component: {fileID: 1547986083987391624}
   - component: {fileID: 6746186841440522674}
+  - component: {fileID: 1547986083987391624}
   m_Layer: 0
   m_Name: die_block
   m_TagString: Untagged
@@ -32,6 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6746186841440522674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341302359934187882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8d09607459ecf41a18e732131df224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block: {fileID: 6341302359934187882}
+  destroytime: 0
+  regeneratetime: 0
 --- !u!212 &1547986083987391624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -80,16 +95,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6746186841440522674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341302359934187882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca8d09607459ecf41a18e732131df224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  block: {fileID: 6341302359934187882}
