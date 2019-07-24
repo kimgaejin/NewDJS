@@ -57,7 +57,6 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.J))
         {
             Jump(jumpPower);
-            jumpCount--;
         }
         
         if (Portal.Portal_A == 1)
@@ -342,10 +341,14 @@ public class Player : MonoBehaviour {
         if (jumpCount <= 0) return;
 
         Vector2 resPower = new Vector2(0, power);
-        Debug.Log("resP " + resPower);
+        //Debug.Log("resP " + resPower);
 
         rigid.velocity = new Vector2(rigid.velocity.x, 0);
         rigid.AddForce(resPower, ForceMode2D.Impulse);
-        Debug.Log("velocity: " + rigid.velocity);
+       // Debug.Log("velocity: " + rigid.velocity);
+
+        jumpCount--;
+
+        Debug.Log("jumpCount: " + jumpCount);
     }
 }
