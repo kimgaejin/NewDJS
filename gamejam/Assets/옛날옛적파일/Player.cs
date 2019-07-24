@@ -5,12 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public float moveSpeed = 1.0f;
-    public float jumpPower = 10.0f;
+    public float jumpPower = 7.0f;
 
     private bool isGround = false;
     private int jumpCount = 0;  // 땅을 밟으면 2가 된다. 점프할때마다 1씩 감소. 0보다 낮으면 점프 불가.
     private int maxJumpNum = 2;
 
+
+    private Vector3 befPos;
+    private bool usingMovingPlatform = false;
+     
     private bool isDead = false;
 
     Rigidbody2D rigid;
@@ -49,22 +53,13 @@ public class Player : MonoBehaviour {
         // 죽으면 조작 불가
         if (isDead) return;
 
+        // 점프(키보드입력, 무제한 점프)
         if (Input.GetKeyDown(KeyCode.J))
         {
-            Debug.Log("Press J");
+            Jump(jumpPower);
+            jumpCount--;
         }
-
-        if (jumpCount > 0)
-        {
-            // 점프(키보드입력, 무제한 점프)
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                Debug.Log("Jump");
-                rigid.velocity = new Vector2(rigid.velocity.x, 0);
-                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-                jumpCount--;
-            }
-        }
+        
         if (Portal.Portal_A == 1)
         {
             Debug.Log("Portal_A");
@@ -148,14 +143,13 @@ public class Player : MonoBehaviour {
             key_down = '9';
         }
 
-        
  
         if (Input.GetKeyDown(KeyCode.F))
         {
             Light();
         }
-       
 
+        befPos = transform.position;
     }
     //기본적인 틀
     //각 프리팹에 해당되는 컬러네임으로 오브젝트를 식별
@@ -320,5 +314,38 @@ public class Player : MonoBehaviour {
             Revival();
             yield break;
         }
+    }
+
+    public float IncJumpPower(float value)
+    {
+        usingMovingPlatform = true;
+        jumpPower += value;
+        if (jumpPower < 0)
+        {
+            jumpPower = 0;
+            return jumpPower;
+        }
+        return value;
+    }
+
+    public void DecJumpPower(float value)
+    {
+        if (usingMovingPlatform == true)
+        {
+            jumpPower -= value;
+            usingMovingPlatform = false;
+        }
+    }
+
+    public void Jump(float power)
+    {
+        if (jumpCount <= 0) return;
+
+        Vector2 resPower = new Vector2(0, power);
+        Debug.Log("resP " + resPower);
+
+        rigid.velocity = new Vector2(rigid.velocity.x, 0);
+        rigid.AddForce(resPower, ForceMode2D.Impulse);
+        Debug.Log("velocity: " + rigid.velocity);
     }
 }
