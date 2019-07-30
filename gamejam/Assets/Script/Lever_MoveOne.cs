@@ -5,12 +5,37 @@ using UnityEngine;
 
 public class Lever_MoveOne : MonoBehaviour
 {
+
     private Vector3[] points;
     private Transform target;
+    private MovingObject targetMovingObject;
     private Animator anim;
 
+    [Tooltip("물체가 움직이는 속도를 정합니다.")]
+    public float speed = 1.0f;
+
+    [Space(5)]
+    [Tooltip("레버가 오른쪽으로 갔을 때 실행됩니다. false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
     public bool operateWhenLeverIsRight = true;
+    [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
+
+    /*
+    // 미구현
+    [Space(5)]
+    [Header("target이 이동 할 때; 기본값: 모든 지점을 순환한다.")]
+    [Tooltip("target이 마지막 지점에 도달하면 멈춥니다.")]
+    public bool isStopWhenLastPoint= false;
+    [Tooltip("target이 마지막 지점에 도달하면 역순환합니다.")]
+    public bool isReturnWhenCollpsedWall = false;
+    */
+
+    [Space(5)]
+    [Header("target이 무언가와 충돌 했을 때; 기본값: 무시한다.")]
+    [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
+    public bool isStopWhenCollpsedWall = true;
+    //[Tooltip("target이 다른 벽과 충돌하면 이제 반대 방향으로 회전합니다.")]
+   // public bool isReturnWhenCollpsedWall = false;
 
     // player의 transform.position으로 판독.
     private bool isPlayerLeft;
@@ -19,6 +44,7 @@ public class Lever_MoveOne : MonoBehaviour
     private bool isPlayerRightBefore;
     private bool isLeverLeft;
     private bool isLeverRight;
+    private bool isCollpsedWithPlatform;
 
     private Vector3 beforeDistance = Vector3.zero;
     private Vector3 distance = Vector3.zero;
@@ -57,8 +83,11 @@ public class Lever_MoveOne : MonoBehaviour
             target = this.transform.GetChild(1);
             try
             {
+                target.localScale = new Vector3(0.95f, 0.95f, 1);
                 target.position = points[0];
                 fixedPos = points[0];
+                target.tag = "platform";
+                targetMovingObject = target.GetComponent<MovingObject>();
             }
             catch { }
         }
@@ -77,30 +106,47 @@ public class Lever_MoveOne : MonoBehaviour
         {
             int nextInd = curIndex + 1;
             if (nextInd >= indexSize) nextInd = 0;
+
             arrow = points[nextInd] - points[curIndex];
             fixedPos = target.transform.position + arrow.normalized * Time.deltaTime;
             distance = points[nextInd] - target.transform.position;
 
-            if (Vector3.Distance(target.position, points[nextInd]) < 0.1f)
+            if (Vector3.Distance(target.position, points[nextInd]) < speed * Time.deltaTime)
             {
                 curIndex++;
                 if (curIndex >= indexSize) curIndex = 0;
-                beforeDistance = points[curIndex];
+                target.position = points[curIndex];
             }
-            else
-            {
-                beforeDistance = distance;
-            }
-           
-        }
-        
-       
 
+        }
     }
 
     private void FixedUpdate()
     {
-        target.transform.position = fixedPos;
+        //Debug.Log("targetMoving " + targetMovingObject.GetIsCollWithTag("platform"));
+
+        int colliderCount = 0;
+        Collider2D[] colliders = new Collider2D[20];
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        colliderCount = target.GetComponent<BoxCollider2D>().OverlapCollider(contactFilter, colliders);
+        bool isTouchingWithPlatform = false;
+
+        for (int i = 0; i < colliderCount; i++)
+        {
+            if (colliders[i].tag == "platform")
+            {
+                isTouchingWithPlatform = true;
+                break;
+            }
+        }
+
+        Debug.Log("isTouchingWithPlatform " + isTouchingWithPlatform);
+
+        if (isStopWhenCollpsedWall == false
+            || (isStopWhenCollpsedWall ==true && isTouchingWithPlatform == false))
+        {
+            target.transform.position = fixedPos;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

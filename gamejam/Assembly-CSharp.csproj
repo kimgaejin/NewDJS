@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\Lever_MoveOne.cs" />
     <Compile Include="Assets\Script\light.cs" />
     <Compile Include="Assets\Script\mirror.cs" />
+    <Compile Include="Assets\Script\MovingObject.cs" />
     <Compile Include="Assets\Script\MovingPlatform.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\Portal.cs" />

@@ -65,6 +65,8 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("");
+
         if (isPressed)
         {
             if (curIndex < 0) curIndex++;
