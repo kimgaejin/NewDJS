@@ -265,6 +265,11 @@ public class light : MonoBehaviour
                 PortalB.Light_Portal_B = 0;
             }
         }
+        if (col.gameObject.tag.Equals("platform")) {
+            transform.position = new Vector2(10000, 100000);
+            Destroy(this, 0.1f);
+
+        }
 
 
         for (int i = 0; i < 10; i++)

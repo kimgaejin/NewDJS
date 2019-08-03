@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6633395832068702106}
   m_Layer: 0
   m_Name: Dropping
-  m_TagString: Dropping
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,11 @@ MonoBehaviour:
   shelf1: {fileID: 6633395832803486977}
   shelf2: {fileID: 6633395832921919662}
   shelf3: {fileID: 6633395832775634996}
+  fallen1: {fileID: 6633395832943539602}
+  fallen2: {fileID: 6633395833108045689}
+  fallen3: {fileID: 6633395832390644333}
+  destroytime: 0
+  regeneratetime: 0
 --- !u!1 &6633395832390644333
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +144,7 @@ GameObject:
   - component: {fileID: 6633395832390644339}
   m_Layer: 0
   m_Name: Fallen_object3
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +273,7 @@ GameObject:
   - component: {fileID: 6633395832775635003}
   m_Layer: 0
   m_Name: shelf3
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,7 +401,7 @@ GameObject:
   - component: {fileID: 6633395832803486983}
   m_Layer: 0
   m_Name: shelf1
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +529,7 @@ GameObject:
   - component: {fileID: 6633395832921919661}
   m_Layer: 0
   m_Name: shelf2
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -652,7 +657,7 @@ GameObject:
   - component: {fileID: 6633395832943539600}
   m_Layer: 0
   m_Name: Fallen_object1
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,7 +786,7 @@ GameObject:
   - component: {fileID: 6633395833108045695}
   m_Layer: 0
   m_Name: Fallen_object2
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
