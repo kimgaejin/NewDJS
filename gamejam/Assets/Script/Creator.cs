@@ -12,7 +12,9 @@ public class Creator : MonoBehaviour
 
     private void Awake()
     {
-        target = transform.GetChild(0).gameObject;
+        transform.tag = "staticObject";
+
+        target = transform.GetChild(1).gameObject;
         target.SetActive(false);
         StartCoroutine("Execute");
     }
@@ -24,6 +26,13 @@ public class Creator : MonoBehaviour
 
         while (true)
         {
+            if (target)
+            {
+                GameObject createdTarget = Instantiate(target, transform.position, Quaternion.identity);
+                createdTarget.transform.parent = transform;
+                createdTarget.SetActive(true);
+            }
+
             intResponeTime = (int)(responeTime * 10);
 
             for (int i = 0; i < intResponeTime; i++)
@@ -31,12 +40,7 @@ public class Creator : MonoBehaviour
                 yield return wait10;
             }
 
-            if (target)
-            {
-                GameObject createdTarget = Instantiate(target, transform.position, Quaternion.identity);
-                createdTarget.transform.SetParent(transform);
-                createdTarget.SetActive(true);
-            }
+           
         }
     }
 }

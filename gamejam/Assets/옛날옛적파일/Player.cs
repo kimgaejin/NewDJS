@@ -50,8 +50,11 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
+
         // 죽으면 조작 불가
         if (isDead) return;
+
+        if (rigid.velocity.y < -200) StartCoroutine("Dead");
 
         // 점프(키보드입력, 무제한 점프)
         if (Input.GetKeyDown(KeyCode.J))
@@ -278,6 +281,7 @@ public class Player : MonoBehaviour {
         spr.color = normalColor;
         transform.position = new Vector3(-2.2f, 4, 0);
         isDead = false;
+        rigid.velocity = Vector2.zero;
     }
 
     IEnumerator Dead()

@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 6753960705045725359}
   - component: {fileID: 6753960705045725353}
   - component: {fileID: 6753960705045725352}
-  - component: {fileID: 6753960705045725358}
   m_Layer: 0
   m_Name: "\uBD84\uC1C4\uAE30"
   m_TagString: Untagged
@@ -111,27 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.94, y: 0.7160995}
   m_EdgeRadius: 0
---- !u!50 &6753960705045725358
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753960705045725357}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &6753960705753577063
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +256,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a7cbb923e0c17e941884fb273f796b4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

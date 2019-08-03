@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 700682527662828690}
   - component: {fileID: 700682527662828693}
-  - component: {fileID: 700682527662828692}
   m_Layer: 0
   m_Name: Creator
   m_TagString: Untagged
@@ -29,6 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8635190021400294003}
   - {fileID: 7488060460090422800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,13 +46,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   responeTime: 5
---- !u!212 &700682527662828692
+--- !u!1 &1505346475442424926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8635190021400294003}
+  - component: {fileID: 2601137470585015904}
+  m_Layer: 0
+  m_Name: Graphics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8635190021400294003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505346475442424926}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 700682527662828690}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2601137470585015904
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700682527662828695}
+  m_GameObject: {fileID: 1505346475442424926}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -144,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 7949904866299893231, guid: 0b52d1016f9f34b48a5efd2c7ef2dc3e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7949904866299893231, guid: 0b52d1016f9f34b48a5efd2c7ef2dc3e,
         type: 3}

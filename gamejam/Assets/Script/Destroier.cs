@@ -32,6 +32,8 @@ public class Destroier : MonoBehaviour
 
     private void Awake()
     {
+        transform.tag = "staticObject";
+
         rigid = transform.GetComponent<Rigidbody2D>();
 
         originPos = transform.position;

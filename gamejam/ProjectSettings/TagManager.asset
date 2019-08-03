@@ -38,6 +38,7 @@ TagManager:
   - windzoneup
   - PortalA
   - PortalB
+  - staticObject
   layers:
   - Default
   - TransparentFX
