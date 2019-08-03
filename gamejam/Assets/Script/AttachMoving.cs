@@ -31,37 +31,27 @@ public class AttachMoving : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "platform" && collision.transform.GetComponent<Rigidbody2D>())
+        if (collision.tag == "platform") return;
+        if (collision.tag == "danger") return;
+
+        if (collision.transform.GetComponent<Rigidbody2D>())
         {
             collision.transform.parent = transform;
-
         }
-    }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            /*
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                float power = posDiff.y / Time.deltaTime;
-                //power = Mathf.Abs();
-                Debug.Log("power " + power);
-                playerScript.Jump(power*2);
-                //playerScript.Jump(-playerScript.jumpPower);
-            }
-            */
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "platform" && collision.transform.GetComponent<Rigidbody2D>())
+        if (collision.tag == "platform") return;
+        if (collision.tag == "danger") return;
+
+        if (collision.transform.GetComponent<Rigidbody2D>())
         {
             collision.transform.parent = null;
         }
+        
     }
 
     // 위에 올라가 있는 물체만 움직여야하기 때문에 OnColision을 쓰지 않음.

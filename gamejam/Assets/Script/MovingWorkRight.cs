@@ -17,24 +17,16 @@ public class MovingWorkRight : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.tag == "platform") return;
+        if (collision.tag == "danger") return;
+
         Rigidbody2D rigid;
 
         rigid = collision.GetComponent<Rigidbody2D>();
         if (rigid)
         {
-            rigid.velocity = Vector2.right * speed;
-            rigid.AddForce(Vector2.up * power, ForceMode2D.Impulse);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Rigidbody2D rigid;
-
-        rigid = collision.GetComponent<Rigidbody2D>();
-        if (rigid)
-        {
-            rigid.velocity = Vector2.zero;
+            float delta = speed * Time.deltaTime;
+            collision.transform.position += Vector3.right * delta;
         }
     }
 }
