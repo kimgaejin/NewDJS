@@ -237,15 +237,50 @@ public class light : MonoBehaviour
         ///
         if (col.gameObject.tag.Equals("PortalA")) {
           
+            if (wasd == 1)
+            {
+                transform.position = new Vector2(PortalB.Light_Portal_B_pos.x, (10 * PortalB.Light_Portal_B_pos.y - 7) / 10);
+                Portal.Light_Portal_A = 0;
+            }
+            else if (wasd == 5)
+            {
+
+                transform.position = new Vector2(PortalB.Light_Portal_B_pos.x, (10 * PortalB.Light_Portal_B_pos.y + 7) / 10);
+                Portal.Light_Portal_A = 0;
+            }
+        }
+        if (col.gameObject.tag.Equals("PortalB"))
+        {
+            if (wasd == 1)
+            {
+                Debug.Log("aasss");
+                transform.position = new Vector2(Portal.Light_Portal_A_pos.x, (10 * Portal.Light_Portal_A_pos.y - 7) / 10);
+                PortalB.Light_Portal_B = 0;
+            }
+            else if (wasd == 5)
+            {
+                Debug.Log("aasss");
+                transform.position = new Vector2(Portal.Light_Portal_A_pos.x, (10 * Portal.Light_Portal_A_pos.y + 7) / 10);
+                PortalB.Light_Portal_B = 0;
+            }
+        }
+
+
+
+
+
+        if (col.gameObject.tag.Equals("PortalA"))
+        {
+
             if (wasd == 7)
             {
-               
+
                 transform.position = new Vector2((10 * PortalB.Light_Portal_B_pos.x + 7) / 10, PortalB.Light_Portal_B_pos.y);
                 Portal.Light_Portal_A = 0;
             }
             else if (wasd == 3)
             {
-               
+
                 transform.position = new Vector2((10 * PortalB.Light_Portal_B_pos.x - 7) / 10, PortalB.Light_Portal_B_pos.y);
                 Portal.Light_Portal_A = 0;
             }
@@ -265,6 +300,11 @@ public class light : MonoBehaviour
                 PortalB.Light_Portal_B = 0;
             }
         }
+
+
+
+
+
         if (col.gameObject.tag.Equals("platform")) {
             transform.position = new Vector2(10000, 100000);
             Destroy(this, 0.1f);

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/#ForLevelDesign/Chapter3.unity
+- path: Assets/Scenes/spring.unity
   isLoaded: 1
   isActive: 1
