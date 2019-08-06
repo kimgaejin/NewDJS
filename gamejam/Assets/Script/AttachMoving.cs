@@ -31,12 +31,13 @@ public class AttachMoving : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "platform") return;
-        if (collision.tag == "danger") return;
-
-        if (collision.transform.GetComponent<Rigidbody2D>())
+        if (collision.tag == "Player"
+            || collision.tag == "DynamicObject")
         {
-            collision.transform.parent = transform;
+            if (collision.transform.GetComponent<Rigidbody2D>())
+            {
+                collision.transform.parent = transform;
+            }
         }
 
 
@@ -44,12 +45,13 @@ public class AttachMoving : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "platform") return;
-        if (collision.tag == "danger") return;
-
-        if (collision.transform.GetComponent<Rigidbody2D>())
+        if (collision.tag == "Player"
+            || collision.tag == "DynamicObject")
         {
-            collision.transform.parent = null;
+            if (collision.transform.GetComponent<Rigidbody2D>())
+            {
+                collision.transform.parent = null;
+            }
         }
         
     }

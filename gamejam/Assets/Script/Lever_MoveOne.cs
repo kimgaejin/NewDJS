@@ -20,6 +20,11 @@ public class Lever_MoveOne : MonoBehaviour
     [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
 
+    [Space(5)]
+    [Header("target이 무언가와 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
+    [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
+    public bool isStopWhenCollpsedWall = true;
+
     /*
     // 미구현
     [Space(5)]
@@ -30,12 +35,8 @@ public class Lever_MoveOne : MonoBehaviour
     public bool isReturnWhenCollpsedWall = false;
     */
 
-    [Space(5)]
-    [Header("target이 무언가와 충돌 했을 때; 기본값: 무시한다.")]
-    [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
-    public bool isStopWhenCollpsedWall = true;
     //[Tooltip("target이 다른 벽과 충돌하면 이제 반대 방향으로 회전합니다.")]
-   // public bool isReturnWhenCollpsedWall = false;
+    // public bool isReturnWhenCollpsedWall = false;
 
     // player의 transform.position으로 판독.
     private bool isPlayerLeft;
@@ -83,7 +84,7 @@ public class Lever_MoveOne : MonoBehaviour
             target = this.transform.GetChild(1);
             try
             {
-                target.localScale = new Vector3(0.95f, 0.95f, 1);
+                if (isStopWhenCollpsedWall) target.localScale = new Vector3(0.95f, 0.95f, 1);
                 target.position = points[0];
                 fixedPos = points[0];
                 target.tag = "platform";

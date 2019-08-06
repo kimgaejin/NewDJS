@@ -8,6 +8,15 @@ public class Flat_MoveOne : MonoBehaviour
     private Transform target;
     private Animator anim;
 
+    [Tooltip("물체가 움직이는 속도를 정합니다.")]
+    public float speed = 1.0f;
+
+    [Header("target이 무언가와 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
+    [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
+    public bool isStopWhenCollpsedWall = true;
+
+    [Space(5)]
+    [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
 
     private bool isPressedBefore = false;
@@ -20,7 +29,7 @@ public class Flat_MoveOne : MonoBehaviour
     private Vector3 arrow = Vector3.zero;
     private Vector3 fixedPos;
 
-    private int curIndex = 0;   // 현재 물체가 몇 번 point 에 있는지.
+    private int curIndex = -1;   // 현재 물체가 몇 번 point 에 있는지.
     private int indexSize = 0;
 
     private void Awake()
@@ -51,6 +60,7 @@ public class Flat_MoveOne : MonoBehaviour
             target = this.transform.GetChild(1);
             try
             {
+                target.tag = "platform";
                 target.position = points[0];
                 fixedPos = points[0];
             }
@@ -65,8 +75,7 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("");
-
+        Debug.Log("cur " + curIndex);
         if (isPressed)
         {
             if (curIndex < 0) curIndex++;
@@ -75,14 +84,19 @@ public class Flat_MoveOne : MonoBehaviour
             // 최대거리까지 이동했으면, 움직이지 않음.
             if (nextInd < indexSize)
             {
+                //Debug.Log("전환");
+
+                float delta = speed * Time.deltaTime;
                 arrow = points[nextInd] - points[curIndex];
-                fixedPos = target.transform.position + arrow.normalized * Time.deltaTime;
+                fixedPos = target.transform.position + arrow.normalized * delta;
                 distance = points[nextInd] - target.transform.position;
 
-                if (Vector3.Distance(target.position, points[nextInd]) < 0.1f)
+                if (Vector3.Distance(target.position, points[nextInd]) < delta
+                    || isEscapeLine(points[curIndex], points[nextInd], delta))
                 {
+                    Debug.Log("도착");
                     curIndex++;
-                    target.position = points[curIndex];
+                    fixedPos = points[curIndex];
                 }
 
             }
@@ -93,22 +107,24 @@ public class Flat_MoveOne : MonoBehaviour
 
             int nextInd = curIndex + 1;
 
-            if (curIndex >= 0)
+            if (nextInd >= 1)
             {
+                float delta = speed * Time.deltaTime;
                 arrow = points[curIndex] - points[nextInd];
-                fixedPos = target.transform.position + arrow.normalized * Time.deltaTime;
+                fixedPos = target.transform.position + arrow.normalized * delta;
                 distance = points[curIndex] - target.transform.position;
 
-                if (Vector3.Distance(target.position, points[curIndex]) < 0.1f)
+                if (Vector3.Distance(target.position, points[curIndex]) < delta
+                    || isEscapeLine(points[nextInd], points[curIndex], delta))
                 {
-                    target.position = points[curIndex];
+                    fixedPos = points[curIndex];
                     curIndex--;
                    
                 }
 
             }
         }
-        //Debug.Log("Speed: " + 100*(fixedPos - target.transform.position));
+
         target.transform.position = fixedPos;
     }
 
@@ -144,5 +160,33 @@ public class Flat_MoveOne : MonoBehaviour
                 isPressed = false;
             }
         }
+    }
+
+    private bool isEscapeLine(Vector3 before, Vector3 next, float delta)
+    {
+        float xMax = before.x;
+        float yMax = before.y;
+        float xMin = before.x;
+        float yMin = before.y;
+
+        if (xMax < next.x) xMax = next.x;
+        if (yMax < next.y) yMax = next.y;
+        if (xMin > next.x) xMin = next.x;
+        if (yMin > next.y) yMin = next.y;
+
+        Vector2 max = new Vector2(xMax, yMax);
+        Vector2 min = new Vector2(xMin, yMin);
+
+        
+        if (min.x - delta <= target.position.x && target.position.x <= max.x + delta)
+        {
+            if (min.y - delta <= target.position.y && target.position.y <= max.y + delta)
+            {
+                return false;
+            }
+        }
+        Debug.Log("min " + min.x + " " + min.y + " max: " + max.x + " " + max.y);
+        Debug.Log("target: " + target.transform.position.x + " " + target.transform.position.y);
+        return true;
     }
 }

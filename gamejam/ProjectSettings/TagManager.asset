@@ -39,6 +39,7 @@ TagManager:
   - PortalA
   - PortalB
   - staticObject
+  - DynamicObject
   layers:
   - Default
   - TransparentFX
