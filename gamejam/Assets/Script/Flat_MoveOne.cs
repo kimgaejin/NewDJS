@@ -14,6 +14,10 @@ public class Flat_MoveOne : MonoBehaviour
     [Header("target이 무언가와 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
     [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
     public bool isStopWhenCollpsedWall = true;
+    [Header("target이 points의 끝까지 이동하면 다시 뒤로 돌아갑니다.")]
+    public bool isBackToLine = false;
+    [Header("버튼이 안 눌려있으면 target이 멈춥니다.")]
+    public bool isStopWhenNotPressed = false;
 
     [Space(5)]
     [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
@@ -40,11 +44,21 @@ public class Flat_MoveOne : MonoBehaviour
 
             int size = pointsParent.childCount;
             indexSize = size;
-            points = new Vector3[size];
+            if (isBackToLine) indexSize = size * 2;
+            points = new Vector3[indexSize];
             for (int i = 0; i < size; i++)
             {
                 points[i] = pointsParent.GetChild(i).position;
             }
+
+            if (isBackToLine)
+            {
+                for (int i = size-1; i >= 0; i--)
+                {
+                    points[size + i] = pointsParent.GetChild(size-1-i).position;
+                }
+            }
+
 
             if (isPointsTransparentInGame)
             {
@@ -53,6 +67,7 @@ public class Flat_MoveOne : MonoBehaviour
                 {
                     pointsParent.GetChild(i).GetComponent<SpriteRenderer>().color = transparent;
                 }
+
             }
         }
 
@@ -75,7 +90,7 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("cur " + curIndex);
+
         if (isPressed)
         {
             if (curIndex < 0) curIndex++;
@@ -84,18 +99,22 @@ public class Flat_MoveOne : MonoBehaviour
             // 최대거리까지 이동했으면, 움직이지 않음.
             if (nextInd < indexSize)
             {
-                MoveToNextPos(curIndex, nextInd);
+                MoveToNextPos(curIndex, nextInd);   
             }
+          
         }
         else
         {
-            if (curIndex >= indexSize - 1) curIndex--;
-
-            int nextInd = curIndex + 1;
-
-            if (nextInd >= 1)
+            if (isStopWhenNotPressed == false)
             {
-                MoveToNextPos(nextInd, curIndex);
+                if (curIndex >= indexSize - 1) curIndex--;
+
+                int nextInd = curIndex + 1;
+
+                if (nextInd >= 1)
+                {
+                    MoveToNextPos(nextInd, curIndex);
+                }
             }
         }
 
@@ -177,6 +196,11 @@ public class Flat_MoveOne : MonoBehaviour
             {
                 curIndex++;
                 fixedPos = points[curIndex];
+                if (isBackToLine
+                  && curIndex >= indexSize - 1)
+                {
+                    curIndex = 0;
+                }
             }
             else
             {
