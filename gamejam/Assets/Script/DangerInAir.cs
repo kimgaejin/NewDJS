@@ -16,7 +16,7 @@ public class DangerInAir : MonoBehaviour
     {
         if (rigid)
         {
-            if (rigid.velocity.y < -1)
+            if (rigid.velocity.y < -2)
             {
                 tag = "danger";
             }

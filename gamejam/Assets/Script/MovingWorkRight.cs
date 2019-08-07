@@ -32,8 +32,11 @@ public class MovingWorkRight : MonoBehaviour
         float yRatio = tanValue / (tanValue + 1);
 
         Vector3 power = new Vector3(xRatio * speed, yRatio * Mathf.Abs(speed), 0);
-        collision.transform.position += power * Time.deltaTime;
+        collision.transform.position += power / rigid.mass * Time.deltaTime;
+
+        //rigid.AddForce(-Physics2D.gravity, ForceMode2D.Impulse);
         rigid.gravityScale = 0;
+        //rigid.velocity = Vector2.zero;
         //rigid.AddForce(power , ForceMode2D.Impulse);
 
     }
