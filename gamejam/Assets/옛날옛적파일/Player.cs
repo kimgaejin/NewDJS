@@ -281,6 +281,7 @@ public class Player : MonoBehaviour {
         spr.color = normalColor;
         transform.position = new Vector3(-2.2f, 4, 0);
         isDead = false;
+        rigid.isKinematic = false;
         rigid.velocity = Vector2.zero;
     }
 
@@ -289,12 +290,14 @@ public class Player : MonoBehaviour {
         WaitForSeconds wait5 = new WaitForSeconds(0.05f);
         WaitForSeconds wait100 = new WaitForSeconds(1.0f);
 
-
-        isDead = true;
-        anim.enabled = false;
-
         while (true)
         {
+
+            if (isDead == true) yield break;
+
+            isDead = true;
+            anim.enabled = false;
+
             Color dec = spr.color / 20;
             dec.a = 0;
             for (int i = 0; i < 20; i++)
@@ -302,6 +305,8 @@ public class Player : MonoBehaviour {
                 spr.color -= dec;
                 yield return wait5;
             }
+
+            rigid.isKinematic = true;
 
             float transparentAlpha = spr.color.a / 20;
             Color transparentColor = new Color(0, 0, 0, transparentAlpha);

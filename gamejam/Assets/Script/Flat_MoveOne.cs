@@ -84,21 +84,7 @@ public class Flat_MoveOne : MonoBehaviour
             // 최대거리까지 이동했으면, 움직이지 않음.
             if (nextInd < indexSize)
             {
-                //Debug.Log("전환");
-
-                float delta = speed * Time.deltaTime;
-                arrow = points[nextInd] - points[curIndex];
-                fixedPos = target.transform.position + arrow.normalized * delta;
-                distance = points[nextInd] - target.transform.position;
-
-                if (Vector3.Distance(target.position, points[nextInd]) < delta
-                    || isEscapeLine(points[curIndex], points[nextInd], delta))
-                {
-                    Debug.Log("도착");
-                    curIndex++;
-                    fixedPos = points[curIndex];
-                }
-
+                MoveToNextPos(curIndex, nextInd);
             }
         }
         else
@@ -109,19 +95,7 @@ public class Flat_MoveOne : MonoBehaviour
 
             if (nextInd >= 1)
             {
-                float delta = speed * Time.deltaTime;
-                arrow = points[curIndex] - points[nextInd];
-                fixedPos = target.transform.position + arrow.normalized * delta;
-                distance = points[curIndex] - target.transform.position;
-
-                if (Vector3.Distance(target.position, points[curIndex]) < delta
-                    || isEscapeLine(points[nextInd], points[curIndex], delta))
-                {
-                    fixedPos = points[curIndex];
-                    curIndex--;
-                   
-                }
-
+                MoveToNextPos(nextInd, curIndex);
             }
         }
 
@@ -185,8 +159,30 @@ public class Flat_MoveOne : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("min " + min.x + " " + min.y + " max: " + max.x + " " + max.y);
-        Debug.Log("target: " + target.transform.position.x + " " + target.transform.position.y);
+
         return true;
+    }
+
+    private void MoveToNextPos(int cur, int des)
+    {
+        float delta = speed * Time.deltaTime;
+        arrow = points[des] - points[cur];
+        fixedPos = target.transform.position + arrow.normalized * delta;
+        distance = points[des] - target.transform.position;
+
+        if (Vector3.Distance(target.position, points[des]) < delta
+            || isEscapeLine(points[cur], points[des], delta))
+        {
+            if (cur < des)
+            {
+                curIndex++;
+                fixedPos = points[curIndex];
+            }
+            else
+            {
+                fixedPos = points[curIndex];
+                curIndex--;
+            }
+        }
     }
 }

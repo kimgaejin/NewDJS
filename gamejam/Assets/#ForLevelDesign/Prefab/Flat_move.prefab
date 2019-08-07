@@ -205,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89889b31e60a9e94991eb5fb774cca9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  isStopWhenCollpsedWall: 1
   isPointsTransparentInGame: 1
 --- !u!61 &4038181314180732727
 BoxCollider2D:
@@ -616,7 +618,7 @@ GameObject:
   - component: {fileID: 4038181315419677863}
   - component: {fileID: 4038181315419677864}
   m_Layer: 0
-  m_Name: AttackMoving
+  m_Name: AttachMoving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

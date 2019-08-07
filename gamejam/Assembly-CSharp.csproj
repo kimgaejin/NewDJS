@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\AttachMoving.cs" />
     <Compile Include="Assets\Script\Crack.cs" />
     <Compile Include="Assets\Script\Creator.cs" />
+    <Compile Include="Assets\Script\DangerInAir.cs" />
     <Compile Include="Assets\Script\Deletor.cs" />
     <Compile Include="Assets\Script\Destroier.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />

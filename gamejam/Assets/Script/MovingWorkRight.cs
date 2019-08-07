@@ -20,7 +20,7 @@ public class MovingWorkRight : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "platform") return;
-        if (collision.tag == "danger") return;
+        //if (collision.tag == "danger") return;
 
         Rigidbody2D rigid;
         rigid = collision.GetComponent<Rigidbody2D>();
@@ -41,7 +41,7 @@ public class MovingWorkRight : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "platform") return;
-        if (collision.tag == "danger") return;
+        //if (collision.tag == "danger") return;
 
         Rigidbody2D rigid;
 

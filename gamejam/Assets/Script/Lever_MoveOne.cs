@@ -15,15 +15,19 @@ public class Lever_MoveOne : MonoBehaviour
     public float speed = 1.0f;
 
     [Space(5)]
-    [Tooltip("레버가 오른쪽으로 갔을 때 실행됩니다. false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
-    public bool operateWhenLeverIsRight = true;
-    [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
-    public bool isPointsTransparentInGame = true;
+    [Header("레버가 오른쪽 일 때 실행")]
+    [Tooltip("false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
+    public bool operateWhenLeverIsRight = false;
+    
 
     [Space(5)]
-    [Header("target이 무언가와 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
+    [Header("target이 platform과 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
     [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
-    public bool isStopWhenCollpsedWall = true;
+    public bool isStopWhenCollpsedWall = false;
+
+    [Space(5)]
+    [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
+    public bool isPointsTransparentInGame = true;
 
     /*
     // 미구현
@@ -108,15 +112,17 @@ public class Lever_MoveOne : MonoBehaviour
             int nextInd = curIndex + 1;
             if (nextInd >= indexSize) nextInd = 0;
 
+            float delta = speed * Time.deltaTime;
             arrow = points[nextInd] - points[curIndex];
-            fixedPos = target.transform.position + arrow.normalized * Time.deltaTime;
+            fixedPos = target.transform.position + arrow.normalized * delta;
             distance = points[nextInd] - target.transform.position;
 
-            if (Vector3.Distance(target.position, points[nextInd]) < speed * Time.deltaTime)
+            if (Vector3.Distance(target.position, points[nextInd]) < delta
+                || isEscapeLine(points[curIndex], points[nextInd], delta))
             {
                 curIndex++;
                 if (curIndex >= indexSize) curIndex = 0;
-                target.position = points[curIndex];
+                fixedPos = points[curIndex];
             }
 
         }
@@ -141,7 +147,7 @@ public class Lever_MoveOne : MonoBehaviour
             }
         }
 
-        Debug.Log("isTouchingWithPlatform " + isTouchingWithPlatform);
+        //Debug.Log("isTouchingWithPlatform " + isTouchingWithPlatform);
 
         if (isStopWhenCollpsedWall == false
             || (isStopWhenCollpsedWall ==true && isTouchingWithPlatform == false))
@@ -185,6 +191,31 @@ public class Lever_MoveOne : MonoBehaviour
         isPlayerRightBefore = isPlayerRight;
     }
 
+    private bool isEscapeLine(Vector3 before, Vector3 next, float delta)
+    {
+        float xMax = before.x;
+        float yMax = before.y;
+        float xMin = before.x;
+        float yMin = before.y;
 
+        if (xMax < next.x) xMax = next.x;
+        if (yMax < next.y) yMax = next.y;
+        if (xMin > next.x) xMin = next.x;
+        if (yMin > next.y) yMin = next.y;
+
+        Vector2 max = new Vector2(xMax, yMax);
+        Vector2 min = new Vector2(xMin, yMin);
+
+
+        if (min.x - delta <= target.position.x && target.position.x <= max.x + delta)
+        {
+            if (min.y - delta <= target.position.y && target.position.y <= max.y + delta)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 }
