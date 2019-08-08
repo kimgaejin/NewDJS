@@ -360,4 +360,14 @@ public class Player : MonoBehaviour {
 
         Debug.Log("jumpCount: " + jumpCount);
     }
+
+    public void MoveRight()
+    {
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+    }
+
+    public void MoveLeft()
+    {
+        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+    }
 }
