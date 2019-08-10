@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelScreen : MonoBehaviour
 {
-    public GameObject Level;
     public int stage1;
     public int stage2;
     public int stage3;
@@ -15,77 +14,32 @@ public class LevelScreen : MonoBehaviour
     {
         stage1 = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
         stage2 = PlayerPrefs.GetInt("Stage2"); //게임 시작시 현재까지 깬 스테이지 로드
-        stage3 = PlayerPrefs.GetInt("Stage3"); //게임 시작시 현재까지 깬 스테이지 로드
-
-    
-            if (stage1 ==0)
-            {
-                stage1 = 11;
-                PlayerPrefs.SetInt("Stage1", 11); // 플레그 접촉시 스테이지 저장
-        
-            }
-            if (stage2 ==0)
-            {
-                stage2 = 21;
-           
-                 PlayerPrefs.SetInt("Stage2", 21); // 플레그 접촉시 스테이지 저장
-          
-            }
-            if (stage3 == 0)
-            {
-               stage3 = 31;
-           
-                PlayerPrefs.SetInt("Stage3", 31); // 플레그 접촉시 스테이지 저장
-            }
-
-
-        Debug.Log("현재 스테이지" + stage1 + "   " + stage2 + "   " + stage3);
-        if (int.Parse(this.tag) < 20)
-        {
-            if (int.Parse(this.tag) <= stage1)
-            {
-                Level.SetActive(true);
-
-            }
-            else
-            {
-                Level.SetActive(false);
-            }
-        }
-        else if (int.Parse(this.tag) < 30) {
-            if (int.Parse(this.tag) <= stage2)
-            {
-                Level.SetActive(true);
-
-            }
-            else
-            {
-                Level.SetActive(false);
-            }
-        }
-        else if (int.Parse(this.tag) < 40) {
-            if (int.Parse(this.tag) <= stage3)
-            {
-                Level.SetActive(true);
-                Debug.Log(int.Parse(this.tag));
-
-            }
-            else
-            {
-                Level.SetActive(false);
-            }
-        }
+        stage3 = PlayerPrefs.GetInt("Stage3"); //게임 시작시 현재까지 깬 스테이지 로
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void L()
     {
         Player.Stage = int.Parse(this.tag);
-        SceneManager.LoadScene("Chapter2");
+        if (int.Parse(this.tag) < 10)
+        {
+            
+            SceneManager.LoadScene("Chapter2");
+            
+        }
+        else if (int.Parse(this.tag) < 20)
+        {
+            SceneManager.LoadScene("Chapter3");
+        }
+        else if (int.Parse(this.tag) < 30)
+        {
+            SceneManager.LoadScene("Chapter0");
+        }
+ 
     }
 }

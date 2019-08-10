@@ -171,10 +171,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Back
 --- !u!222 &35924474
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 81290920}
   m_Layer: 5
   m_Name: 3-4
-  m_TagString: 34
+  m_TagString: 24
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 81290918}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -614,7 +613,7 @@ GameObject:
   - component: {fileID: 137707063}
   m_Layer: 5
   m_Name: 3-3
-  m_TagString: 33
+  m_TagString: 23
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,7 +650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 137707061}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -1288,10 +1286,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1299,7 +1297,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: start
 --- !u!222 &471487337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1323,7 +1321,7 @@ GameObject:
   - component: {fileID: 476907723}
   m_Layer: 5
   m_Name: 2-5
-  m_TagString: 25
+  m_TagString: 15
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1450,7 +1448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 476907718}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -1463,6 +1460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481312575}
+  - component: {fileID: 481312576}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Untagged
@@ -1489,6 +1487,18 @@ Transform:
   m_Father: {fileID: 1651765979}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481312576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481312574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8775f0bed77074192c44a9761b92dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &522776492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1514,7 @@ GameObject:
   - component: {fileID: 522776497}
   m_Layer: 5
   m_Name: 1-4
-  m_TagString: 14
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1631,7 +1641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 522776492}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -1931,7 +1940,7 @@ GameObject:
   - component: {fileID: 718866839}
   m_Layer: 5
   m_Name: 2-4
-  m_TagString: 24
+  m_TagString: 14
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2058,7 +2067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 718866834}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -2221,7 +2229,7 @@ GameObject:
   - component: {fileID: 758610980}
   m_Layer: 5
   m_Name: 1-1
-  m_TagString: 11
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2348,7 +2356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 758610975}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -2571,7 +2578,7 @@ GameObject:
   - component: {fileID: 876255679}
   m_Layer: 5
   m_Name: 3-2
-  m_TagString: 32
+  m_TagString: 22
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2608,7 +2615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 876255677}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -2783,7 +2789,7 @@ GameObject:
   - component: {fileID: 998155774}
   m_Layer: 5
   m_Name: 1-2
-  m_TagString: 12
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2910,7 +2916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 998155769}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -2973,10 +2978,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2984,7 +2989,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Reset
 --- !u!222 &1028390017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3008,7 +3013,7 @@ GameObject:
   - component: {fileID: 1033165407}
   m_Layer: 5
   m_Name: 1-3
-  m_TagString: 13
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3135,7 +3140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1033165402}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -3277,10 +3281,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3288,7 +3292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Exit
 --- !u!222 &1059499430
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3629,7 +3633,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1206803993}
-        m_MethodName: Game_End
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3693,7 +3697,7 @@ GameObject:
   - component: {fileID: 1240941604}
   m_Layer: 5
   m_Name: 3-1
-  m_TagString: 31
+  m_TagString: 21
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3730,7 +3734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1240941602}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -3839,7 +3842,7 @@ GameObject:
   - component: {fileID: 1373962643}
   m_Layer: 5
   m_Name: 2-2
-  m_TagString: 22
+  m_TagString: 12
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3966,7 +3969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1373962638}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -4445,7 +4447,7 @@ GameObject:
   - component: {fileID: 1640559121}
   m_Layer: 5
   m_Name: 2-1
-  m_TagString: 21
+  m_TagString: 11
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4572,7 +4574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1640559116}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -4745,7 +4746,7 @@ GameObject:
   - component: {fileID: 1694971207}
   m_Layer: 5
   m_Name: 2-3
-  m_TagString: 23
+  m_TagString: 13
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4872,7 +4873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1694971202}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -4970,6 +4970,7 @@ GameObject:
   - component: {fileID: 1759209423}
   - component: {fileID: 1759209422}
   - component: {fileID: 1759209421}
+  - component: {fileID: 1759209425}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5059,6 +5060,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1759209425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759209420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21515a14eede39248b27b1815549f4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1:
+  - {fileID: 758610975}
+  - {fileID: 998155769}
+  - {fileID: 1033165402}
+  - {fileID: 522776492}
+  - {fileID: 1982118480}
+  level2:
+  - {fileID: 1640559116}
+  - {fileID: 1373962638}
+  - {fileID: 1694971202}
+  - {fileID: 718866834}
+  - {fileID: 476907718}
+  level3:
+  - {fileID: 1240941602}
+  - {fileID: 876255677}
+  - {fileID: 137707061}
+  - {fileID: 81290918}
+  - {fileID: 1877994374}
+  stage1: 0
+  stage2: 0
+  stage3: 0
 --- !u!1 &1771392600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,7 +5345,7 @@ GameObject:
   - component: {fileID: 1877994376}
   m_Layer: 5
   m_Name: 3-5
-  m_TagString: 35
+  m_TagString: 25
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5348,7 +5382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1877994374}
   stage1: 0
   stage2: 0
   stage3: 0
@@ -5457,7 +5490,7 @@ GameObject:
   - component: {fileID: 1982118485}
   m_Layer: 5
   m_Name: 1-5
-  m_TagString: 15
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5584,7 +5617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aee9f1f058bfb4aaf5b967fe121fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 1982118480}
   stage1: 0
   stage2: 0
   stage3: 0

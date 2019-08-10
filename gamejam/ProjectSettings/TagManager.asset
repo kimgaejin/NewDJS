@@ -39,11 +39,17 @@ TagManager:
   - 23
   - 24
   - 25
-  - 31
-  - 32
-  - 33
-  - 34
-  - 35
+  - brown
+  - blue
+  - red
+  - goal
+  - black
+  - la
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
   layers:
   - Default
   - TransparentFX
