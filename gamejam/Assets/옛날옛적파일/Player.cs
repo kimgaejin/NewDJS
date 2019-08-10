@@ -198,18 +198,12 @@ public class Player : MonoBehaviour {
 
 
         //게임 스테이지 저장
-        if (col.gameObject.tag.Equals("Flag1-1"))
+        if (col.gameObject.tag.Equals("Level11"))
         {
-            PlayerPrefs.SetInt("Stage", 1); // 플레그 접촉시 스테이지 저장
+            PlayerPrefs.SetInt("Stage1", 11); // 플레그 접촉시 스테이지 저장
         }
-        if (col.gameObject.tag.Equals("Flag1-2"))
-        {
-
-        }
-        if (col.gameObject.tag.Equals("Flag1-3"))
-        {
-
-        }
+      
+        
         /////포탈 충돌관련 함수
         for (int i = 0; i < 10; i++)
         {

@@ -41,6 +41,7 @@ TagManager:
   - staticObject
   - DynamicObject
   - DynamicBackground
+  - 11
   layers:
   - Default
   - TransparentFX
