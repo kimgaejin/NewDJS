@@ -21,15 +21,22 @@ public class LevelScreen : MonoBehaviour
             if (stage1 ==0)
             {
                 stage1 = 11;
+                PlayerPrefs.SetInt("Stage1", 11); // 플레그 접촉시 스테이지 저장
+        
             }
             if (stage2 ==0)
             {
                 stage2 = 21;
+           
+                 PlayerPrefs.SetInt("Stage2", 21); // 플레그 접촉시 스테이지 저장
+          
             }
             if (stage3 == 0)
             {
                stage3 = 31;
-             }
+           
+                PlayerPrefs.SetInt("Stage3", 31); // 플레그 접촉시 스테이지 저장
+            }
 
 
         Debug.Log("현재 스테이지" + stage1 + "   " + stage2 + "   " + stage3);
@@ -60,6 +67,7 @@ public class LevelScreen : MonoBehaviour
             if (int.Parse(this.tag) <= stage3)
             {
                 Level.SetActive(true);
+                Debug.Log(int.Parse(this.tag));
 
             }
             else
