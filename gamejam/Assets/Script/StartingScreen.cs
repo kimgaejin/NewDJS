@@ -30,4 +30,10 @@ public class StartingScreen : MonoBehaviour
         Panel.SetActive(true);
         Level_Panel.SetActive(false);
     }
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("Stage1", 11); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage2", 21); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage3", 31); // 플레그 접촉시 스테이지 저장
+    }
 }

@@ -5,24 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - black
-  - brown
-  - green
-  - red
-  - yellow
-  - blue
-  - goal
-  - la
   - potalA
   - potalB
   - potalA1
   - potalB1
   - stapler
   - light
-  - mirror12
-  - mirror23
-  - mirror34
-  - mirror41
   - 812R456
   - 123R567
   - 234R678
@@ -42,6 +30,20 @@ TagManager:
   - DynamicObject
   - DynamicBackground
   - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
   layers:
   - Default
   - TransparentFX

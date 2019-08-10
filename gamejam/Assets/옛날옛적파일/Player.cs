@@ -33,11 +33,25 @@ public class Player : MonoBehaviour {
     public GameObject light;
     public Transform lightPos;
 
-    private int Stage; //스테이지 저장변수
 
+    public static int Stage; //스테이지 저장변수
+    public Vector2 Stage_pos;
+    public string Stagel;
     private void Awake()
     {
-        Stage = PlayerPrefs.GetInt("Stage"); //게임 시작시 현재까지 깬 스테이지 로드
+        //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
+        if (Stage >= 11 && Stage <= 39)
+        {
+            Debug.Log(Stage);
+            Stagel = Stage.ToString();
+            Stage_pos = GameObject.FindWithTag(Stage.ToString()).gameObject.transform.position;
+            this.transform.position = Stage_pos;
+        }
+        else {
+            Debug.Log("not save");
+        }
+
+
         jumpCount = maxJumpNum;
 
         if (Player.playerInstance == null) Player.playerInstance = this;

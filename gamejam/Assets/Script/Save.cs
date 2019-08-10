@@ -9,7 +9,7 @@ public class Save : MonoBehaviour
     void Start()
     {
         stage = int.Parse(this.tag);
-        Debug.Log(stage);
+       //Debug.Log(stage);
     }
 
     // Update is called once per frame
@@ -20,8 +20,20 @@ public class Save : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag.Equals("Player"))  
         {
-            PlayerPrefs.SetInt("Stage1", stage); // 플레그 접촉시 스테이지 저장
-            Debug.Log(stage);
+            if (stage / 10 == 1)
+            {
+                PlayerPrefs.SetInt("Stage1", stage); // 플레그 접촉시 스테이지 저장
+                Debug.Log(" 1 "+stage);
             }
+            else if (stage / 10 == 2) {
+                PlayerPrefs.SetInt("Stage2", stage); // 플레그 접촉시 스테이지 저장
+                Debug.Log(" 2 "+stage);
+            }
+            else if (stage / 10 == 3) {
+                PlayerPrefs.SetInt("Stage3", stage); // 플레그 접촉시 스테이지 저장
+                Debug.Log(" 3 "+stage);
+            }
+
+        }
     }
 }
