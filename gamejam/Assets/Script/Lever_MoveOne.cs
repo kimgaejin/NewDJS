@@ -156,6 +156,25 @@ public class Lever_MoveOne : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "light")
+        {
+            if (operateWhenLeverIsRight)
+            {
+                isLeverRight = true;
+                isLeverLeft = false;
+                anim.SetTrigger("handleToRight");
+            }
+            else
+            {
+                isLeverRight = false;
+                isLeverLeft = true;
+                anim.SetTrigger("handleToLeft");
+            }
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")

@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/USER/Documents/GitHub/NewDJS/gamejam/UntitleBook.exe
+F:/#MakingGames/NewDJS/gamejam/Builds/UntitleBook.exe
 SceneListBegin?
 Assets/#ForLevelDesign/UI.unity
 Assets/#ForLevelDesign/Chapter2.unity
@@ -189,7 +189,7 @@ c4117cf32d2e7797e9e05272a419cd6e Cinemachine.dll:Cinemachine.Timeline.Cinemachin
 e51c09a4cc447f11db225afcd8e3e490 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 df21ffd1864551a3e43410f28754a73e Cinemachine.dll:Cinemachine.CinemachineConfiner
 1e3d6222ff533d213aab144eb854a53b Cinemachine.dll:.CinemachineTouchInputMapper
-cf96e5f7b3d069bab453925bd41be04e UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
+88cc9df3c6fc697bfbeacd24c0d6f2d7 UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 259d013faac28e8ba0aa2a7542273735 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -229,3 +229,4 @@ afc5b93a7b192de2dcb3832fe35a5c7e Assembly-CSharp.dll:.MovingWorkRight
 94a6212bc97ed891bf46c9c21a0658cc Cinemachine.dll:Cinemachine.CinemachineBasicMultiChannelPerlin
 2792936179724025482dc04d68a47ca7 Cinemachine.dll:Cinemachine.CinemachineClearShot
 74dcf9c3ad3fb6ca4c98cae82e3289c8 Assembly-CSharp.dll:.Portal
+88cc9df3c6fc697bfbeacd24c0d6f2d7 UnityEngine.TestRunner.dll:UnityEngine.TestTools.BeforeAfterTestCommandState
