@@ -63,7 +63,7 @@ public class light : MonoBehaviour
         {
             wasd = 6;
         }
-        Debug.Log(wasd);
+       // Debug.Log(wasd);
     }
 
     // Update is called once per frame
