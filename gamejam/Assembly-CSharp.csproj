@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\AttachMoving.cs" />
+    <Compile Include="Assets\Script\ButtonToMenu.cs" />
     <Compile Include="Assets\Script\Crack.cs" />
     <Compile Include="Assets\Script\Creator.cs" />
     <Compile Include="Assets\Script\DangerInAir.cs" />
