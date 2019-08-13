@@ -4,18 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ScriptPrint : MonoBehaviour, IPointerDownHandler
+public class ScriptPrint : MonoBehaviour
 {
     [Header("Size 정한 후 대사 입력")]
+    [Header("대화의 주체는 'book', 'lib' 만 가능합니다")]
+
+    [Header("예제")]
+    [Header("book)안녕 클레오파트라")]
     public string [] scripts;
 
     private GameObject scriptCanvasObj;
+    private ScriptCanvasManager scriptCanvasManager;
     private Text scriptText;
 
     private int curInd = -1;
     private int maxInd;
     private bool isShown = false;
 
+    private string curImageString;
 
     public void Awake()
     {
@@ -33,14 +39,10 @@ public class ScriptPrint : MonoBehaviour, IPointerDownHandler
                 isShown = true;
                 scriptCanvasObj.SetActive(true);
                 scriptCanvasObj.GetComponent<ScriptCanvasManager>().scriptPrint = this;
-                TurnPage();
+                scriptCanvasManager = scriptCanvasObj.GetComponent<ScriptCanvasManager>();
+                scriptCanvasManager.Talk();
             }
         }
-    }
-     
-    public virtual void OnPointerDown(PointerEventData ped)
-    {
-        //TurnPage();
     }
 
     public void TurnPage()
@@ -48,13 +50,41 @@ public class ScriptPrint : MonoBehaviour, IPointerDownHandler
         curInd++;
         if (curInd < maxInd)
         {
-            Debug.Log("대사출력 진행");
-            scriptText.text = scripts[curInd];
+            string curScript = scripts[curInd];
+
+            curImageString = GetImageCode(curScript);
+            curScript = GetScriptOnly(curScript);
+            scriptText.text = curScript;
         }
         else
         {
+            scriptCanvasManager.PageDone();
             scriptCanvasObj.SetActive(false);
         }
+    }
+
+    public string GetScriptOnly(string scripts)
+    {
+        string[] values = scripts.Split(')');
+        if (values.Length > 1) return values[1];
+        return values[0];
+    }
+
+    public string GetImageCode(string scripts)
+    {
+        string[] values = scripts.Split(')');
+        if (values.Length > 1) return values[0];
+        return "";
+    }
+
+    public void ImageStringClear()
+    {
+        curImageString = "";
+    }
+
+    public string GetCurImageString()
+    {
+        return curImageString;
     }
 
 }
