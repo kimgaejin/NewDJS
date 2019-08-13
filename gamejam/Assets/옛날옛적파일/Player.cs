@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 
 
     public static int Stage; //스테이지 저장변수
-    public Vector2 Stage_pos;
+    static public Vector2 Stage_pos;
     public string Stagel;
     private void Awake()
     {
@@ -188,6 +188,7 @@ public class Player : MonoBehaviour {
     {
         if (col.gameObject.tag.Equals("danger"))
         {
+           
             StartCoroutine("Dead");
 
         }
@@ -212,11 +213,12 @@ public class Player : MonoBehaviour {
 
 
         //게임 스테이지 저장
+        /*
         if (col.gameObject.tag.Equals("Level11"))
         {
             PlayerPrefs.SetInt("Stage1", 11); // 플레그 접촉시 스테이지 저장
         }
-      
+        */
         
         /////포탈 충돌관련 함수
         for (int i = 0; i < 10; i++)
@@ -287,7 +289,8 @@ public class Player : MonoBehaviour {
     {
         anim.enabled = true;
         spr.color = normalColor;
-        transform.position = new Vector3(-2.2f, 4, 0);
+        // transform.position = new Vector3(-2.2f, 4, 0);
+        this.transform.position = Stage_pos;
         isDead = false;
         rigid.isKinematic = false;
         rigid.velocity = Vector2.zero;
