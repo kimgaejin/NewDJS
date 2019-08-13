@@ -50,6 +50,10 @@ TagManager:
   - 3
   - 4
   - 5
+  - ProjectorRight
+  - ProjectorLeft
+  - ProjectorUp
+  - ProjectorDown
   layers:
   - Default
   - TransparentFX

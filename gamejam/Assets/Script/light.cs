@@ -19,6 +19,7 @@ public class light : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         wasd = 0;
         if (Player.key_down == 'D')
         {
@@ -64,6 +65,9 @@ public class light : MonoBehaviour
             wasd = 6;
         }
        // Debug.Log(wasd);
+       */
+      
+     
     }
 
     // Update is called once per frame
@@ -232,6 +236,34 @@ public class light : MonoBehaviour
             {
                 wasd = 3;
             }
+        }
+        //오른쪽
+        // wasd = 7;
+        //왼쪽
+        // wasd = 3;
+        //아래쪽
+        // wasd = 1;
+        //위쪽
+        // wasd = 7
+
+        if (col.gameObject.tag.Equals("ProjectorRight")) {
+            wasd = 7;
+
+        }
+        if (col.gameObject.tag.Equals("ProjectorLeft"))
+        {
+            wasd = 3;
+
+        }
+        if (col.gameObject.tag.Equals("ProjectorUp"))
+        {
+            wasd = 7;
+
+        }
+        if (col.gameObject.tag.Equals("ProjectorDown"))
+        {
+            wasd = 1;
+
         }
         /////포탈 충돌관련 함수
         ///
