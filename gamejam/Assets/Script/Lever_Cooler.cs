@@ -142,8 +142,11 @@ public class Lever_Cooler : MonoBehaviour
             {
                 coolers[i].ExecutionOn();
                 if (power != 0)
+                {
                     coolers[i].power = power;
+                }
             }
+        
         }
     }
 
