@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 5924694081936943773}
   - component: {fileID: 5924694081936943772}
   m_Layer: 0
-  m_Name: Lever_move 1
+  m_Name: "\uB808\uBC84_\uD50C\uB7AB\uD3FC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,8 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   operateWhenLeverIsRight: 1
-  isPointsTransparentInGame: 1
   isStopWhenCollpsedWall: 0
+  isPointsTransparentInGame: 1
 --- !u!61 &5924694081936943772
 BoxCollider2D:
   m_ObjectHideFlags: 0

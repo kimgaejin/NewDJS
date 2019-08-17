@@ -19,7 +19,6 @@ public class Lever_MoveOne : MonoBehaviour
     [Tooltip("false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
     public bool operateWhenLeverIsRight = false;
     
-
     [Space(5)]
     [Header("target이 platform과 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
     [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
@@ -75,7 +74,7 @@ public class Lever_MoveOne : MonoBehaviour
             }
 
             if (isPointsTransparentInGame)
-            {
+            {   // 포인트 투명화
                 Color transparent = new Vector4(0, 0, 0, 0);
                 for (int i = 0; i < size; i++)
                 {
@@ -130,30 +129,30 @@ public class Lever_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Debug.Log("targetMoving " + targetMovingObject.GetIsCollWithTag("platform"));
+        if (isStopWhenCollpsedWall == false
+            || (isStopWhenCollpsedWall ==true && TouchWithPlatform() == false))
+        {
+            target.transform.position = fixedPos;
+        }
+    }
+
+    private bool TouchWithPlatform()
+    {
 
         int colliderCount = 0;
         Collider2D[] colliders = new Collider2D[20];
         ContactFilter2D contactFilter = new ContactFilter2D();
         colliderCount = target.GetComponent<BoxCollider2D>().OverlapCollider(contactFilter, colliders);
-        bool isTouchingWithPlatform = false;
 
         for (int i = 0; i < colliderCount; i++)
         {
             if (colliders[i].tag == "platform")
             {
-                isTouchingWithPlatform = true;
-                break;
+                return true;
             }
         }
 
-        //Debug.Log("isTouchingWithPlatform " + isTouchingWithPlatform);
-
-        if (isStopWhenCollpsedWall == false
-            || (isStopWhenCollpsedWall ==true && isTouchingWithPlatform == false))
-        {
-            target.transform.position = fixedPos;
-        }
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
