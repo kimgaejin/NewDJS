@@ -5,31 +5,37 @@ using UnityEngine;
 public class AttachMoving : MonoBehaviour
 {
     private Vector3 befPos;
-    private Vector3 curPos;
     private Vector3 posDiff;
+
+    private Transform parent;
+    private Vector3 parentBefPos;
 
     private float jumpPowerSave;
 
-    private GameObject playerObj;
-    private Player playerScript;
 
     private void Start()
     {
         befPos = transform.position;
-        curPos = transform.position;
         posDiff = Vector3.zero;
-        playerObj = GameObject.Find("Player");
-        playerScript = playerObj.GetComponent<Player>();
+        parent = transform.parent;
+        parentBefPos = parent.transform.position;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        curPos = transform.position;
-        posDiff = curPos - befPos;
-        befPos = curPos;
+        posDiff = transform.position - befPos;
+        Vector3 parentDiff = parent.position - parentBefPos;
+
+        if (posDiff.magnitude > parentDiff.magnitude)
+        {
+            transform.position = befPos + parentDiff;
+        }
+
+        befPos = transform.position;
+        parentBefPos = parent.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player"
             || collision.tag == "DynamicObject")
@@ -39,8 +45,6 @@ public class AttachMoving : MonoBehaviour
                 collision.transform.parent = transform;
             }
         }
-
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
