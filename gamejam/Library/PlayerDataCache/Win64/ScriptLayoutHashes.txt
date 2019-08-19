@@ -1,9 +1,9 @@
 Win64
 PlayerPath?
-F:/#MakingGames/NewDJS/gamejam/Builds/UntitleBook.exe
+F:/#MakingGames/UntitledBookBuilds/UntitleBook.exe
 SceneListBegin?
 Assets/#ForLevelDesign/UI.unity
-Assets/#ForLevelDesign/Chapter2.unity
+Assets/#ForLevelDesign/Test.unity
 Assets/#ForLevelDesign/Chapter3.unity
 Assets/#ForLevelDesign/Chapter0.unity
 SceneListEnd?
@@ -28,6 +28,7 @@ d227987243593b32ae57394d06018643 Cinemachine.dll:Cinemachine.CinemachineFixedSig
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 a36c8785e87264ab7f4dfea0aae191d5 Assembly-CSharp.dll:.Flat_MoveOne
 fef14aad7a591220be0731c704a5a468 Assembly-CSharp.dll:.SnakeBlock
+eb8aecf9c97a466b5ad05990ea696182 Assembly-CSharp.dll:.Lever_Cooler
 c80bc562de10fdbf8b2e9bcb89d80421 Cinemachine.dll:Cinemachine.CinemachineCollisionImpulseSource
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -63,6 +64,8 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 0b4bc46a49ef88b6bdf75a97a6a35eb3 Assembly-CSharp.dll:.LevelScreen
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -138,10 +141,11 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 e1bbf0ab858085e38fae6b12ebbdcd35 Cinemachine.dll:Cinemachine.Timeline.CinemachineTrack
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 1cdde0c3d8008dfe81d27e4c955d4fe7 Cinemachine.dll:Cinemachine.CinemachineFramingTransposer
-afc5b93a7b192de2dcb3832fe35a5c7e Assembly-CSharp.dll:.MovingPlatform
+f7baa8d5ff59de105d4fbb23c8ad3f26 Assembly-CSharp.dll:.MovingPlatform
 3c2b11a8027702f7fef4a819d8b9191a Cinemachine.dll:Cinemachine.CinemachinePOV
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NewBehaviourScript
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.JumpTouch
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonToMenu
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 6987e53805e8a29a4a553f91e9a02ba2 Cinemachine.dll:Cinemachine.CinemachineOrbitalTransposer
 68ab7276019207d3f463a08f9ff97ff5 Cinemachine.dll:Cinemachine.CinemachineTriggerAction
@@ -159,7 +163,9 @@ e31e0bb812a90e00947fc8efeaf130fb Assembly-CSharp.dll:.PortalB
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MoveLeftTouch
 bc309abd12e703426539c7c67149af7e Assembly-CSharp.dll:.light
+0d13422803a31f0d308159382848af6a Assembly-CSharp.dll:.Lever_Belt
 56df1fa7cea034df9863fe5a24200a32 Cinemachine.dll:Cinemachine.CinemachineTargetGroup
+7018f34000295b876d0f90559fb7ebe1 Assembly-CSharp.dll:.ScriptPrint
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MovingObject
 7c792393fb82488bd20139dcc5ba26d8 Cinemachine.dll:Cinemachine.CinemachineTransposer
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -178,6 +184,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 a66794b62dbf044668a5f102bb7908c2 Cinemachine.dll:Cinemachine.CinemachineImpulseListener
 e6d75f1a9bc0c6f7085df0baa077e688 Cinemachine.dll:Cinemachine.CinemachineGroupComposer
+39bcbad62e0b3f7bfa0729ae0645c18a Assembly-CSharp.dll:.ScriptCanvasManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Cinemachine.dll:Cinemachine.CinemachineSameAsFollowTarget
 d5b20eb1796b39c3552dfeaf7754cc73 Cinemachine.dll:Cinemachine.CinemachineBlendListCamera
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
@@ -189,6 +196,7 @@ c4117cf32d2e7797e9e05272a419cd6e Cinemachine.dll:Cinemachine.Timeline.Cinemachin
 e51c09a4cc447f11db225afcd8e3e490 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 df21ffd1864551a3e43410f28754a73e Cinemachine.dll:Cinemachine.CinemachineConfiner
 1e3d6222ff533d213aab144eb854a53b Cinemachine.dll:.CinemachineTouchInputMapper
+88cc9df3c6fc697bfbeacd24c0d6f2d7 UnityEngine.TestRunner.dll:UnityEngine.TestTools.BeforeAfterTestCommandState
 88cc9df3c6fc697bfbeacd24c0d6f2d7 UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 259d013faac28e8ba0aa2a7542273735 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -215,18 +223,18 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 71bb6a6b6c8f052f948db64c7dd3ca4f Cinemachine.dll:Cinemachine.CinemachineHardLookAt
 328b39bcb08b384dcfa5f71394e79bac Assembly-CSharp.dll:.LevelGenerator
 9adab4ec3f579e891091b74da1fd42e1 Assembly-CSharp.dll:.jump
+20b9252fe4195ff2e24e2b5e8eaa58df Assembly-CSharp.dll:.Cooler
 6281b40a0be7634958e72399fe97a1a0 Assembly-CSharp.dll:.Crack
 d34a2afac4d80805685a37becc4a82ab Assembly-CSharp.dll:.Destroier
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-43bfb094e2415f6fa729241eff16230d Assembly-CSharp.dll:.Player
+1a6851341a61f87cc9e18edcf6b5c271 Assembly-CSharp.dll:.Player
 095c1b229c51c5d6c47b77648891cc90 Assembly-CSharp.dll:.KnockBack
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-afc5b93a7b192de2dcb3832fe35a5c7e Assembly-CSharp.dll:.MovingWorkRight
+33f31912292961d898e3bc7af2841b41 Assembly-CSharp.dll:.MovingWorkRight
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 31aaf1b0d478f69639405ed5e51607b0 Cinemachine.dll:Cinemachine.CinemachineBrain
 71bb6a6b6c8f052f948db64c7dd3ca4f Cinemachine.dll:Cinemachine.CinemachineHardLockToTarget
 94a6212bc97ed891bf46c9c21a0658cc Cinemachine.dll:Cinemachine.CinemachineBasicMultiChannelPerlin
 2792936179724025482dc04d68a47ca7 Cinemachine.dll:Cinemachine.CinemachineClearShot
 74dcf9c3ad3fb6ca4c98cae82e3289c8 Assembly-CSharp.dll:.Portal
-88cc9df3c6fc697bfbeacd24c0d6f2d7 UnityEngine.TestRunner.dll:UnityEngine.TestTools.BeforeAfterTestCommandState

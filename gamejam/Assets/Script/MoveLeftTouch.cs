@@ -24,6 +24,7 @@ public class MoveLeftTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public virtual void OnPointerDown(PointerEventData ped)
     {
+        Debug.Log("mouse points down");
         isDown = true;
     }
 

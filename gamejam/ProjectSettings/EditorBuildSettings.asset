@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/#ForLevelDesign/1-2.unity
     guid: 3a8f883e55b9eef4fa35d07d89ac7a22
   - enabled: 1
-    path: Assets/#ForLevelDesign/Chapter2.unity
+    path: Assets/#ForLevelDesign/Test.unity
     guid: 5fe14068ae8346348bdb7c5f5a914895
   - enabled: 0
     path: Assets/#ForLevelDesign/Chapter1.unity
