@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
+    <Compile Include="Assets\Script\InkBubble.cs" />
     <Compile Include="Assets\Script\JumpTouch.cs" />
     <Compile Include="Assets\Script\KnockBack.cs" />
     <Compile Include="Assets\Script\LevelScreen.cs" />
