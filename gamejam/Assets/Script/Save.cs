@@ -23,16 +23,23 @@ public class Save : MonoBehaviour
             if (stage / 10 == 0)
             {
                 PlayerPrefs.SetInt("Stage1", stage); // 플레그 접촉시 스테이지 저장
+                if (stage < PlayerPrefs.GetInt("StageB1")) { }
+                else { PlayerPrefs.SetInt("StageB1", stage); }
+           
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 1 "+stage);
             }
             else if (stage / 10 == 1) {
                 PlayerPrefs.SetInt("Stage2", stage); // 플레그 접촉시 스테이지 저장
+                if (stage < PlayerPrefs.GetInt("StageB2")) { }
+                else { PlayerPrefs.SetInt("StageB2", stage); }
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 2 "+stage);
             }
             else if (stage / 10 == 2) {
                 PlayerPrefs.SetInt("Stage3", stage); // 플레그 접촉시 스테이지 저장
+                if (stage < PlayerPrefs.GetInt("StageB3")) { }
+                else { PlayerPrefs.SetInt("StageB3", stage); }
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 3 "+stage);
             }
