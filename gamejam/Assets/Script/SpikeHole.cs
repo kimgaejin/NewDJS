@@ -33,6 +33,8 @@ public class SpikeHole : MonoBehaviour
 
     IEnumerator Execute()
     {
+        WaitForSeconds wait50 = new WaitForSeconds(0.5f);
+
         WaitForSeconds standWait = new WaitForSeconds(standTime);
         WaitForSeconds spikeWait = new WaitForSeconds(spikeTime);
         WaitForSeconds holeWait = new WaitForSeconds(holeTime);
@@ -46,7 +48,11 @@ public class SpikeHole : MonoBehaviour
                 firstExcute = false;
                 Debug.DrawLine(transform.position, transform.position + Vector3.up);
             }
-            Spike();
+
+            SpikeAnim();
+            yield return wait50;
+
+            SpikeColliderEnable();
             yield return spikeWait;
 
             DoNotSpike();
@@ -55,10 +61,14 @@ public class SpikeHole : MonoBehaviour
         }
     }
 
-    private void Spike()
+    private void SpikeAnim()
+    {
+        anim.SetTrigger("Spike");
+    }
+
+    private void SpikeColliderEnable()
     {
         collider.enabled = true;
-        anim.SetTrigger("Spike");
     }
 
     private void DoNotSpike()
