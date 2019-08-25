@@ -29,17 +29,25 @@ public class LevelScreen : MonoBehaviour
         if (int.Parse(this.tag) < 10)
         {
             
-            SceneManager.LoadScene("Chapter2");
+            SceneManager.LoadScene("Chapter0");
             
         }
         else if (int.Parse(this.tag) < 20)
         {
-            SceneManager.LoadScene("Chapter3");
+            SceneManager.LoadScene("Chapter1");
         }
         else if (int.Parse(this.tag) < 30)
         {
-            SceneManager.LoadScene("Chapter0");
+            SceneManager.LoadScene("Chapter2");
         }
- 
+        else if (int.Parse(this.tag) < 40)
+        {
+            SceneManager.LoadScene("Chapter3");
+        }
+        else if (int.Parse(this.tag) < 50)
+        {
+            SceneManager.LoadScene("Chapter4");
+        }
+
     }
 }
