@@ -375,10 +375,12 @@ public class Player : MonoBehaviour {
     public void MoveRight()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        key_down = 'D';
     }
 
     public void MoveLeft()
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        key_down = 'A';
     }
 }

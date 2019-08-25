@@ -26,9 +26,9 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
         normalColor = new Color(1, 1, 1, 1);
         blackColor = new Color(0, 0, 0, 1);
 
-        NormalBook = panel.transform.FindChild("BookNormal").GetComponent<Image>();
+        NormalBook = panel.transform.Find("BookNormal").GetComponent<Image>();
         if (!NormalBook) Debug.Log("not exist NormalBook");
-        NormalLibrarian = panel.transform.FindChild("LibrarianNormal").GetComponent<Image>();
+        NormalLibrarian = panel.transform.Find("LibrarianNormal").GetComponent<Image>();
 
         transform.gameObject.SetActive(false);
         NormalBook.gameObject.SetActive(false);

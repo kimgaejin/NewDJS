@@ -39,7 +39,7 @@ public class Destroier : MonoBehaviour
         originPos = transform.position;
 
         point = transform.position;
-        pointTrans = transform.FindChild("Points").GetChild(0);
+        pointTrans = transform.Find("Points").GetChild(0);
         point = pointTrans.position;
         pointTrans.GetComponent<SpriteRenderer>().enabled = false;
 
