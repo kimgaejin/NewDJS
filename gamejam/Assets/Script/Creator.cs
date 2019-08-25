@@ -40,7 +40,18 @@ public class Creator : MonoBehaviour
                 yield return wait10;
             }
 
-           
+
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag.Equals("Player"))
+        {
+
+            AudioSource Projector = GetComponent<AudioSource>();
+            Projector.Play();
+            Debug.Log("AAAAAAA");
+
         }
     }
 }

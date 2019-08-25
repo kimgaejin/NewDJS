@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
     public static int Stage; //스테이지 저장변수
     static public Vector2 Stage_pos;
     public string Stagel;
+
+    public AudioClip Projector;
     private void Awake()
     {
         //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
@@ -177,8 +179,14 @@ public class Player : MonoBehaviour {
         {
        
         }
+        if (col.gameObject.tag.Equals(""))
+        {
 
-       
+            AudioSource Projector = GetComponent<AudioSource>();
+            Projector.Play();
+            Debug.Log("AAAAAAA");
+        }
+
 
 
     }
@@ -186,6 +194,9 @@ public class Player : MonoBehaviour {
  
     void OnTriggerEnter2D(Collider2D col)
     {
+
+       
+
         if (col.gameObject.tag.Equals("danger"))
         {
            
