@@ -1,11 +1,12 @@
 Android
 PlayerPath?
-F:/#MakingGames/UntitledBookBuilds/UntitledBook_v03.apk
+F:/#MakingGames/UntitledBookBuilds/UntitledBook_v05.apk
 SceneListBegin?
 Assets/#ForLevelDesign/UI.unity
-Assets/#ForLevelDesign/Test.unity
-Assets/#ForLevelDesign/Chapter3.unity
 Assets/#ForLevelDesign/Chapter0.unity
+Assets/#ForLevelDesign/Chapter1.unity
+Assets/#ForLevelDesign/Chapter2.unity
+Assets/#ForLevelDesign/Chapter3.unity
 SceneListEnd?
 23d669c8bf2983ca4a3df160658318a6 Cinemachine.dll:Cinemachine.CinemachineStateDrivenCamera
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -131,6 +132,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 7a717d02ce1a85a711c00e09e393dcce Assembly-CSharp.dll:.UIM
 8963690ef6f6b05ce03bfd8b5c26e20c Cinemachine.dll:Cinemachine.NoiseSettings
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.BackGroundMusic
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Deletor
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerFoot
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -144,12 +146,14 @@ f7baa8d5ff59de105d4fbb23c8ad3f26 Assembly-CSharp.dll:.MovingPlatform
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NewBehaviourScript
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.JumpTouch
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonToMenu
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.InkBubble
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 6987e53805e8a29a4a553f91e9a02ba2 Cinemachine.dll:Cinemachine.CinemachineOrbitalTransposer
 68ab7276019207d3f463a08f9ff97ff5 Cinemachine.dll:Cinemachine.CinemachineTriggerAction
 bd543bad7f9f6262f10595aadb130d22 Cinemachine.dll:Cinemachine.CinemachineComposer
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 e31e0bb812a90e00947fc8efeaf130fb Assembly-CSharp.dll:.PortalB
+65840ebcbf8a15c79a35a5edec79dc56 Assembly-CSharp.dll:.SpikeHole
 15882a52798c275361cd0a3ada984ec5 Cinemachine.dll:Cinemachine.CinemachineDollyCart
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DangerInAir
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
@@ -225,7 +229,8 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 6281b40a0be7634958e72399fe97a1a0 Assembly-CSharp.dll:.Crack
 d34a2afac4d80805685a37becc4a82ab Assembly-CSharp.dll:.Destroier
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-1a6851341a61f87cc9e18edcf6b5c271 Assembly-CSharp.dll:.Player
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.BackgroundCameraScroll
+016dfd9d12839dfeb1881c3492b6a368 Assembly-CSharp.dll:.Player
 095c1b229c51c5d6c47b77648891cc90 Assembly-CSharp.dll:.KnockBack
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient

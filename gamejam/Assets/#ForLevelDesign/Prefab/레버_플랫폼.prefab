@@ -213,7 +213,6 @@ GameObject:
   - component: {fileID: 5924694081868504620}
   - component: {fileID: 5924694081868504621}
   - component: {fileID: 5924694081868504618}
-  - component: {fileID: 5924694081868504623}
   - component: {fileID: 5924694081868504622}
   m_Layer: 0
   m_Name: Target
@@ -332,18 +331,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5924694081868504623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5924694081868504616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00215ec49bb5fed45a1cfa3d7ba7517d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5924694081868504622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,8 +469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d670a08e21c5f042b8dd44c23faf1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DISTANCE_WITH_PLAYER: 3
   speed: 1
-  operateWhenLeverIsRight: 1
+  isExcuting: 0
   isStopWhenCollpsedWall: 0
   isPointsTransparentInGame: 1
 --- !u!61 &5924694081936943772

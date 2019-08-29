@@ -77,7 +77,10 @@ public class Player : MonoBehaviour {
         {
             Jump(jumpPower);
         }
-        
+
+        OnMouseEvent();
+
+
         if (Portal.Portal_A == 1)
         {
             Debug.Log("Portal_A");
@@ -104,6 +107,33 @@ public class Player : MonoBehaviour {
             {
                 transform.position = new Vector2((10 * Portal.Portal_A_pos.x + 7) / 10, Portal.Portal_A_pos.y);
                 PortalB.Portal_B = 0;
+            }
+        }
+    }
+
+    private void OnMouseEvent()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // 레버와 맞닿았다면 해당 레버 작동
+            RaycastHit2D hit = new RaycastHit2D();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+
+            if (hit = Physics2D.Raycast(ray.origin, ray.direction))
+            {
+                Lever_MoveOne lever = hit.transform.GetComponent<Lever_MoveOne>();
+                if (lever)
+                {
+                    Debug.Log("lever");
+                    //if (lever.DISTANCE_WITH_PLAYER < Vector3.Distance(transform.position, lever.transform.position))
+                    {
+
+                        Debug.Log("isExcuting");
+
+                        lever.Switch();
+                    }
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ public class Save : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag.Equals("Player"))  
         {
@@ -44,6 +45,15 @@ public class Save : MonoBehaviour
                 Debug.Log(" 3 "+stage);
             }
 
+        }
+    }
+
+    IEnumerator ExitScene()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3.0f);
+            // 메인 씬으로 이동
         }
     }
 }

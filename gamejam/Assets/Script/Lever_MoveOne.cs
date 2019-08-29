@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class Lever_MoveOne : MonoBehaviour
 {
+    // 플레이어가 터치하면 동작되는 레버.
+    // 플레이어와의 거리는 고정합니다.
+
+    
+    [Header("수정 ㄴ, 플레이어와 물체간 유효거리")]
+    public float DISTANCE_WITH_PLAYER = 3.0f;
+    [Space(10)]
 
     private Vector3[] points;
     private Transform target;
@@ -15,9 +22,10 @@ public class Lever_MoveOne : MonoBehaviour
     public float speed = 1.0f;
 
     [Space(5)]
-    [Header("레버가 오른쪽 일 때 실행")]
-    [Tooltip("false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
-    public bool operateWhenLeverIsRight = false;
+    public bool isExcuting = false;
+    //[Header("레버가 오른쪽 일 때 실행")]
+    //[Tooltip("false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
+    //public bool operateWhenLeverIsRight = false;
     
     [Space(5)]
     [Header("target이 platform과 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
@@ -105,8 +113,10 @@ public class Lever_MoveOne : MonoBehaviour
     private void Update()
     {
         // 레버가 작동 상태일 때
-        if ((operateWhenLeverIsRight && isLeverRight)
-            || (operateWhenLeverIsRight == false && isLeverLeft))
+        //if ((operateWhenLeverIsRight && isLeverRight)
+        //   || (operateWhenLeverIsRight == false && isLeverLeft))
+
+        if (isExcuting)
         {
             int nextInd = curIndex + 1;
             if (nextInd >= indexSize) nextInd = 0;
@@ -159,23 +169,24 @@ public class Lever_MoveOne : MonoBehaviour
     {
         if (collision.tag == "light")
         {
-            if (operateWhenLeverIsRight)
+            //if (operateWhenLeverIsRight)
             {
                 isLeverRight = true;
                 isLeverLeft = false;
                 anim.SetTrigger("handleToRight");
             }
-            else
-            {
-                isLeverRight = false;
-                isLeverLeft = true;
-                anim.SetTrigger("handleToLeft");
-            }
+            //else
+            //{
+            //    isLeverRight = false;
+            //    isLeverLeft = true;
+            //    anim.SetTrigger("handleToLeft");
+            //}
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        /*
         if (collision.tag == "Player")
         {
             if (collision.transform.position.x < this.transform.position.x)
@@ -207,6 +218,7 @@ public class Lever_MoveOne : MonoBehaviour
 
         isPlayerLeftBefore = isPlayerLeft;
         isPlayerRightBefore = isPlayerRight;
+        */
     }
 
     private bool isEscapeLine(Vector3 before, Vector3 next, float delta)
@@ -236,4 +248,21 @@ public class Lever_MoveOne : MonoBehaviour
         return true;
     }
 
+
+    public void Switch()
+    {
+        isExcuting = !isExcuting;
+        if (isExcuting)
+        {
+            isLeverRight = true;
+            isLeverLeft = false;
+            anim.SetTrigger("handleToRight");
+        }
+        else
+        {
+            isLeverRight = false;
+            isLeverLeft = true;
+            anim.SetTrigger("handleToLeft");
+        }
+    }
 }

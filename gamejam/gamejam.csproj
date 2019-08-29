@@ -319,7 +319,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\AttachMoving.cs" />
+    <Compile Include="Assets\Script\BackgroundCameraScroll.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
     <Compile Include="Assets\Script\Cooler.cs" />
     <Compile Include="Assets\Script\Crack.cs" />
@@ -330,6 +332,7 @@
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
+    <Compile Include="Assets\Script\InkBubble.cs" />
     <Compile Include="Assets\Script\JumpTouch.cs" />
     <Compile Include="Assets\Script\KnockBack.cs" />
     <Compile Include="Assets\Script\LevelScreen.cs" />
@@ -350,6 +353,7 @@
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
     <Compile Include="Assets\Script\SnakeBlock.cs" />
+    <Compile Include="Assets\Script\SpikeHole.cs" />
     <Compile Include="Assets\Script\StartingScreen.cs" />
     <Compile Include="Assets\Script\UIM.cs" />
     <Compile Include="Assets\옛날옛적파일\ColorToPrefeb.cs" />
