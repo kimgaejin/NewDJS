@@ -83,9 +83,10 @@ public class MovingPlatform : MonoBehaviour
 
         int colliderCount = 0;
         Collider2D[] colliders = new Collider2D[20];
-        ContactFilter2D contactFilter = new ContactFilter2D();
-        colliderCount = target.GetComponent<BoxCollider2D>().OverlapCollider(contactFilter, colliders);
-
+        BoxCollider2D targetBoxCollider = target.GetComponent<BoxCollider2D>();
+        
+        colliders = Physics2D.OverlapBoxAll(target.transform.position, targetBoxCollider.bounds.size, 1);
+        
         for (int i = 0; i < colliderCount; i++)
         {
             if (colliders[i].tag == "platform")

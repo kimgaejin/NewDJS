@@ -70,7 +70,7 @@ public class Player : MonoBehaviour {
         // 죽으면 조작 불가
         if (isDead) return;
 
-        if (rigid.velocity.y < -200) StartCoroutine("Dead");
+        if (rigid.velocity.y < -200) Die();
 
         // 점프(키보드입력, 무제한 점프)
         if (Input.GetKeyDown(KeyCode.J))
@@ -229,8 +229,8 @@ public class Player : MonoBehaviour {
 
         if (col.gameObject.tag.Equals("danger"))
         {
-           
-            StartCoroutine("Dead");
+
+            Die();
 
         }
 
@@ -335,6 +335,11 @@ public class Player : MonoBehaviour {
         isDead = false;
         rigid.isKinematic = false;
         rigid.velocity = Vector2.zero;
+    }
+
+    public void Die()
+    {
+        StartCoroutine("Dead");
     }
 
     IEnumerator Dead()

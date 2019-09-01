@@ -89,6 +89,7 @@
     <Compile Include="Assets\Script\MovingPlatform.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Script\PlayerBodyPoint.cs" />
     <Compile Include="Assets\Script\Portal.cs" />
     <Compile Include="Assets\Script\PortalB.cs" />
     <Compile Include="Assets\Script\Save.cs" />

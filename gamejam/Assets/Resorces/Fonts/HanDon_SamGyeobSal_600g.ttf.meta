@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6f909dbb51c450940892fe9342939fd4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Handon 3gyeopsal
+  fontNames:
+  - Handon 3gyeopsal
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4a75512a5aedee8408a64e70df4d8fae, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
