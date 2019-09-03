@@ -84,16 +84,37 @@ public class MovingPlatform : MonoBehaviour
         int colliderCount = 0;
         Collider2D[] colliders = new Collider2D[20];
         BoxCollider2D targetBoxCollider = target.GetComponent<BoxCollider2D>();
-        
-        colliders = Physics2D.OverlapBoxAll(target.transform.position, targetBoxCollider.bounds.size, 1);
-        
-        for (int i = 0; i < colliderCount; i++)
+        if (targetBoxCollider)
         {
-            if (colliders[i].tag == "platform")
+
+            colliders = Physics2D.OverlapBoxAll(target.transform.position, targetBoxCollider.bounds.size, 1);
+            colliderCount = colliders.Length;
+
+            for (int i = 0; i < colliderCount; i++)
             {
-                return true;
+                if (colliders[i].tag == "platform")
+                {
+                    return true;
+                }
             }
         }
+        else
+        {
+            CircleCollider2D targetCircleCollider = target.GetComponent<CircleCollider2D>();
+
+            colliders = Physics2D.OverlapCircleAll(target.transform.position, targetCircleCollider.radius, 1);
+            colliderCount = colliders.Length;
+
+            for (int i = 0; i < colliderCount; i++)
+            {
+                Debug.Log("count: " + colliders.Length + " " + colliders[i].name);
+                if (colliders[i].tag == "platform")
+                {
+                    return true;
+                }
+            }
+        }
+
 
         return false;
     }
