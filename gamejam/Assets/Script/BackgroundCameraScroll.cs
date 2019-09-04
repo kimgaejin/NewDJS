@@ -39,8 +39,8 @@ public class BackgroundCameraScroll : MonoBehaviour
             float zScalar = 1 / childZ;
 
             float x = parentDistance.x * zScalar;
-            Vector3 distance = new Vector3(x, parentDistance.y, 0);
-
+            //Vector3 distance = new Vector3(x, parentDistance.y, 0);
+            Vector3 distance = new Vector3(x, 0, 0);
             childObjs[i].transform.position -= distance;
         }
 

@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-F:/#MakingGames/UntitledBookBuilds/UntitledBook_v05.apk
+F:/#MakingGames/UntitledBookBuilds/UntitledBook_v06_1920.apk
 SceneListBegin?
 Assets/#ForLevelDesign/UI.unity
 Assets/#ForLevelDesign/Chapter0.unity
@@ -153,13 +153,14 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 bd543bad7f9f6262f10595aadb130d22 Cinemachine.dll:Cinemachine.CinemachineComposer
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 e31e0bb812a90e00947fc8efeaf130fb Assembly-CSharp.dll:.PortalB
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NewBehaviourScript1
 65840ebcbf8a15c79a35a5edec79dc56 Assembly-CSharp.dll:.SpikeHole
 15882a52798c275361cd0a3ada984ec5 Cinemachine.dll:Cinemachine.CinemachineDollyCart
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DangerInAir
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 204ea02909ea3f738dafe3ff633d2a93 Cinemachine.dll:Cinemachine.CinemachineTrackedDolly
 71bb6a6b6c8f052f948db64c7dd3ca4f Cinemachine.dll:Cinemachine.CinemachinePipeline
-606fae0347172a8670fb280e96f61bbc Assembly-CSharp.dll:.Lever_MoveOne
+1f76e5ebb9f1fb2bae7f2bfd78319fbf Assembly-CSharp.dll:.Lever_MoveOne
 694d20920c0e41f567e119f7159a3644 Cinemachine.dll:Cinemachine.CinemachinePath
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MoveRightTouch
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -213,6 +214,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerBodyPoint
 6225eb0973ab0af667bc5f9d1b1b18de Cinemachine.dll:Cinemachine.CinemachineCollider
 bd50beb95120324d8c4e8386692b6e82 Cinemachine.dll:Cinemachine.CinemachineBlenderSettings
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.mirror

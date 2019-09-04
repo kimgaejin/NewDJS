@@ -11,6 +11,10 @@ public class Player : MonoBehaviour {
     private int jumpCount = 0;  // 땅을 밟으면 2가 된다. 점프할때마다 1씩 감소. 0보다 낮으면 점프 불가.
     private int maxJumpNum = 2;
 
+    private float beforeRigidVelocityY = 0.0f;
+    private float movedTime = -0.5f;
+    private bool isMoving = false;
+    private float time = 0.0f;
 
     private Vector3 befPos;
     private bool usingMovingPlatform = false;
@@ -70,9 +74,9 @@ public class Player : MonoBehaviour {
         // 죽으면 조작 불가
         if (isDead) return;
 
-        if (rigid.velocity.y < -200) Die();
+        if (rigid.velocity.y < -100) Die();
 
-        // 점프(키보드입력, 무제한 점프)
+        // 점프(키보드입력)
         if (Input.GetKeyDown(KeyCode.J))
         {
             Jump(jumpPower);
@@ -80,7 +84,74 @@ public class Player : MonoBehaviour {
 
         OnMouseEvent();
 
+        ExecutePortal();
 
+        CheckJumpAnimation();
+
+        float deltaTime = Time.deltaTime;
+        WalkTimeRoutine(deltaTime);
+
+        time += deltaTime;
+    }
+
+    private void CheckJumpAnimation()
+    {
+        if (rigid.velocity.y < 0
+            && beforeRigidVelocityY >= 0)
+        {
+            anim.SetTrigger("OnTop");
+        }
+        beforeRigidVelocityY = rigid.velocity.y;
+    }
+
+
+    private void WalkTimeRoutine(float deltaTime)
+    {
+        float STAND_STATE_TIME = 0.25f;  // f초간 기다리면, 걷고있지 않은 것으로 간주.
+
+        float lastMovedTime = time - movedTime;  // 마지막으로 움직이고 지난 시간.
+        Debug.Log("kastMovedTime: " + lastMovedTime);
+        if (lastMovedTime > STAND_STATE_TIME)   // 가만히 있는 중
+        {
+            if (isMoving == true)
+            {
+                anim.SetBool("IsWalking", false);
+                isMoving = false;
+            }
+
+        }
+        else  // 움직이는 중
+        {
+            if (isMoving == false)
+            {
+                anim.SetBool("IsWalking", true);
+                isMoving = true;
+            }
+        }
+        /*
+        if (time - movedTime > STAND_STATE_TIME
+            && (time - movedTime) + deltaTime > STAND_STATE_TIME)
+        {
+            anim.SetBool("IsWalking", false);
+            isMoving = false;
+        }
+
+        if (movedTime - beforeMovedTime > 0.01f
+            && movedTime - beforeMovedTime < 0.25f) // 0.25초 안에 연속으로 움직인다면
+        {
+            if (isMoving == false)
+            {
+                anim.SetBool("IsWalking", true);
+            }
+            isMoving = true;
+        }
+
+        beforeMovedTime = movedTime;
+    */
+    }
+
+    private void ExecutePortal()
+    {
         if (Portal.Portal_A == 1)
         {
             Debug.Log("Portal_A");
@@ -96,7 +167,8 @@ public class Player : MonoBehaviour {
             }
 
         }
-        if (PortalB.Portal_B == 1) {
+        if (PortalB.Portal_B == 1)
+        {
             Debug.Log("Portal_B");
             if (key_down == 'A')
             {
@@ -146,15 +218,15 @@ public class Player : MonoBehaviour {
         // 좌우이동
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            key_down = 'A';
-       
+            MoveLeft();
+
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            key_down = 'D';
+            MoveRight();
         }
+        
+
         if (Input.GetKey(KeyCode.Alpha1)) {
             key_down = '1';
         }
@@ -314,6 +386,7 @@ public class Player : MonoBehaviour {
     {
         isGround = true;
         jumpCount = maxJumpNum;
+        anim.SetBool("IsGround", true);
     }
 
     void Light()
@@ -411,7 +484,10 @@ public class Player : MonoBehaviour {
 
         rigid.velocity = new Vector2(rigid.velocity.x, 0);
         rigid.AddForce(resPower, ForceMode2D.Impulse);
-       // Debug.Log("velocity: " + rigid.velocity);
+        // Debug.Log("velocity: " + rigid.velocity);
+        anim.SetBool("IsGround", false);
+        anim.SetTrigger("Jump");
+
 
         jumpCount--;
 
@@ -422,11 +498,17 @@ public class Player : MonoBehaviour {
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         key_down = 'D';
+        spr.flipX = false;
+        //anim.SetBool("IsWalking", true);
+        movedTime = time;
     }
 
     public void MoveLeft()
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         key_down = 'A';
+        spr.flipX = true;
+        //anim.SetBool("IsWalking", true);
+        movedTime = time;
     }
 }
