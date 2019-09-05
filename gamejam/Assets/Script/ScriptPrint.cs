@@ -54,7 +54,8 @@ public class ScriptPrint : MonoBehaviour
 
             curImageString = GetImageCode(curScript);
             curScript = GetScriptOnly(curScript);
-            scriptText.text = curScript;
+            curScript = GetEnteredString(curScript);
+            scriptText.text = curScript.ToString();
         }
         else
         {
@@ -68,6 +69,35 @@ public class ScriptPrint : MonoBehaviour
         string[] values = scripts.Split(')');
         if (values.Length > 1) return values[1];
         return values[0];
+    }
+
+    public string GetEnteredString(string scripts)
+    {
+        int scriptsLength = scripts.Length;
+        int indexRegister = 0;
+
+        while (scripts.Contains("\\n"))
+        {
+            scriptsLength = scripts.Length;
+
+            for (int i = indexRegister; i < scriptsLength - 1; i++)
+            {
+                if (scripts[i] == '\\')
+                {
+                    if (scripts[i + 1] == 'n')
+                    {
+                        Debug.Log("얘도찾음");
+
+                        scripts = scripts.Remove(i, 2);
+                        scripts = scripts.Insert(i, "\n");
+                        break;
+                    }
+                }
+            }
+        }
+
+        Debug.Log(scripts);
+        return scripts;
     }
 
     public string GetImageCode(string scripts)

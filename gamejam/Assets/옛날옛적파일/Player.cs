@@ -110,7 +110,7 @@ public class Player : MonoBehaviour {
         float STAND_STATE_TIME = 0.25f;  // f초간 기다리면, 걷고있지 않은 것으로 간주.
 
         float lastMovedTime = time - movedTime;  // 마지막으로 움직이고 지난 시간.
-        Debug.Log("kastMovedTime: " + lastMovedTime);
+        //Debug.Log("kastMovedTime: " + lastMovedTime);
         if (lastMovedTime > STAND_STATE_TIME)   // 가만히 있는 중
         {
             if (isMoving == true)
