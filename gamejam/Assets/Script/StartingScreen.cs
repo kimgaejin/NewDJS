@@ -35,8 +35,10 @@ public class StartingScreen : MonoBehaviour
         PlayerPrefs.SetInt("Stage1", 1); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("Stage2", 11); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("Stage3", 21); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage4", 31); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB1", 1); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB2", 11); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB3", 21); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB4", 31); // 플레그 접촉시 스테이지 저장
     }
 }

@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
     private void Awake()
     {
         //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
-        if (Stage >= 1 && Stage <= 29)
+        if (Stage >= 1 && Stage <= 39)
         {
             Debug.Log(Stage);
             Stagel = Stage.ToString();

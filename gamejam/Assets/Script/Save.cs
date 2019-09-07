@@ -44,6 +44,14 @@ public class Save : MonoBehaviour
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 3 "+stage);
             }
+            else if (stage / 10 == 3)
+            {
+                PlayerPrefs.SetInt("Stage4", stage); // 플레그 접촉시 스테이지 저장
+                if (stage < PlayerPrefs.GetInt("StageB4")) { }
+                else { PlayerPrefs.SetInt("StageB4", stage); }
+                Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
+                Debug.Log(" 4 " + stage);
+            }
 
         }
     }

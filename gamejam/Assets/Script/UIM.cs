@@ -7,15 +7,18 @@ public class UIM : MonoBehaviour
     public GameObject[] level1 = new GameObject[5];
     public GameObject[] level2 = new GameObject[5];
     public GameObject[] level3 = new GameObject[5];
+    public GameObject[] level4  = new GameObject[5];
     public int stage1;
     public int stage2;
     public int stage3;
+    public int stage4;
     // Start is called before the first frame update
     void Start()
     {    
         stage1 = PlayerPrefs.GetInt("StageB1"); //게임 시작시 현재까지 깬 스테이지 로드
         stage2 = PlayerPrefs.GetInt("StageB2"); //게임 시작시 현재까지 깬 스테이지 로드
         stage3 = PlayerPrefs.GetInt("StageB3"); //게임 시작시 현재까지 깬 스테이지 로드
+        stage4 = PlayerPrefs.GetInt("StageB4"); //게임 시작시 현재까지 깬 스테이지 로드
 
         if (stage1 == 0)
         {
@@ -39,8 +42,15 @@ public class UIM : MonoBehaviour
             PlayerPrefs.SetInt("Stage3", 21); // 플레그 접촉시 스테이지 저장
             PlayerPrefs.SetInt("StageB3", 21); // 플레그 접촉시 스테이지 저장
         }
+        if (stage4 == 0)
+        {
+            stage4 = 31;
 
-        Debug.Log("현재 스테이지" + stage1 + "   " + stage2 + "   " + stage3);
+            PlayerPrefs.SetInt("Stage4", 31); // 플레그 접촉시 스테이지 저장
+            PlayerPrefs.SetInt("StageB4", 31); // 플레그 접촉시 스테이지 저장
+        }
+
+        Debug.Log("현재 스테이지" + stage1 + "   " + stage2 + "   " + stage3 + "   " + stage4);
         for (int i = 0; i < 5; i++) {
             if (stage1 - int.Parse(level1[i].tag) >= 0)
             {
@@ -76,6 +86,17 @@ public class UIM : MonoBehaviour
                 level3[i].SetActive(false);
             }
         }
+        for (int i = 0; i < 5; i++)
+        {
+            if (stage4 - int.Parse(level4[i].tag) >= 0)
+            {
+                level4[i].SetActive(true);
+            }
+            else
+            {
+                level4[i].SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -84,6 +105,7 @@ public class UIM : MonoBehaviour
         stage1 = PlayerPrefs.GetInt("StageB1"); //게임 시작시 현재까지 깬 스테이지 로드
         stage2 = PlayerPrefs.GetInt("StageB2"); //게임 시작시 현재까지 깬 스테이지 로드
         stage3 = PlayerPrefs.GetInt("StageB3"); //게임 시작시 현재까지 깬 스테이지 로드
+        stage4 = PlayerPrefs.GetInt("StageB4"); //게임 시작시 현재까지 깬 스테이지 로드
         for (int i = 0; i < 5; i++)
         {
             if (stage1 - int.Parse(level1[i].tag) >= 0)
@@ -121,7 +143,17 @@ public class UIM : MonoBehaviour
                 level3[i].SetActive(false);
             }
         }
-
+        for (int i = 0; i < 5; i++)
+        {
+            if (stage4 - int.Parse(level4[i].tag) >= 0)
+            {
+                level4[i].SetActive(true);
+            }
+            else
+            {
+                level4[i].SetActive(false);
+            }
+        }
 
     }
 }
