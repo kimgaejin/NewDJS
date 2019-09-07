@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour {
     public string Stagel;
 
     public AudioClip Projector;
+    public AudioSource BGM;
     private void Awake()
     {
         //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
@@ -70,7 +72,7 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-
+        SVolume();
         // 죽으면 조작 불가
         if (isDead) return;
 
@@ -281,13 +283,16 @@ public class Player : MonoBehaviour {
         {
        
         }
-        if (col.gameObject.tag.Equals(""))
+        if (col.gameObject.tag.Equals("staticObject"))
         {
-
-            AudioSource Projector = GetComponent<AudioSource>();
-            Projector.Play();
-            Debug.Log("AAAAAAA");
+           //AudioSource Projector = GetComponent<AudioSource>();
+            BGM.clip = Projector;
+            BGM.Play();
+            BGM.volume = SoundVolume.volume;
+           // Projector.Play();
+           Debug.Log("AAAAAAA");
         }
+
 
 
 
@@ -510,5 +515,10 @@ public class Player : MonoBehaviour {
         spr.flipX = true;
         //anim.SetBool("IsWalking", true);
         movedTime = time;
+    }
+
+    public void SVolume() {
+
+        BGM.volume = SoundVolume.volume;
     }
 }

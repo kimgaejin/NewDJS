@@ -854,16 +854,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.04
       objectReference: {fileID: 0}
-    - target: {fileID: 5924694082371472395, guid: 5bbf431424f01db4cb802014852e54a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924694082371472395, guid: 5bbf431424f01db4cb802014852e54a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.06
-      objectReference: {fileID: 0}
     - target: {fileID: 5924694081740097652, guid: 5bbf431424f01db4cb802014852e54a5,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -873,6 +863,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924694082371472395, guid: 5bbf431424f01db4cb802014852e54a5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924694082371472395, guid: 5bbf431424f01db4cb802014852e54a5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bbf431424f01db4cb802014852e54a5, type: 3}
@@ -3142,11 +3142,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 8784448631328424238, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
-        type: 3}
-      propertyPath: Projector
-      value: 
-      objectReference: {fileID: 8300000, guid: db0e18136414bed429a016600f8dd84b, type: 3}
     - target: {fileID: 3769181363744446457, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
         type: 3}
       propertyPath: m_Name
@@ -3207,6 +3202,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8784448631328424238, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
+        type: 3}
+      propertyPath: Projector
+      value: 
+      objectReference: {fileID: 8300000, guid: db0e18136414bed429a016600f8dd84b, type: 3}
+    - target: {fileID: 8784448631328424238, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
+        type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 1299351098}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bd3d7d5be06a04fb1ef8de38a94c34, type: 3}
 --- !u!1001 &1169218596
@@ -5067,7 +5072,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: db0e18136414bed429a016600f8dd84b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5418,7 +5423,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e6771db21fedf94d971885850b192e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1661191cafe328b4a936c3ea277f2b6c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5516,6 +5521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795e5364e14c49c4186d3d049cbb16db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGM: {fileID: 2055305865}
 --- !u!1 &2069428215
 GameObject:
   m_ObjectHideFlags: 0

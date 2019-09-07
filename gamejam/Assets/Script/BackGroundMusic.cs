@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackGroundMusic : MonoBehaviour
 {
+    public AudioSource BGM;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,6 @@ public class BackGroundMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BGM.volume = SoundVolume.volume;
     }
 }
