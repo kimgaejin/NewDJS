@@ -5,17 +5,46 @@ using UnityEngine;
 public class Save : MonoBehaviour
 {
     private int stage;
+    Animator animator;
+    bool passed;
     // Start is called before the first frame update
     void Start()
     {
         stage = int.Parse(this.tag);
-       //Debug.Log(stage);
+        animator = GetComponent<Animator>();
+        if (stage / 10 == 0) {
+            if (stage < PlayerPrefs.GetInt("StageB1")) {
+                animator.SetBool("passed", true);
+            }
+        }
+        else if (stage / 10 == 1)
+        {
+            if (stage < PlayerPrefs.GetInt("StageB2"))
+            {
+                animator.SetBool("passed", true);
+            }
+        }
+        else if (stage / 10 == 2)
+        {
+            if (stage < PlayerPrefs.GetInt("StageB3"))
+            {
+                animator.SetBool("passed", true);
+            }
+        }
+        else if (stage / 10 == 3)
+        {
+            if (stage < PlayerPrefs.GetInt("StageB4"))
+            {
+                animator.SetBool("passed", true);
+            }
+        }
+        //Debug.Log(stage);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       // animator.SetBool("passed", true);
     }
 
     void OnTriggerEnter2D(Collider2D col) {
@@ -52,6 +81,10 @@ public class Save : MonoBehaviour
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 4 " + stage);
             }
+
+            animator.SetBool("passed", true);
+            //passed = true;
+
 
         }
     }
