@@ -8,6 +8,9 @@ public class Lever_Cooler : MonoBehaviour
     // 기획자를 위한 주석
     [Header("Coolers 하위에 선풍기들을 복사해서 쓰시면 됩니다.")]
 
+    [Header("수정 ㄴ, 플레이어와 물체간 유효거리")]
+    public float DISTANCE_WITH_PLAYER = 3.0f;
+    [Space(10)]
     //===========================
     // 수정 가능한 값
     [Space(5)]
@@ -60,47 +63,17 @@ public class Lever_Cooler : MonoBehaviour
 
     private void Start()
     {
-        AllCoolerTurnOff();
+        if (operateWhenLeverIsRight)
+            AllCoolerTurnOff();
+        else
+            AllCoolerTurnOn();
+
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ExecuteWithLight(collision);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            if (collision.transform.position.x < this.transform.position.x)
-            {
-                isPlayerLeft = true;
-                isPlayerRight = false;
-            }
-            else
-            {
-                isPlayerLeft = false;
-                isPlayerRight = true;
-            }
-        }
-
-        if (isPlayerLeftBefore && isPlayerRight)
-        {   // 레버가 오른쪽으로 돌아갔다.
-            LeverTurnRight();
-            if (operateWhenLeverIsRight) AllCoolerTurnOn();
-            if (!operateWhenLeverIsRight) AllCoolerTurnOff();
-        }
-
-        if (isPlayerRightBefore && isPlayerLeft)
-        {   // 레버가 왼쪽으로 돌아갔다.
-            LeverTurnLeft();
-            if (operateWhenLeverIsRight) AllCoolerTurnOff();
-            if (!operateWhenLeverIsRight) AllCoolerTurnOn();
-        }
-
-        isPlayerLeftBefore = isPlayerLeft;
-        isPlayerRightBefore = isPlayerRight;
     }
 
     private void ExecuteWithLight(Collider2D collision)
@@ -158,6 +131,22 @@ public class Lever_Cooler : MonoBehaviour
             {
                 coolers[i].ExecutionOff();
             }
+        }
+    }
+
+    public void SwitchAll()
+    {
+        if (isLeverLeft)    // 왼쪽 -> 오른쪽
+        {
+            LeverTurnRight();
+            if (operateWhenLeverIsRight) AllCoolerTurnOn();
+            if (!operateWhenLeverIsRight) AllCoolerTurnOff();
+        }
+        else
+        {
+            LeverTurnLeft();
+            if (operateWhenLeverIsRight) AllCoolerTurnOff();
+            if (!operateWhenLeverIsRight) AllCoolerTurnOn();
         }
     }
 }

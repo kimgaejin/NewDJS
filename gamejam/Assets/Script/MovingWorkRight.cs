@@ -10,13 +10,14 @@ public class MovingWorkRight : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (collision.tag == "platform") return;
+
         if (isExecute == false)
         {
             ReturnGravity(collision);
             return;
         }
-
         Rigidbody2D rigid;
         rigid = collision.GetComponent<Rigidbody2D>();
         if (!rigid) return;

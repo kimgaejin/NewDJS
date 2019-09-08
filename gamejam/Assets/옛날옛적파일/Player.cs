@@ -130,26 +130,7 @@ public class Player : MonoBehaviour {
                 isMoving = true;
             }
         }
-        /*
-        if (time - movedTime > STAND_STATE_TIME
-            && (time - movedTime) + deltaTime > STAND_STATE_TIME)
-        {
-            anim.SetBool("IsWalking", false);
-            isMoving = false;
-        }
-
-        if (movedTime - beforeMovedTime > 0.01f
-            && movedTime - beforeMovedTime < 0.25f) // 0.25초 안에 연속으로 움직인다면
-        {
-            if (isMoving == false)
-            {
-                anim.SetBool("IsWalking", true);
-            }
-            isMoving = true;
-        }
-
-        beforeMovedTime = movedTime;
-    */
+       
     }
 
     private void ExecutePortal()
@@ -196,15 +177,46 @@ public class Player : MonoBehaviour {
 
             foreach (RaycastHit2D hitOne in hit)
             {
-                Lever_MoveOne lever = hitOne.transform.GetComponent<Lever_MoveOne>();
-                if (lever)
-                {
-                    {
-                        lever.Switch();
-                    }
-                }
+                if (hitOne.transform.tag != "Untagged") continue;
+
+                LeverTouch(hitOne);
             }
         }
+    }
+
+    private void LeverTouch(RaycastHit2D hit)
+    {
+        Lever_MoveOne lever = hit.transform.GetComponent<Lever_MoveOne>();
+
+        if (lever)
+        {
+            if (Vector3.Distance(transform.position, lever.transform.position) < lever.DISTANCE_WITH_PLAYER)
+            {
+                lever.Switch();
+            }
+        }
+
+        Lever_Cooler leverCooler = hit.transform.GetComponent<Lever_Cooler>();
+
+        if (leverCooler)
+        {
+            if (Vector3.Distance(transform.position, leverCooler.transform.position) < leverCooler.DISTANCE_WITH_PLAYER)
+            {
+                leverCooler.SwitchAll();
+            }
+        }
+
+        Lever_Belt leverBelt = hit.transform.GetComponent<Lever_Belt>();
+
+        if (leverBelt)
+        {
+            if (Vector3.Distance(transform.position, leverBelt.transform.position) < leverBelt.DISTANCE_WITH_PLAYER)
+            {
+                leverBelt.SwitchAll();
+            }
+        }
+
+
     }
 
     private void FixedUpdate ()

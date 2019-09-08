@@ -8,6 +8,9 @@ public class Lever_Belt : MonoBehaviour
     // 기획자를 위한 주석
     [Header("Belts의 하위에 컨베이어벨트들을 복사해서 쓰시면 됩니다.")]
 
+    [Header("수정 ㄴ, 플레이어와 물체간 유효거리")]
+    public float DISTANCE_WITH_PLAYER = 3.0f;
+    [Space(10)]
     //===========================
     // 수정 가능한 값
     [Space(5)]
@@ -61,7 +64,11 @@ public class Lever_Belt : MonoBehaviour
 
     private void Start()
     {
-        AllBeltStop();
+        if (operateWhenLeverIsRight)
+            AllBeltStop();
+        else
+            AllBeltExecute();
+
     }
 
 
@@ -72,6 +79,7 @@ public class Lever_Belt : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        /*
         if (collision.tag == "Player")
         {
             if (collision.transform.position.x < this.transform.position.x)
@@ -104,6 +112,7 @@ public class Lever_Belt : MonoBehaviour
 
         isPlayerLeftBefore = isPlayerLeft;
         isPlayerRightBefore = isPlayerRight;
+ */   
     }
 
     private void ExecuteWithLight(Collider2D collision)
@@ -143,6 +152,7 @@ public class Lever_Belt : MonoBehaviour
         {
             if (belts[i])
             {
+                belts[i].transform.GetComponent<Rigidbody2D>().WakeUp();
                 belts[i].isExecute = true;
                 if (speed != 0)
                     belts[i].speed = speed;
@@ -159,6 +169,22 @@ public class Lever_Belt : MonoBehaviour
                 belts[i].isExecute = false;
                // Debug.Log("쓰답");
             }
+        }
+    }
+
+    public void SwitchAll()
+    {
+        if (isLeverLeft)    // 왼쪽 -> 오른쪽
+        {
+            LeverTurnRight();
+            if (operateWhenLeverIsRight) AllBeltExecute();
+            if (!operateWhenLeverIsRight) AllBeltStop();
+        }
+        else  // 오른쪽 -> 왼쪽
+        {
+            LeverTurnLeft();
+            if (operateWhenLeverIsRight) AllBeltStop();
+            if (!operateWhenLeverIsRight) AllBeltExecute();
         }
     }
 }

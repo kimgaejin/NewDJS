@@ -38,21 +38,12 @@ public class Lever_MoveOne : MonoBehaviour
     private bool isReverse = false;
 
     [Space(5)]
+    [Header("박스같은 오브젝트도 벽 취급합니다")]
+    public bool isCollpsedWithDynamicObjects = false;
+
+    [Space(5)]
     [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
-
-    /*
-    // 미구현
-    [Space(5)]
-    [Header("target이 이동 할 때; 기본값: 모든 지점을 순환한다.")]
-    [Tooltip("target이 마지막 지점에 도달하면 멈춥니다.")]
-    public bool isStopWhenLastPoint= false;
-    [Tooltip("target이 마지막 지점에 도달하면 역순환합니다.")]
-    public bool isReturnWhenCollpsedWall = false;
-    */
-
-    //[Tooltip("target이 다른 벽과 충돌하면 이제 반대 방향으로 회전합니다.")]
-    // public bool isReturnWhenCollpsedWall = false;
 
     // player의 transform.position으로 판독.
     private bool isPlayerLeft;
@@ -201,6 +192,17 @@ public class Lever_MoveOne : MonoBehaviour
             }
         }
 
+        if (isCollpsedWithDynamicObjects)
+        {
+            for (int i = 0; i < colliderCount; i++)
+            {
+                if (colliders[i].tag == "DynamicObject")
+                {
+                    return true;
+                }
+            }
+
+        }
         return false;
     }
 
