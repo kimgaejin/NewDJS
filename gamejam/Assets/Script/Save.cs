@@ -11,7 +11,7 @@ public class Save : MonoBehaviour
     void Start()
     {
         stage = int.Parse(this.tag);
-        animator = GetComponent<Animator>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
         if (stage / 10 == 0) {
             if (stage < PlayerPrefs.GetInt("StageB1")) {
                 animator.SetBool("passed", true);

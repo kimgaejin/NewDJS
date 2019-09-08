@@ -33,6 +33,11 @@ public class Lever_MoveOne : MonoBehaviour
     public bool isStopWhenCollpsedWall = false;
 
     [Space(5)]
+    [Header("target이 platform과 충돌 했을 때 전 포인트로 돌아간다 T/F. 게임 도중 건들지 마시오")]
+    public bool isReverseWhenCollpsedWall = false;
+    private bool isReverse = false;
+
+    [Space(5)]
     [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
 
@@ -57,6 +62,7 @@ public class Lever_MoveOne : MonoBehaviour
     private bool isLeverLeft;
     private bool isLeverRight;
     private bool isCollpsedWithPlatform;
+    private bool touchPlatform;
 
     private Vector3 beforeDistance = Vector3.zero;
     private Vector3 distance = Vector3.zero;
@@ -118,36 +124,69 @@ public class Lever_MoveOne : MonoBehaviour
 
         if (isExcuting)
         {
-            int nextInd = curIndex + 1;
-            if (nextInd >= indexSize) nextInd = 0;
+            touchPlatform = TouchWithPlatform();
 
-            float delta = speed * Time.deltaTime;
-            arrow = points[nextInd] - points[curIndex];
-            fixedPos = target.transform.position + arrow.normalized * delta;
-            distance = points[nextInd] - target.transform.position;
-
-            if (Vector3.Distance(target.position, points[nextInd]) < delta
-                || isEscapeLine(points[curIndex], points[nextInd], delta))
+            if (isReverseWhenCollpsedWall == true && touchPlatform == true)
             {
-                curIndex++;
-                if (curIndex >= indexSize) curIndex = 0;
-                fixedPos = points[curIndex];
+                isReverse = !isReverse;
             }
 
+            if (isReverse == false)
+            {
+                int nextInd = curIndex + 1;
+                if (nextInd >= indexSize) nextInd = 0;
+
+                float delta = speed * Time.deltaTime;
+                arrow = points[nextInd] - points[curIndex];
+                fixedPos = target.transform.position + arrow.normalized * delta;
+                distance = points[nextInd] - target.transform.position;
+
+                if (Vector3.Distance(target.position, points[nextInd]) < delta
+                    || isEscapeLine(points[curIndex], points[nextInd], delta))
+                {
+                    curIndex++;
+                    if (curIndex >= indexSize) curIndex = 0;
+                    fixedPos = points[curIndex];
+                }
+            }
+            else  // 전 포인트로 돌아가야 하는 부분
+            {
+                int nextInd = curIndex + 1;
+                if (nextInd >= indexSize) nextInd = 0;
+
+                float delta = speed * Time.deltaTime;
+                arrow = points[curIndex] - points[nextInd];
+                fixedPos = target.transform.position + arrow.normalized * delta;
+                distance = points[curIndex] - target.transform.position;
+
+                if (Vector3.Distance(target.position, points[curIndex]) < delta
+                    || isEscapeLine(points[curIndex], points[nextInd], delta))
+                {
+                    fixedPos = points[curIndex];
+                    curIndex--;
+                    if (curIndex < 0) curIndex = indexSize-1;
+                }
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (isStopWhenCollpsedWall == false
-            || (isStopWhenCollpsedWall ==true && TouchWithPlatform() == false))
+        if (isExcuting)
         {
-            target.transform.position = fixedPos;
+            if (isStopWhenCollpsedWall == false
+                || (isStopWhenCollpsedWall == true && touchPlatform == false))
+            {
+                target.transform.position = fixedPos;
+            }
         }
     }
 
     private bool TouchWithPlatform()
     {
+        // 다른 오브젝트와 부딪치기 전에 fixedPos를 통해 실행하면 더 정밀하지 않을까
+        // 하지만 지금은 말자...
+       
 
         int colliderCount = 0;
         Collider2D[] colliders = new Collider2D[20];
@@ -247,7 +286,6 @@ public class Lever_MoveOne : MonoBehaviour
 
         return true;
     }
-
 
     public void Switch()
     {

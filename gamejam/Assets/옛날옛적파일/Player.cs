@@ -190,21 +190,16 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             // 레버와 맞닿았다면 해당 레버 작동
-            RaycastHit2D hit = new RaycastHit2D();
+            RaycastHit2D [] hit = new RaycastHit2D [10];
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
+            hit = Physics2D.RaycastAll(ray.origin, ray.direction);
 
-            if (hit = Physics2D.Raycast(ray.origin, ray.direction))
+            foreach (RaycastHit2D hitOne in hit)
             {
-                Lever_MoveOne lever = hit.transform.GetComponent<Lever_MoveOne>();
+                Lever_MoveOne lever = hitOne.transform.GetComponent<Lever_MoveOne>();
                 if (lever)
                 {
-                    Debug.Log("lever");
-                    //if (lever.DISTANCE_WITH_PLAYER < Vector3.Distance(transform.position, lever.transform.position))
                     {
-
-                        Debug.Log("isExcuting");
-
                         lever.Switch();
                     }
                 }
@@ -517,8 +512,11 @@ public class Player : MonoBehaviour {
         movedTime = time;
     }
 
-    public void SVolume() {
-
-        BGM.volume = SoundVolume.volume;
+    public void SVolume()
+    {
+        if (BGM)
+        {
+            BGM.volume = SoundVolume.volume;
+        }
     }
 }
