@@ -3679,7 +3679,7 @@ PrefabInstance:
     - target: {fileID: 9073144386463384392, guid: e5241ca9b1753664e9e35bec9ff40d6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9073144386463384392, guid: e5241ca9b1753664e9e35bec9ff40d6c,
         type: 3}
@@ -4713,7 +4713,7 @@ PrefabInstance:
     - target: {fileID: 3458907630748417721, guid: b88103004151c6f4a9b5d356da857259,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3458907630748417721, guid: b88103004151c6f4a9b5d356da857259,
         type: 3}
@@ -6426,7 +6426,7 @@ PrefabInstance:
     - target: {fileID: 5467873637436968124, guid: 0fd2adc82cf0b0c4e9a77b947115c9ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5467873637436968124, guid: 0fd2adc82cf0b0c4e9a77b947115c9ac,
         type: 3}
@@ -7157,7 +7157,7 @@ PrefabInstance:
     - target: {fileID: 1373526243795978043, guid: e0b13d66c1083e1479065551f36b5754,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1373526243795978043, guid: e0b13d66c1083e1479065551f36b5754,
         type: 3}
@@ -18385,7 +18385,7 @@ PrefabInstance:
     - target: {fileID: 3744715754278936934, guid: 0146563744e17bf45934360a608cc165,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3744715754278936934, guid: 0146563744e17bf45934360a608cc165,
         type: 3}
@@ -20449,7 +20449,7 @@ PrefabInstance:
     - target: {fileID: 2946202851545932944, guid: 9afc12fea3200194886970ad0fd3c449,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2946202851545932944, guid: 9afc12fea3200194886970ad0fd3c449,
         type: 3}
