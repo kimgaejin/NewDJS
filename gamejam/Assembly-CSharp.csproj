@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\DangerInAir.cs" />
     <Compile Include="Assets\Script\Deletor.cs" />
     <Compile Include="Assets\Script\Destroier.cs" />
+    <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Script\NewBehaviourScript1.cs" />
     <Compile Include="Assets\Script\PlayerBodyPoint.cs" />
     <Compile Include="Assets\Script\Portal.cs" />
+    <Compile Include="Assets\Script\Portal_IO.cs" />
     <Compile Include="Assets\Script\PortalB.cs" />
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
