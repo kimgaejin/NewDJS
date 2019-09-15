@@ -18,6 +18,8 @@ public class PlayerBodyPoint : MonoBehaviour
         if (collision.tag.Equals("platform")
             || collision.tag.Equals("staticObject"))
         {
+            if (collision.GetComponent<PlatformEffector2D>()) return;
+
             playerScript.Die();
         }
     }

@@ -42,7 +42,7 @@ public class LevelScreen : MonoBehaviour
         }
         else if (int.Parse(this.tag) < 40)
         {
-            SceneManager.LoadScene("Ch.4");
+            SceneManager.LoadScene("Chapter3");
         }
         else if (int.Parse(this.tag) < 50)
         {

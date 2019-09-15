@@ -319,9 +319,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BackGroundMusic.cs" />
+    <Compile Include="Assets\flag.cs" />
+    <Compile Include="Assets\gggsddfs.cs" />
     <Compile Include="Assets\Script\AttachMoving.cs" />
     <Compile Include="Assets\Script\BackgroundCameraScroll.cs" />
+    <Compile Include="Assets\Script\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
     <Compile Include="Assets\Script\Cooler.cs" />
     <Compile Include="Assets\Script\Crack.cs" />
@@ -329,6 +331,7 @@
     <Compile Include="Assets\Script\DangerInAir.cs" />
     <Compile Include="Assets\Script\Deletor.cs" />
     <Compile Include="Assets\Script\Destroier.cs" />
+    <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
@@ -345,14 +348,19 @@
     <Compile Include="Assets\Script\MoveRightTouch.cs" />
     <Compile Include="Assets\Script\MovingObject.cs" />
     <Compile Include="Assets\Script\MovingPlatform.cs" />
+    <Compile Include="Assets\Script\MovingPlatformToOneDestination.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Script\NewBehaviourScript1.cs" />
+    <Compile Include="Assets\Script\PlayerBodyPoint.cs" />
     <Compile Include="Assets\Script\Portal.cs" />
+    <Compile Include="Assets\Script\Portal_IO.cs" />
     <Compile Include="Assets\Script\PortalB.cs" />
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
     <Compile Include="Assets\Script\SnakeBlock.cs" />
+    <Compile Include="Assets\Script\SoundVolume.cs" />
     <Compile Include="Assets\Script\SpikeHole.cs" />
     <Compile Include="Assets\Script\StartingScreen.cs" />
     <Compile Include="Assets\Script\UIM.cs" />
