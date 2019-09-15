@@ -90,6 +90,7 @@
     <Compile Include="Assets\Script\MoveRightTouch.cs" />
     <Compile Include="Assets\Script\MovingObject.cs" />
     <Compile Include="Assets\Script\MovingPlatform.cs" />
+    <Compile Include="Assets\Script\MovingPlatformToOneDestination.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript1.cs" />
