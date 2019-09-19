@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 5924694081936943770}
   - component: {fileID: 5924694081936943773}
   - component: {fileID: 5924694081936943772}
+  - component: {fileID: 8521055332716206285}
   m_Layer: 0
   m_Name: "\uB808\uBC84_\uD50C\uB7AB\uD3FC"
   m_TagString: Untagged
@@ -472,7 +473,10 @@ MonoBehaviour:
   DISTANCE_WITH_PLAYER: 3
   speed: 1
   isExcuting: 0
+  isIndependnetLeverWithTarget: 0
   isStopWhenCollpsedWall: 0
+  isReverseWhenCollpsedWall: 0
+  isCollpsedWithDynamicObjects: 0
   isPointsTransparentInGame: 1
 --- !u!61 &5924694081936943772
 BoxCollider2D:
@@ -500,6 +504,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8521055332716206285
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924694081936943771}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5924694082004427595
 GameObject:
   m_ObjectHideFlags: 0
