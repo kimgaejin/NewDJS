@@ -17,6 +17,8 @@ public class Lever_MoveOne : MonoBehaviour
     private Transform target;
     private MovingObject targetMovingObject;
     private Animator anim;
+    private Vector3 leverBodyBeforePos;
+    private Vector3 parentInterval;
 
     [Tooltip("물체가 움직이는 속도를 정합니다.")]
     public float speed = 1.0f;
@@ -26,7 +28,11 @@ public class Lever_MoveOne : MonoBehaviour
     //[Header("레버가 오른쪽 일 때 실행")]
     //[Tooltip("false라면 레버가 왼쪽으로 갔을 때 실행됩니다.")]
     //public bool operateWhenLeverIsRight = false;
-    
+
+    [Space(5)]
+    [Header("lever와 target이 독립적입니다. (움직이는 플랫폼 위에 있을 때 체크)")]
+    public bool isIndependnetLeverWithTarget = false;
+
     [Space(5)]
     [Header("target이 platform과 충돌 했을 때 멈춘다 T/F. 게임 도중 건들지 마시오")]
     [Tooltip("target이 다른 벽과 충돌하면 멈춥니다.")]
@@ -86,6 +92,8 @@ public class Lever_MoveOne : MonoBehaviour
                     pointsParent.GetChild(i).GetComponent<SpriteRenderer>().color = transparent;
                 }
             }
+
+            leverBodyBeforePos = transform.position;
         }
 
         {   // target 오브젝트 초기 위치 설정
@@ -133,7 +141,7 @@ public class Lever_MoveOne : MonoBehaviour
                 distance = points[nextInd] - target.transform.position;
 
                 if (Vector3.Distance(target.position, points[nextInd]) < delta
-                    || isEscapeLine(points[curIndex], points[nextInd], delta))
+                    )//|| isEscapeLine(points[curIndex], points[nextInd], delta))
                 {
                     curIndex++;
                     if (curIndex >= indexSize) curIndex = 0;
@@ -159,10 +167,16 @@ public class Lever_MoveOne : MonoBehaviour
                 }
             }
         }
+
+
+
     }
 
     private void FixedUpdate()
     {
+
+
+
         if (isExcuting)
         {
             if (isStopWhenCollpsedWall == false
@@ -171,14 +185,18 @@ public class Lever_MoveOne : MonoBehaviour
                 target.transform.position = fixedPos;
             }
         }
+        else
+        {
+            Vector3 leverBodyPos = transform.position;
+            parentInterval = leverBodyBeforePos - leverBodyPos;
+            leverBodyBeforePos = transform.position;
+
+            target.transform.position += parentInterval;
+        }
     }
 
     private bool TouchWithPlatform()
     {
-        // 다른 오브젝트와 부딪치기 전에 fixedPos를 통해 실행하면 더 정밀하지 않을까
-        // 하지만 지금은 말자...
-       
-
         int colliderCount = 0;
         Collider2D[] colliders = new Collider2D[20];
         ContactFilter2D contactFilter = new ContactFilter2D();
@@ -210,18 +228,12 @@ public class Lever_MoveOne : MonoBehaviour
     {
         if (collision.tag == "light")
         {
-            //if (operateWhenLeverIsRight)
+
             {
                 isLeverRight = true;
                 isLeverLeft = false;
                 anim.SetTrigger("handleToRight");
             }
-            //else
-            //{
-            //    isLeverRight = false;
-            //    isLeverLeft = true;
-            //    anim.SetTrigger("handleToLeft");
-            //}
         }
     }
 
