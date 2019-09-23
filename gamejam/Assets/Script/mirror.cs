@@ -10,6 +10,8 @@ public class mirror : MonoBehaviour
     {
         
     }
+
+
     private void OnMouseDown()
     {
 
@@ -30,21 +32,5 @@ public class mirror : MonoBehaviour
         {
             this.gameObject.tag = "812R456";
         }
-        /*
-        transform.Rotate(new Vector3(0, 0, 90));
-        if (this.gameObject.tag == "mirror12") {
-            this.gameObject.tag = "mirror41";
-        }
-       else if (this.gameObject.tag == "mirror41")
-        {
-            this.gameObject.tag = "mirror34";
-        }
-       else if (this.gameObject.tag == "mirror34") {
-            this.gameObject.tag = "mirror23";
-        }
-        else if(this.gameObject.tag == "mirror23") {
-            this.gameObject.tag = "mirror12";
-        }
-        */
     }
 }

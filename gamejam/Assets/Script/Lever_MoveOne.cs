@@ -174,9 +174,6 @@ public class Lever_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
-
         if (isExcuting)
         {
             if (isStopWhenCollpsedWall == false
