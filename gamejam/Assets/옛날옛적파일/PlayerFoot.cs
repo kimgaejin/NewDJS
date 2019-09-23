@@ -18,7 +18,7 @@ public class PlayerFoot : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         // 뭔가 닿았으면 아직까진 다 땅 아녀?
-        if (playerRigid.velocity.y <= 0)
+        if (playerRigid.velocity.y <= 0.05f)
         {
             playerScript.SetCanJump();
         }
