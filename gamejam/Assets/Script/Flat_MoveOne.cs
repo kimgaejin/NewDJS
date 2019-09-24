@@ -23,6 +23,10 @@ public class Flat_MoveOne : MonoBehaviour
     [Tooltip("게임을 시작 했을 때, points들이 투명이 됩니다.")]
     public bool isPointsTransparentInGame = true;
 
+    private Transform pointsParent;
+    private Vector3 leverBodyBeforePos;
+    private Vector3 parentInterval;
+
     private bool isPressedBefore = false;
     private bool isPressed = false;
     private int curPressingObject = 0;
@@ -39,7 +43,6 @@ public class Flat_MoveOne : MonoBehaviour
     private void Awake()
     {
         {   // 오브젝트가 이동할 경로인 points에 대한 초기화
-            Transform pointsParent;
             pointsParent = this.transform.Find("Points");
 
             int size = pointsParent.childCount;
@@ -90,6 +93,12 @@ public class Flat_MoveOne : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector3 leverBodyPos = transform.position;
+        parentInterval = leverBodyBeforePos - leverBodyPos;
+        leverBodyBeforePos = transform.position;
+
+        target.transform.position += parentInterval;
+        pointsParent.position += parentInterval;
 
         if (isPressed)
         {

@@ -13,6 +13,7 @@ public class Lever_MoveOne : MonoBehaviour
     public float DISTANCE_WITH_PLAYER = 3.0f;
     [Space(10)]
 
+    private Transform pointsParent;
     private Vector3[] points;
     private Transform target;
     private MovingObject targetMovingObject;
@@ -73,7 +74,6 @@ public class Lever_MoveOne : MonoBehaviour
     private void Awake()
     {
         {   // 오브젝트가 이동할 경로인 points에 대한 초기화
-            Transform pointsParent;
             pointsParent = this.transform.Find("Points");
 
             int size = pointsParent.childCount;
@@ -117,9 +117,13 @@ public class Lever_MoveOne : MonoBehaviour
 
     private void Update()
     {
-        // 레버가 작동 상태일 때
-        //if ((operateWhenLeverIsRight && isLeverRight)
-        //   || (operateWhenLeverIsRight == false && isLeverLeft))
+
+        Vector3 leverBodyPos = transform.position;
+        parentInterval = leverBodyBeforePos - leverBodyPos;
+        leverBodyBeforePos = transform.position;
+
+        target.transform.position += parentInterval;
+        pointsParent.position += parentInterval;
 
         if (isExcuting)
         {
@@ -140,8 +144,8 @@ public class Lever_MoveOne : MonoBehaviour
                 fixedPos = target.transform.position + arrow.normalized * delta;
                 distance = points[nextInd] - target.transform.position;
 
-                if (Vector3.Distance(target.position, points[nextInd]) < delta
-                    )//|| isEscapeLine(points[curIndex], points[nextInd], delta))
+                if (Vector3.Distance(target.position, points[nextInd]) < delta*2
+                    || isEscapeLine(points[curIndex], points[nextInd], delta * 2))
                 {
                     curIndex++;
                     if (curIndex >= indexSize) curIndex = 0;
@@ -158,8 +162,8 @@ public class Lever_MoveOne : MonoBehaviour
                 fixedPos = target.transform.position + arrow.normalized * delta;
                 distance = points[curIndex] - target.transform.position;
 
-                if (Vector3.Distance(target.position, points[curIndex]) < delta
-                    || isEscapeLine(points[curIndex], points[nextInd], delta))
+                if (Vector3.Distance(target.position, points[curIndex]) < delta * 2
+                    || isEscapeLine(points[curIndex], points[nextInd], delta*2))
                 {
                     fixedPos = points[curIndex];
                     curIndex--;
@@ -182,14 +186,8 @@ public class Lever_MoveOne : MonoBehaviour
                 target.transform.position = fixedPos;
             }
         }
-        else
-        {
-            Vector3 leverBodyPos = transform.position;
-            parentInterval = leverBodyBeforePos - leverBodyPos;
-            leverBodyBeforePos = transform.position;
 
-            target.transform.position += parentInterval;
-        }
+
     }
 
     private bool TouchWithPlatform()
