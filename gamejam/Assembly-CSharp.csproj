@@ -94,6 +94,7 @@
     <Compile Include="Assets\Script\MovingObject.cs" />
     <Compile Include="Assets\Script\MovingPlatform.cs" />
     <Compile Include="Assets\Script\MovingPlatformToOneDestination.cs" />
+    <Compile Include="Assets\Script\MovingWork_mod.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript1.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Script\Portal.cs" />
     <Compile Include="Assets\Script\Portal_IO.cs" />
     <Compile Include="Assets\Script\PortalB.cs" />
+    <Compile Include="Assets\Script\RigidbodyForStacked.cs" />
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />

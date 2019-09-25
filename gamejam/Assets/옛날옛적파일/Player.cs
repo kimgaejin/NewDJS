@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     private float movedTime = -0.5f;
     private bool isMoving = false;
     private float time = 0.0f;
+    private Vector2 beforeMovingVel;
 
     private Vector3 befPos;
     private bool usingMovingPlatform = false;
@@ -234,7 +235,7 @@ public class Player : MonoBehaviour {
         {
             MoveRight();
         }
-        
+
 
         if (Input.GetKey(KeyCode.Alpha1)) {
             key_down = '1';
@@ -508,20 +509,29 @@ public class Player : MonoBehaviour {
 
     public void MoveRight()
     {
+        //rigid.AddForce(Vector2.right * moveSpeed);
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+
         key_down = 'D';
         spr.flipX = false;
         //anim.SetBool("IsWalking", true);
         movedTime = time;
+    
     }
 
     public void MoveLeft()
     {
+        //rigid.AddForce(Vector2.left * moveSpeed);
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         key_down = 'A';
         spr.flipX = true;
         //anim.SetBool("IsWalking", true);
         movedTime = time;
+    }
+
+    public void DontMove()
+    {
+
     }
 
     public void SVolume()

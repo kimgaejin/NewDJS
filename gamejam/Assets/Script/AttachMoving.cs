@@ -11,7 +11,7 @@ public class AttachMoving : MonoBehaviour
     private Vector3 parentBefPos;
 
     private float jumpPowerSave;
-
+    private bool isDisable = false;
 
     private void Start()
     {
@@ -20,23 +20,31 @@ public class AttachMoving : MonoBehaviour
         parent = transform.parent;
         parentBefPos = parent.transform.position;
     }
-
-    private void LateUpdate()
+    
+    private void Update()
     {
+        
         posDiff = transform.position - befPos;
         Vector3 parentDiff = parent.position - parentBefPos;
 
-        if (posDiff.magnitude > parentDiff.magnitude)
-        {
-            transform.position = befPos + parentDiff;
-        }
+        //transform.position += parentDiff;
+        // if (posDiff.magnitude > parentDiff.magnitude)
+        //{
+        //    transform.position = befPos + parentDiff;
+        //}
+        // Debug.Log( transform.parent.name +" pD: " + posDiff + "paD: " + parentDiff);
+        //transform.position = befPos;
 
         befPos = transform.position;
         parentBefPos = parent.position;
+    
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (isDisable) return;
+
+
         if (collision.tag == "Player"
             || collision.tag == "DynamicObject")
         {

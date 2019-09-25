@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+class ObjectOnMovingWork
+{
+    public Transform trans;
+
+};
+
 public class MovingWorkRight : MonoBehaviour
 {
     public float speed = 1;
@@ -18,6 +24,19 @@ public class MovingWorkRight : MonoBehaviour
             ReturnGravity(collision);
             return;
         }
+
+        TakeObject(collision);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "platform") return;
+
+        ReturnGravity(collision);
+    }
+
+    private void TakeObject(Collider2D collision)
+    {
         Rigidbody2D rigid;
         rigid = collision.GetComponent<Rigidbody2D>();
         if (!rigid) return;
@@ -31,13 +50,6 @@ public class MovingWorkRight : MonoBehaviour
         collision.transform.position += power / rigid.mass * Time.deltaTime;
 
         rigid.gravityScale = 0;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "platform") return;
-
-        ReturnGravity(collision);
     }
 
     private void ReturnGravity(Collider2D collision)
