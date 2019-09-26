@@ -9,12 +9,16 @@ public class LevelScreen : MonoBehaviour
     public int stage1;
     public int stage2;
     public int stage3;
+    public int stage4;
+    public int stage5;
     // Start is called before the first frame update
     void Start()
     {
         stage1 = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
         stage2 = PlayerPrefs.GetInt("Stage2"); //게임 시작시 현재까지 깬 스테이지 로드
         stage3 = PlayerPrefs.GetInt("Stage3"); //게임 시작시 현재까지 깬 스테이지 로
+        stage4 = PlayerPrefs.GetInt("Stage4"); //게임 시작시 현재까지 깬 스테이지 로
+        stage5 = PlayerPrefs.GetInt("Stage5"); //게임 시작시 현재까지 깬 스테이지 로
 
     }
 

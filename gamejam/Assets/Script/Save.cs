@@ -38,6 +38,13 @@ public class Save : MonoBehaviour
                 animator.SetBool("passed", true);
             }
         }
+        else if (stage / 10 == 4)
+        {
+            if (stage < PlayerPrefs.GetInt("StageB5"))
+            {
+                animator.SetBool("passed", true);
+            }
+        }
         //Debug.Log(stage);
     }
 
@@ -80,6 +87,14 @@ public class Save : MonoBehaviour
                 else { PlayerPrefs.SetInt("StageB4", stage); }
                 Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
                 Debug.Log(" 4 " + stage);
+            }
+            else if (stage / 10 == 4)
+            {
+                PlayerPrefs.SetInt("Stage5", stage); // 플레그 접촉시 스테이지 저장
+                if (stage < PlayerPrefs.GetInt("StageB5")) { }
+                else { PlayerPrefs.SetInt("StageB5", stage); }
+                Player.Stage_pos = GameObject.FindWithTag(stage.ToString()).gameObject.transform.position;
+                Debug.Log(" 5 " + stage);
             }
 
             animator.SetBool("passed", true);
