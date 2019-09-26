@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\AttachMoving.cs" />
     <Compile Include="Assets\Script\BackgroundCameraScroll.cs" />
     <Compile Include="Assets\Script\BackGroundMusic.cs" />
+    <Compile Include="Assets\Script\BlackOnTouch.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
     <Compile Include="Assets\Script\Cooler.cs" />
     <Compile Include="Assets\Script\Crack.cs" />

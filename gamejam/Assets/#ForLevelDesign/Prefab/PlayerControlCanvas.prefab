@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 1373526242741233603}
   - component: {fileID: 1373526242741233600}
   - component: {fileID: 1373526242741233601}
+  - component: {fileID: 2786717816872445826}
   m_Layer: 5
   m_Name: JumpTouch
   m_TagString: Untagged
@@ -403,6 +404,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a04a73b532ce09a4f8c1f4331c1c4083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2786717816872445826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373526242741233615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26919924c2e51094ca5da420f9b19485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1373526242753429455
@@ -493,6 +506,7 @@ GameObject:
   - component: {fileID: 1373526243023604930}
   - component: {fileID: 1373526243023604931}
   - component: {fileID: 1373526243023604928}
+  - component: {fileID: 2011956376124423317}
   m_Layer: 5
   m_Name: LeftArrow
   m_TagString: Untagged
@@ -566,6 +580,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62a9d688c0b70ea4d8a309b9f5218d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2011956376124423317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373526243023604942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26919924c2e51094ca5da420f9b19485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1373526243795978023
@@ -757,6 +783,7 @@ GameObject:
   - component: {fileID: 1373526243917900961}
   - component: {fileID: 1373526243917900974}
   - component: {fileID: 1373526243917900960}
+  - component: {fileID: 3030106137715147852}
   m_Layer: 5
   m_Name: RightArrow
   m_TagString: Untagged
@@ -830,6 +857,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad49ac38e8b8ca646a0e88287d2c06d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3030106137715147852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373526243917900972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26919924c2e51094ca5da420f9b19485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2671813891485663239
@@ -943,7 +982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 89.05716, y: 46.674988}
+  m_AnchoredPosition: {x: 89.05719, y: 46.67505}
   m_SizeDelta: {x: -384, y: -571}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &391839079565461662
