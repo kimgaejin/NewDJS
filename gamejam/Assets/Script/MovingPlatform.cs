@@ -92,6 +92,8 @@ public class MovingPlatform : MonoBehaviour
 
             for (int i = 0; i < colliderCount; i++)
             {
+                if (target.transform == colliders[i].transform) continue;
+
                 if (colliders[i].tag == "platform")
                 {
                     return true;
@@ -107,7 +109,8 @@ public class MovingPlatform : MonoBehaviour
 
             for (int i = 0; i < colliderCount; i++)
             {
-                Debug.Log("count: " + colliders.Length + " " + colliders[i].name);
+                if (target.transform == colliders[i].transform) continue;
+
                 if (colliders[i].tag == "platform")
                 {
                     return true;
