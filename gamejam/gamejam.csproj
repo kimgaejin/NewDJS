@@ -324,6 +324,7 @@
     <Compile Include="Assets\Script\AttachMoving.cs" />
     <Compile Include="Assets\Script\BackgroundCameraScroll.cs" />
     <Compile Include="Assets\Script\BackGroundMusic.cs" />
+    <Compile Include="Assets\Script\BlackOnTouch.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
     <Compile Include="Assets\Script\Cooler.cs" />
     <Compile Include="Assets\Script\Crack.cs" />
@@ -333,22 +334,26 @@
     <Compile Include="Assets\Script\Destroier.cs" />
     <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
+    <Compile Include="Assets\Script\DirectionConst.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
     <Compile Include="Assets\Script\InkBubble.cs" />
     <Compile Include="Assets\Script\JumpTouch.cs" />
     <Compile Include="Assets\Script\KnockBack.cs" />
+    <Compile Include="Assets\Script\LazerPointer.cs" />
     <Compile Include="Assets\Script\LevelScreen.cs" />
     <Compile Include="Assets\Script\Lever_Belt.cs" />
     <Compile Include="Assets\Script\Lever_Cooler.cs" />
     <Compile Include="Assets\Script\Lever_MoveOne.cs" />
     <Compile Include="Assets\Script\light.cs" />
     <Compile Include="Assets\Script\mirror.cs" />
+    <Compile Include="Assets\Script\MirrorState.cs" />
     <Compile Include="Assets\Script\MoveLeftTouch.cs" />
     <Compile Include="Assets\Script\MoveRightTouch.cs" />
     <Compile Include="Assets\Script\MovingObject.cs" />
     <Compile Include="Assets\Script\MovingPlatform.cs" />
     <Compile Include="Assets\Script\MovingPlatformToOneDestination.cs" />
+    <Compile Include="Assets\Script\MovingWork_mod.cs" />
     <Compile Include="Assets\Script\MovingWorkRight.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
     <Compile Include="Assets\Script\NewBehaviourScript1.cs" />
@@ -356,6 +361,7 @@
     <Compile Include="Assets\Script\Portal.cs" />
     <Compile Include="Assets\Script\Portal_IO.cs" />
     <Compile Include="Assets\Script\PortalB.cs" />
+    <Compile Include="Assets\Script\RigidbodyForStacked.cs" />
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
@@ -371,7 +377,6 @@
     <Compile Include="Assets\옛날옛적파일\PlayerFoot.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\#ForLevelDesign\Prefab\Lever_move설명서.txt" />
     <None Include="Assets\Editor\Plugins\2d-extras-master\Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\Editor\Plugins\2d-extras-master\Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Packages\com.unity.cinemachine\Editor\Resources\CMWaveform.compute" />
