@@ -17,72 +17,71 @@ public class dieblock : MonoBehaviour
     public float destroytime;
     public float regeneratetime;
 
-
     private int c_enter;
     private Vector2 pos;
+
+    private Transform graphicsParent;
+    private Transform graphics;
+    private Animator anim;
+
     void Start()
     {
 
+        graphicsParent = transform.FindChild("GraphicsParent");
+        if (graphicsParent) graphics = graphicsParent.FindChild("Graphics");
+        if (graphics)
+            anim = graphics.GetComponent<Animator>();
+
         destroytime = 2;
         regeneratetime = 3;
-        /*
-        fTickTime = 0;
-        fTickTime1 = 0;
-        */
 
         c_enter = 0;
-        pos = this.gameObject.transform.position;
+        pos = gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        //Debug.Log(fTickTime + "   " + fTickTime1);
-        fTickTime = fTickTime + 1;
-        if (fTickTime - fTickTime1 >= destroytime && c_enter == 1)
-        {
-           // Debug.Log("asd");
-            Block_setActive_false();
-        }
-        if (fTickTime - fTickTime1 >= regeneratetime && fTickTime - fTickTime1 <= regeneratetime+30) {
-            //Debug.Log("asd");
-            Block_setActive_true();
-            c_enter = 0;
-        }
-        */
         if (c_enter == 1 && (Time.time - Step_time) > destroytime) {
+            if (anim) anim.SetTrigger("Drop");
             Block_setActive_false();
         }
         if (c_enter == 1 && (Time.time - Step_time) > (regeneratetime + destroytime)) {
-
+            if (anim) anim.SetTrigger("BackToOriginState");
             Block_setActive_true();
             c_enter = 0;
         }
+
     }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag.Equals("Player"))
         {
             c_enter = 1;
-            /*
-          //  Debug.Log(fTickTime);
-            fTickTime1 = fTickTime;
-            */
+            if (anim) anim.SetTrigger("PlayerOnThis");
             Step_time = Time.time;
             
         }
 
     }
+
     void Block_setActive_true() {
 
         transform.position = pos;
-        // block.gameObject.SetActive(true);
+        if (graphics)
+        {
+            graphicsParent.transform.position = pos;
+        }
     }
+
     void Block_setActive_false()
     {
         transform.position = new Vector2(10000, 100000);
-        //  block.gameObject.SetActive(false);
+        if (graphics)
+        {
+            graphicsParent.transform.position = pos;
+        }
     }
 
 }

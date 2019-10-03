@@ -178,6 +178,7 @@ public class Player : MonoBehaviour {
 
             foreach (RaycastHit2D hitOne in hit)
             {
+                Debug.Log("touch " + hitOne.transform.name);
                 if (hitOne.transform.tag != "Untagged") continue;
 
                 LeverTouch(hitOne);
