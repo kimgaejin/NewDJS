@@ -8,12 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/#ForLevelDesign/UI.unity
     guid: 8b5d64d4e5d41444f8440def92ca5d71
-  - enabled: 0
-    path: Assets/Scenes/spring.unity
-    guid: 65765464887355a4eac87095117a7ef4
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/#ForLevelDesign/Chapter0.unity
     guid: 9585d085c1bf4e840a65ef998aafc5f2
@@ -26,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/#ForLevelDesign/Chapter3.unity
     guid: ed25b80b68203194b8e3b7506bf4abbb
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/#ForLevelDesign/Chapter4.unity
+    guid: 7da9b650a42b73a46a6e761805c2b929
+  - enabled: 1
+    path: Assets/#ForLevelDesign/Chapter5.unity
+    guid: c0eda1941c38f484b81314d80d4d6280
   m_configObjects: {}

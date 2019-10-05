@@ -43,11 +43,13 @@ public class dieblock : MonoBehaviour
     void Update()
     {
         if (c_enter == 1 && (Time.time - Step_time) > destroytime) {
-            if (anim) anim.SetTrigger("Drop");
+            if (anim) anim.SetInteger("Drop", 2);
             Block_setActive_false();
         }
         if (c_enter == 1 && (Time.time - Step_time) > (regeneratetime + destroytime)) {
-            if (anim) anim.SetTrigger("BackToOriginState");
+            if (anim) anim.SetInteger("Drop", 0);
+            if (anim) anim.SetBool("Ready", true);
+            
             Block_setActive_true();
             c_enter = 0;
         }
@@ -59,7 +61,8 @@ public class dieblock : MonoBehaviour
         if (col.gameObject.tag.Equals("Player"))
         {
             c_enter = 1;
-            if (anim) anim.SetTrigger("PlayerOnThis");
+            if (anim) anim.SetBool("Ready", false);
+            if (anim) anim.SetInteger("Drop", 1);
             Step_time = Time.time;
             
         }
