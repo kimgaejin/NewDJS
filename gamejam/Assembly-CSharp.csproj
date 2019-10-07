@@ -82,6 +82,7 @@
     <Compile Include="Assets\Script\InkBubble.cs" />
     <Compile Include="Assets\Script\JumpTouch.cs" />
     <Compile Include="Assets\Script\KnockBack.cs" />
+    <Compile Include="Assets\Script\LazerGetter.cs" />
     <Compile Include="Assets\Script\LazerPointer.cs" />
     <Compile Include="Assets\Script\LevelScreen.cs" />
     <Compile Include="Assets\Script\Lever_Belt.cs" />
