@@ -10,6 +10,7 @@ public class LazerGetter : MonoBehaviour
     private MovingObject targetMovingObject;
     private Vector3 leverBodyBeforePos;
     private Vector3 parentInterval;
+    private int onLazerRegister = 0;
 
     private Transform executeSprite;
     private Transform unexecuteSprite;
@@ -27,6 +28,14 @@ public class LazerGetter : MonoBehaviour
     [Space(5)]
     [Header("target이 마지막 point에 도착하면 멈춘다.")]
     public bool isStopOnLastPoint = false;
+
+    [Space(5)]
+    [Header("레이저를 쏘지 않으면 다시 불이 꺼진다")]
+    public bool isTurnOffWithoutLazer= false;
+
+    [Space(5)]
+    [Header("레이저가 꺼있으면 역방향으로 간다. ( 초기 위치로 돌아감 )")]
+    public bool isReverseWithoutLazer = false;
 
     [Space(5)]
     [Header("lever와 target이 독립적입니다. (움직이는 플랫폼 위에 있을 때 체크)")]
@@ -127,6 +136,13 @@ public class LazerGetter : MonoBehaviour
         target.transform.position += parentInterval;
         pointsParent.position += parentInterval;
 
+        if (isTurnOffWithoutLazer)
+        {
+            if (onLazerRegister < 0)
+                SwitchOff();
+            onLazerRegister--;
+        }
+
         if (isExcuting)
         {
             touchPlatform = TouchWithPlatform();
@@ -175,6 +191,27 @@ public class LazerGetter : MonoBehaviour
                 }
             }
         }
+
+        if (isReverseWithoutLazer && !isExcuting)
+        {
+            int nextInd = curIndex + 1;
+            if (nextInd >= indexSize) nextInd = 0;
+
+            float delta = speed * Time.deltaTime;
+            arrow = points[curIndex] - points[nextInd];
+            fixedPos = target.transform.position + arrow.normalized * delta;
+            distance = points[curIndex] - target.transform.position;
+            Debug.Log(fixedPos);
+            if (Vector3.Distance(target.position, points[curIndex]) < delta * 2
+                || isEscapeLine(points[curIndex], points[nextInd], delta * 2))
+            {
+                fixedPos = points[curIndex];
+                curIndex--;
+                if (curIndex < 0) curIndex = 0;
+            }
+        }
+
+       
     }
 
     private void FixedUpdate()
@@ -188,6 +225,10 @@ public class LazerGetter : MonoBehaviour
             }
         }
 
+        if (isReverseWithoutLazer && !isExcuting)
+        {
+            target.transform.position = fixedPos;
+        }
 
     }
 
@@ -266,7 +307,7 @@ public class LazerGetter : MonoBehaviour
         }
     }
 
-    public void SwitchOn()
+    private void SwitchOn()
     {
         if (!isExcuting)
         {
@@ -276,5 +317,23 @@ public class LazerGetter : MonoBehaviour
             if (executeSprite) executeSprite.gameObject.SetActive(true);
             if (unexecuteSprite) unexecuteSprite.gameObject.SetActive(false);
         }
+    }
+
+    public void SwitchOff()
+    {
+        if (isExcuting)
+        {
+            isExcuting = false;
+            isLeverRight = false;
+            isLeverLeft = true;
+            if (executeSprite) executeSprite.gameObject.SetActive(false);
+            if (unexecuteSprite) unexecuteSprite.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnLazer()
+    {
+        SwitchOn();
+        onLazerRegister = 10;
     }
 }

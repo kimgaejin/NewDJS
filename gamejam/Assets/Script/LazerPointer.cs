@@ -131,8 +131,8 @@ public class LazerPointer : MonoBehaviour
             LazerGetter lazerGetter = hit.transform.GetComponent<LazerGetter>();
             if (lazerGetter)
             {
-                lazerGetter.SwitchOn();
-            }
+                lazerGetter.OnLazer();
+}
 
             Lever_MoveOne lever = hit.transform.GetComponent<Lever_MoveOne>();
             if (lever)

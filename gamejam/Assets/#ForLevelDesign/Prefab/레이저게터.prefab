@@ -382,6 +382,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   isExcuting: 0
+  isStopOnLastPoint: 1
+  isTurnOffWithoutLazer: 1
+  isReverseWithoutLazer: 1
   isIndependnetLeverWithTarget: 0
   isStopWhenCollpsedWall: 0
   isReverseWhenCollpsedWall: 0

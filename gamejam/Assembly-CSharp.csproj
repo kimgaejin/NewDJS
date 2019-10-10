@@ -91,6 +91,7 @@
     <Compile Include="Assets\Script\light.cs" />
     <Compile Include="Assets\Script\mirror.cs" />
     <Compile Include="Assets\Script\MirrorState.cs" />
+    <Compile Include="Assets\Script\MouseEventOnLevel.cs" />
     <Compile Include="Assets\Script\MoveLeftTouch.cs" />
     <Compile Include="Assets\Script\MoveRightTouch.cs" />
     <Compile Include="Assets\Script\MovingObject.cs" />

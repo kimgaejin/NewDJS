@@ -85,8 +85,6 @@ public class Player : MonoBehaviour {
             Jump(jumpPower);
         }
 
-        OnMouseEvent();
-
         ExecutePortal();
 
         CheckJumpAnimation();
@@ -167,60 +165,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnMouseEvent()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            // 레버와 맞닿았다면 해당 레버 작동
-            RaycastHit2D [] hit = new RaycastHit2D [10];
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hit = Physics2D.RaycastAll(ray.origin, ray.direction);
-
-            foreach (RaycastHit2D hitOne in hit)
-            {
-                Debug.Log("touch " + hitOne.transform.name);
-                if (hitOne.transform.tag != "Untagged") continue;
-
-                LeverTouch(hitOne);
-            }
-        }
-    }
-
-    private void LeverTouch(RaycastHit2D hit)
-    {
-        Lever_MoveOne lever = hit.transform.GetComponent<Lever_MoveOne>();
-
-        if (lever)
-        {
-            if (Vector3.Distance(transform.position, lever.transform.position) < lever.DISTANCE_WITH_PLAYER)
-            {
-                lever.Switch();
-            }
-        }
-
-        Lever_Cooler leverCooler = hit.transform.GetComponent<Lever_Cooler>();
-
-        if (leverCooler)
-        {
-            if (Vector3.Distance(transform.position, leverCooler.transform.position) < leverCooler.DISTANCE_WITH_PLAYER)
-            {
-                leverCooler.SwitchAll();
-            }
-        }
-
-        Lever_Belt leverBelt = hit.transform.GetComponent<Lever_Belt>();
-
-        if (leverBelt)
-        {
-            if (Vector3.Distance(transform.position, leverBelt.transform.position) < leverBelt.DISTANCE_WITH_PLAYER)
-            {
-                leverBelt.SwitchAll();
-            }
-        }
-
-
-    }
-
+   
     private void FixedUpdate ()
     {
         // 죽으면 조작 불가
