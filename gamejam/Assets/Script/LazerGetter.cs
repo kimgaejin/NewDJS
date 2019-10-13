@@ -201,7 +201,7 @@ public class LazerGetter : MonoBehaviour
             arrow = points[curIndex] - points[nextInd];
             fixedPos = target.transform.position + arrow.normalized * delta;
             distance = points[curIndex] - target.transform.position;
-            Debug.Log(fixedPos);
+
             if (Vector3.Distance(target.position, points[curIndex]) < delta * 2
                 || isEscapeLine(points[curIndex], points[nextInd], delta * 2))
             {

@@ -6,6 +6,7 @@ public class MouseEventOnLevel : MonoBehaviour
 {
     private Transform transform;
     private Transform[] effects;
+    private Animator[] effectAnims;
     private int effectSize;
     private int curEffect;
 
@@ -15,9 +16,11 @@ public class MouseEventOnLevel : MonoBehaviour
 
         effectSize = this.transform.childCount;
         effects = new Transform[effectSize];
+        effectAnims = new Animator[effectSize];
         for (int i = 0; i < effectSize; i++)
         {
             effects[i] = this.transform.GetChild(i);
+            effectAnims[i] = effects[i].GetComponent<Animator>();
         }
     }
 
@@ -37,8 +40,10 @@ public class MouseEventOnLevel : MonoBehaviour
 
     private void PlaceEffect()
     {
+        Debug.Log("click");
         NextCurEffect();
         effects[curEffect].transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (effectAnims[curEffect]) effectAnims[curEffect].SetTrigger("Click");
     }
 
     private bool LeverTouch()
