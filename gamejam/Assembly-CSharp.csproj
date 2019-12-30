@@ -78,6 +78,7 @@
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\DirectionConst.cs" />
     <Compile Include="Assets\Script\Dropping.cs" />
+    <Compile Include="Assets\Script\EffectManager.cs" />
     <Compile Include="Assets\Script\Flat_MoveOne.cs" />
     <Compile Include="Assets\Script\InkBubble.cs" />
     <Compile Include="Assets\Script\JumpTouch.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\Script\PortalB.cs" />
     <Compile Include="Assets\Script\RigidbodyForStacked.cs" />
     <Compile Include="Assets\Script\Save.cs" />
+    <Compile Include="Assets\Script\SceneDirector.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
     <Compile Include="Assets\Script\SnakeBlock.cs" />

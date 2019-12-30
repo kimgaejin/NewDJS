@@ -101,6 +101,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 2629052169
+    locked: 0
   - name: New Layer
     uniqueID: 2335538045
+    locked: 0
+  - name: TouchEffect
+    uniqueID: 3233725045
     locked: 0

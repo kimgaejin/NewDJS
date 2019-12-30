@@ -19,7 +19,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         GameObject panel;
-        panel = transform.GetChild(0).gameObject;
+        panel = transform.Find("ScriptPanel").gameObject;
         if (panel) panel.SetActive(true);
 
         curImageStringList = new List<string>();

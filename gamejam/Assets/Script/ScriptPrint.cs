@@ -26,7 +26,8 @@ public class ScriptPrint : MonoBehaviour
     public void Awake()
     {
         scriptCanvasObj = GameObject.Find("ScriptCanvas").gameObject;
-        scriptText = scriptCanvasObj.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        if (scriptCanvasObj) Debug.Log("couldn't find ScriptPrint:scriptCanvasObj");
+        scriptText = scriptCanvasObj.transform.Find("ScriptPanel").GetChild(0).GetComponent<Text>();
         maxInd = scripts.Length;
     }
 

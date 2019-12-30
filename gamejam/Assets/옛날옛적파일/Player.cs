@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+    // 외부 참조
+    private EffectManager effectManager;
+
+    // 내부 참조
+    Rigidbody2D rigid;
+    SpriteRenderer spr;
+    Animator anim;
+    Color normalColor;
+
+    // 멤버
     public float moveSpeed = 1.0f;
     public float jumpPower = 7.0f;
 
@@ -23,10 +33,6 @@ public class Player : MonoBehaviour {
      
     private bool isDead = false;
 
-    Rigidbody2D rigid;
-    SpriteRenderer spr;
-    Animator anim;
-    Color normalColor;
 
     public static Player playerInstance;
 
@@ -46,8 +52,11 @@ public class Player : MonoBehaviour {
 
     public AudioClip Projector;
     public AudioSource BGM;
+
     private void Awake()
     {
+        effectManager = GameObject.Find("EffectManager").GetComponent<EffectManager>();
+
         //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
         if (Stage >= 1 && Stage <= 39)
         {
@@ -88,6 +97,8 @@ public class Player : MonoBehaviour {
         ExecutePortal();
 
         CheckJumpAnimation();
+
+        effectManager.PlayerShadow();
 
         float deltaTime = Time.deltaTime;
         WalkTimeRoutine(deltaTime);
@@ -450,7 +461,7 @@ public class Player : MonoBehaviour {
 
         jumpCount--;
 
-        Debug.Log("jumpCount: " + jumpCount);
+        //Debug.Log("jumpCount: " + jumpCount);
     }
 
     public void MoveRight()
