@@ -11,6 +11,9 @@ public class LevelScreen : MonoBehaviour
     public int stage3;
     public int stage4;
     public int stage5;
+
+    private bool isClicked;
+    private string sceneNameToGo;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,29 +32,61 @@ public class LevelScreen : MonoBehaviour
     }
     public void L()
     {
-        Player.Stage = int.Parse(this.tag);
-        if (int.Parse(this.tag) < 10)
+        if (isClicked == false)
         {
-            
-            SceneManager.LoadScene("Chapter1");
-            
-        }
-        else if (int.Parse(this.tag) < 20)
-        {
-            SceneManager.LoadScene("Chapter2");
-        }
-        else if (int.Parse(this.tag) < 30)
-        {
-            SceneManager.LoadScene("Chapter3");
-        }
-        else if (int.Parse(this.tag) < 40)
-        {
-            SceneManager.LoadScene("Chapter4");
-        }
-        else if (int.Parse(this.tag) < 50)
-        {
-            SceneManager.LoadScene("Chapter5");
+            isClicked = true;
+            Player.Stage = int.Parse(this.tag);
+            if (int.Parse(this.tag) < 10)
+            {
+                sceneNameToGo = "Chapter1";
+            }
+            else if (int.Parse(this.tag) < 20)
+            {
+                sceneNameToGo = "Chapter2";
+            }
+            else if (int.Parse(this.tag) < 30)
+            {
+                sceneNameToGo = "Chapter3";
+            }
+            else if (int.Parse(this.tag) < 40)
+            {
+                sceneNameToGo = "Chapter4";
+            }
+            else if (int.Parse(this.tag) < 50)
+            {
+                sceneNameToGo = "Chapter5";
+            }
+
+            StartCoroutine("GoToScene");
         }
 
+    }
+
+    private IEnumerator GoToScene()
+    {
+        WaitForSeconds waitPerSecond = new WaitForSeconds(1.0f);
+        while (true)
+        {
+
+            FadeOut();
+
+            yield return waitPerSecond;
+
+            SceneManager.LoadScene("Chapter1");
+        }
+    }
+
+    private void FadeOut()
+    {
+        Animator fadeAnim = null;
+        GameObject canvas = GameObject.Find("Canvas");
+        Transform tfFade = canvas.transform.Find("Fade");
+        if (tfFade)
+        {
+            tfFade.gameObject.SetActive(true);
+            fadeAnim = tfFade.GetComponent<Animator>();
+            tfFade.position = transform.position;
+        }
+        if (fadeAnim) fadeAnim.Play("FadeOut");
     }
 }

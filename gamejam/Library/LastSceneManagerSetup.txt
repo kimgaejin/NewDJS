@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/#ForLevelDesign/Chapter4.unity
+- path: Assets/#ForLevelDesign/UI.unity
   isLoaded: 1
   isActive: 1
