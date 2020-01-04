@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class StartingScreen : MonoBehaviour
 {
+    // Outer References
+    private AudioManager audioManager;
+
+    // Inner References
     public GameObject Level_Panel;
     public GameObject Panel;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Game_Start() {
         Panel.SetActive(false);
         Level_Panel.SetActive(true);
-
+        audioManager.Play("ClickButton");
     }
+
     public void Game_End() {
+        audioManager.Play("ClickButton");
 
 
     }
+
     public void Back() {
         Panel.SetActive(true);
         Level_Panel.SetActive(false);
+        audioManager.Play("ClickButton");
     }
+
     public void Reset()
     {
         PlayerPrefs.SetInt("Stage1", 1); // 플레그 접촉시 스테이지 저장
@@ -42,5 +49,7 @@ public class StartingScreen : MonoBehaviour
         PlayerPrefs.SetInt("StageB3", 21); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB4", 31); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB5", 41); // 플레그 접촉시 스테이지 저장
+        audioManager.Play("ClickButton");
+
     }
 }
