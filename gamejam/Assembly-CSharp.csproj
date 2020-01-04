@@ -64,6 +64,7 @@
     <Compile Include="Assets\flag.cs" />
     <Compile Include="Assets\gggsddfs.cs" />
     <Compile Include="Assets\Script\AttachMoving.cs" />
+    <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\BackgroundCameraScroll.cs" />
     <Compile Include="Assets\Script\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\BlackOnTouch.cs" />

@@ -6,10 +6,12 @@ public class StartingScreen : MonoBehaviour
 {
     public GameObject Level_Panel;
     public GameObject Panel;
+    private AudioManager audio;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class StartingScreen : MonoBehaviour
         
     }
     public void Game_Start() {
+        audio.Play("ClickButton");
         Panel.SetActive(false);
         Level_Panel.SetActive(true);
 
@@ -27,6 +30,7 @@ public class StartingScreen : MonoBehaviour
 
     }
     public void Back() {
+        audio.Play("ClickButton");
         Panel.SetActive(true);
         Level_Panel.SetActive(false);
     }
