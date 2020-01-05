@@ -11,9 +11,20 @@ public class AudioManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
-    public void Play(string name)
+    public void PlayEffect(string name)
     {
-        string path = "Sounds/" + name;
+        string path = "Sounds/Effects/" + name;
+        Debug.Log("sound path: " + path);
+        AudioClip clip;
+        clip = (AudioClip)Resources.Load(path, typeof(AudioClip));
+        if (clip == null) Debug.Log("coudn't find sound path " + path);
+        audio.clip = clip;
+        audio.Play();
+    }
+
+    public void PlayBG(string name)
+    {
+        string path = "Sounds/BG/" + name;
         Debug.Log("sound path: " + path);
         AudioClip clip;
         clip = (AudioClip)Resources.Load(path, typeof(AudioClip));

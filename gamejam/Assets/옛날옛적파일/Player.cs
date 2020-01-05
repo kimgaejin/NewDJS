@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     // 외부 참조
     private EffectManager effectManager;
+    private AudioManager audioManager;  
 
     // 내부 참조
     Rigidbody2D rigid;
@@ -55,7 +56,11 @@ public class Player : MonoBehaviour {
 
     private void Awake()
     {
-        effectManager = GameObject.Find("EffectManager").GetComponent<EffectManager>();
+        // 외부 참조
+        GameObject gmEffectManager = GameObject.Find("EffectManager");
+        if (gmEffectManager) effectManager = gmEffectManager.GetComponent<EffectManager>();
+        GameObject gmAudioManager = GameObject.Find("AudioManager");
+        if (gmAudioManager) audioManager = gmAudioManager.GetComponent<AudioManager>();
 
         //Stage = PlayerPrefs.GetInt("Stage1"); //게임 시작시 현재까지 깬 스테이지 로드
         if (Stage >= 1 && Stage <= 39)
@@ -458,10 +463,11 @@ public class Player : MonoBehaviour {
         anim.SetBool("IsGround", false);
         anim.SetTrigger("Jump");
 
-
         jumpCount--;
 
-        //Debug.Log("jumpCount: " + jumpCount);
+        if (audioManager)
+            audioManager.PlayEffect("Page_Turn-Mark_DiAngelo");
+
     }
 
     public void MoveRight()
@@ -473,7 +479,6 @@ public class Player : MonoBehaviour {
         spr.flipX = false;
         //anim.SetBool("IsWalking", true);
         movedTime = time;
-    
     }
 
     public void MoveLeft()
