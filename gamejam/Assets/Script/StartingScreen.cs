@@ -52,4 +52,20 @@ public class StartingScreen : MonoBehaviour
         audioManager.PlayEffect("ClickButton");
 
     }
+
+    public void Allclear()
+    {
+        PlayerPrefs.SetInt("Stage1", 5); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage2", 15); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage3", 25); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage4", 35); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage5", 45); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB1", 5); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB2", 15); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB3", 25); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB4", 35); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB5", 45); // 플레그 접촉시 스테이지 저장
+        audioManager.PlayEffect("ClickButton");
+
+    }
 }

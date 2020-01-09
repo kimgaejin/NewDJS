@@ -67,14 +67,14 @@ public class UIM : MonoBehaviour
                 level1[i].SetActive(true);
             }
             else {
-                level1[i].gameObject.transform.position = new Vector2(111111, 111111);
-                //level1[i].SetActive(false);
+                //level1[i].gameObject.transform.position = new Vector2(111111, 111111);
+                level1[i].SetActive(false);
             }
         }
         
         for (int i = 0; i < 5; i++)
         {
-            if (stage2 - int.Parse(level2[i].tag) >= 0)
+            if (stage2 - int.Parse(level2[i].tag) >= 0 && stage1 >=5)
             {
         
                 level2[i].SetActive(true);
@@ -87,7 +87,7 @@ public class UIM : MonoBehaviour
         
         for (int i = 0; i < 5; i++)
         {
-            if (stage3 - int.Parse(level3[i].tag) >= 0)
+            if (stage3 - int.Parse(level3[i].tag) >= 0 && stage2 >= 15)
             {
                 level3[i].SetActive(true);
             }
@@ -98,7 +98,7 @@ public class UIM : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (stage4 - int.Parse(level4[i].tag) >= 0)
+            if (stage4 - int.Parse(level4[i].tag) >= 0 && stage3 >= 25)
             {
                 level4[i].SetActive(true);
             }
@@ -109,7 +109,7 @@ public class UIM : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (stage5 - int.Parse(level5[i].tag) >= 0)
+            if (stage5 - int.Parse(level5[i].tag) >= 0 && stage4 >= 35)
             {
                 level5[i].SetActive(true);
             }
@@ -136,14 +136,14 @@ public class UIM : MonoBehaviour
             }
             else
             {
-                level1[i].gameObject.transform.position = new Vector2(111111, 111111);
-                //level1[i].SetActive(false);
+                //level1[i].gameObject.transform.position = new Vector2(111111, 111111);
+                level1[i].SetActive(false);
             }
         }
 
         for (int i = 0; i < 5; i++)
         {
-            if (stage2 - int.Parse(level2[i].tag) >= 0)
+            if (stage2 - int.Parse(level2[i].tag) >= 0 && stage1 >= 5)
             {
 
                 level2[i].SetActive(true);
@@ -156,7 +156,7 @@ public class UIM : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            if (stage3 - int.Parse(level3[i].tag) >= 0)
+            if (stage3 - int.Parse(level3[i].tag) >= 0 && stage2 >= 15)
             {
                 level3[i].SetActive(true);
             }
@@ -167,7 +167,7 @@ public class UIM : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (stage4 - int.Parse(level4[i].tag) >= 0)
+            if (stage4 - int.Parse(level4[i].tag) >= 0 && stage3 >= 25)
             {
                 level4[i].SetActive(true);
             }
@@ -178,7 +178,7 @@ public class UIM : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (stage5 - int.Parse(level5[i].tag) >= 0)
+            if (stage5 - int.Parse(level5[i].tag) >= 0 && stage4 >= 35)
             {
                 level5[i].SetActive(true);
             }
