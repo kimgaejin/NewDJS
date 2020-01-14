@@ -72,7 +72,7 @@ public class LevelScreen : MonoBehaviour
 
             yield return waitPerSecond;
 
-            SceneManager.LoadScene("Chapter1");
+            SceneManager.LoadScene(sceneNameToGo);
         }
     }
 

@@ -7,12 +7,20 @@ public class SoundVolume : MonoBehaviour
 {
     public Slider soundvolume;
     static public float volume;
+    private AudioManager audioManager;
+
+
     // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         volume = PlayerPrefs.GetFloat("Volume"); //
         soundvolume.value = volume;
+    }
 
+    public void Link()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.SetVolume(volume);
     }
 
     // Update is called once per frame
@@ -21,5 +29,6 @@ public class SoundVolume : MonoBehaviour
         volume = soundvolume.value;
         Debug.Log("volume   " + volume);
         PlayerPrefs.SetFloat("Volume", volume); //
+        audioManager.SetVolume(volume);
     }
 }
