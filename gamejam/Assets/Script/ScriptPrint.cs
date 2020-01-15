@@ -15,6 +15,8 @@ public class ScriptPrint : MonoBehaviour
 
     private GameObject scriptCanvasObj;
     private ScriptCanvasManager scriptCanvasManager;
+    private SceneInitManager sceneInitManager;
+
     private Text scriptText;
 
     private int curInd = -1;
@@ -23,9 +25,10 @@ public class ScriptPrint : MonoBehaviour
 
     private string curImageString;
 
-    public void Awake()
+    public void Start()
     {
-        scriptCanvasObj = GameObject.Find("ScriptCanvas").gameObject;
+        sceneInitManager = GameObject.Find("SceneInitManager").GetComponent<SceneInitManager>();
+        scriptCanvasObj = sceneInitManager.GetGMScriptCanvas();
         if (scriptCanvasObj) Debug.Log("couldn't find ScriptPrint:scriptCanvasObj");
         scriptText = scriptCanvasObj.transform.Find("ScriptPanel").GetChild(0).GetComponent<Text>();
         maxInd = scripts.Length;

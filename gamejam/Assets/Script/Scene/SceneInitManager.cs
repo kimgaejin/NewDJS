@@ -80,4 +80,8 @@ public class SceneInitManager : MonoBehaviour
         scriptCanvasManager.Close();
     }
 
+    public GameObject GetGMScriptCanvas()
+    {
+        return gmScriptCanvas;
+    }
 }
