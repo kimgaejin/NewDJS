@@ -16,7 +16,12 @@ public class StartingScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        float volume;
+
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        volume = PlayerPrefs.GetFloat("Volume"); //
+        PlayerPrefs.SetFloat("Volume", volume); //
+        audioManager.SetVolume(volume);
     }
 
     public void Game_Start() {

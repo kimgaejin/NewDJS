@@ -18,17 +18,17 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
 
     public void Init()
     {
-        GameObject panel;
-        panel = transform.Find("ScriptPanel").gameObject;
-        if (panel) panel.SetActive(true);
-
         curImageStringList = new List<string>();
         normalColor = new Color(1, 1, 1, 1);
         blackColor = new Color(0, 0, 0, 1);
+    }
 
-        NormalBook = panel.transform.Find("BookNormal").GetComponent<Image>();
+    public void Link(GameObject scriptPanel)
+    {
+        scriptPanel.SetActive(true);
+        NormalBook = scriptPanel.transform.Find("BookNormal").GetComponent<Image>();
         if (!NormalBook) Debug.Log("not exist NormalBook");
-        NormalLibrarian = panel.transform.Find("LibrarianNormal").GetComponent<Image>();
+        NormalLibrarian = scriptPanel.transform.Find("LibrarianNormal").GetComponent<Image>();
     }
 
     public void Close()

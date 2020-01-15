@@ -6,10 +6,18 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private AudioSource audio;
+    private AudioSource BGMAudio;
 
     public void Awake()
     {
         audio = GetComponent<AudioSource>();
+        BGMAudio = transform.Find("BGM").GetComponent<AudioSource>();
+    }
+
+    public void Init()
+    {
+        audio = GetComponent<AudioSource>();
+        BGMAudio = transform.Find("BGM").GetComponent<AudioSource>();
     }
 
     public void PlayEffect(string name)
@@ -30,12 +38,13 @@ public class AudioManager : MonoBehaviour
         AudioClip clip;
         clip = (AudioClip)Resources.Load(path, typeof(AudioClip));
         if (clip == null) Debug.Log("coudn't find sound path " + path);
-        audio.clip = clip;
-        audio.Play();
+        BGMAudio.clip = clip;
+        BGMAudio.Play();
     }
 
     public void SetVolume(float volume_)
     {
         audio.volume = volume_;
+        BGMAudio.volume = volume_;
     }
 }

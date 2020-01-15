@@ -109,6 +109,7 @@
     <Compile Include="Assets\Script\RigidbodyForStacked.cs" />
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\Scene\AudioManager.cs" />
+    <Compile Include="Assets\Script\Scene\SceneInitManager.cs" />
     <Compile Include="Assets\Script\SceneDirector.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
