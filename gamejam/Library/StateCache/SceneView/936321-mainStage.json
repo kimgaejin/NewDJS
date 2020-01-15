@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":568.395263671875,"y":90.86349487304688,"z":16.309226989746095},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":-1.0},"size":1562.6038818359375,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-190.782470703125,"y":968.2548217773438,"z":-4.426687717437744},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":-1.0},"size":1824.926025390625,"orthographic":true}
+>>>>>>> parent of ba8e628e... allclaer 추가, reset시 1-1만 남음
