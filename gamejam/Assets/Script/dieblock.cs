@@ -27,8 +27,8 @@ public class dieblock : MonoBehaviour
     void Start()
     {
 
-        graphicsParent = transform.FindChild("GraphicsParent");
-        if (graphicsParent) graphics = graphicsParent.FindChild("Graphics");
+        graphicsParent = transform.Find("GraphicsParent");
+        if (graphicsParent) graphics = graphicsParent.Find("Graphics");
         if (graphics)
             anim = graphics.GetComponent<Animator>();
 

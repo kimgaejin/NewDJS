@@ -44,6 +44,9 @@ public class StartingScreen : MonoBehaviour
 
     public void Reset()
     {
+
+        Debug.Log("Reset");
+
         PlayerPrefs.SetInt("Stage1", 1); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("Stage2", 11); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("Stage3", 21); // 플레그 접촉시 스테이지 저장
@@ -54,6 +57,23 @@ public class StartingScreen : MonoBehaviour
         PlayerPrefs.SetInt("StageB3", 21); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB4", 31); // 플레그 접촉시 스테이지 저장
         PlayerPrefs.SetInt("StageB5", 41); // 플레그 접촉시 스테이지 저장
+        audioManager.PlayEffect("ClickButton");
+
+    }
+
+    public void Allclear()
+    {
+        Debug.Log("All Clear");
+        PlayerPrefs.SetInt("Stage1", 5); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage2", 15); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage3", 25); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage4", 35); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("Stage5", 45); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB1", 5); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB2", 15); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB3", 25); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB4", 35); // 플레그 접촉시 스테이지 저장
+        PlayerPrefs.SetInt("StageB5", 45); // 플레그 접촉시 스테이지 저장
         audioManager.PlayEffect("ClickButton");
 
     }
