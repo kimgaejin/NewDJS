@@ -9,6 +9,7 @@ public class ButtonToMenu : MonoBehaviour
     public void GotoMain()
     {
         //SceneManager.LoadScene("UI");
+        if (!StopPanel) StopPanel = GameObject.Find("PlayerControlCanvas").transform.Find("StopPanel").gameObject;
         StopPanel.SetActive(true);
     }
     public void pExit()

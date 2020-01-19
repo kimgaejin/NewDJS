@@ -8,6 +8,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
 {
     public ScriptPrint scriptPrint;
 
+    private GameObject gmTraslucencyBg;
     private Image NormalBook;
     private Image NormalLibrarian;
 
@@ -26,6 +27,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
     public void Link(GameObject scriptPanel)
     {
         scriptPanel.SetActive(true);
+        gmTraslucencyBg = transform.Find("TranslucencyBg").gameObject;
         NormalBook = scriptPanel.transform.Find("BookNormal").GetComponent<Image>();
         if (!NormalBook) Debug.Log("not exist NormalBook");
         NormalLibrarian = scriptPanel.transform.Find("LibrarianNormal").GetComponent<Image>();
@@ -36,6 +38,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
         transform.gameObject.SetActive(false);
         NormalBook.gameObject.SetActive(false);
         NormalLibrarian.gameObject.SetActive(false);
+        gmTraslucencyBg.SetActive(false);
     }
 
     public virtual void OnPointerDown(PointerEventData ped)
@@ -47,6 +50,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
     {
         if (scriptPrint)
         {
+            gmTraslucencyBg.SetActive(true);
             scriptPrint.TurnPage();
 
             string curImage = scriptPrint.GetCurImageString();
@@ -108,6 +112,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
         SetColor("lib", normalColor);
         NormalLibrarian.gameObject.SetActive(false);
         NormalLibrarian.gameObject.SetActive(false);
+        gmTraslucencyBg.SetActive(false);
         scriptPrint.ImageStringClear();
         curImageStringList.Clear();        
     }
