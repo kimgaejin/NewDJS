@@ -51,6 +51,7 @@ public class EffectManager : MonoBehaviour
             {
                 tfPlayerJumpShadow.position = hit.point;
                 float scaleValue = 0.85f / (gmPlayer.transform.position.y - hit.point.y);
+                if (scaleValue > 1) scaleValue = 1;
                 tfPlayerJumpShadow.localScale = scaleValue * vec3PlayerJumpShadowScale;
                 hited = true;
                 break;
