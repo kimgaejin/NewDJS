@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\BlackOnTouch.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
+    <Compile Include="Assets\Script\CanvasObjects\WorldText.cs" />
     <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\DirectionConst.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\Scene\AudioManager.cs" />
     <Compile Include="Assets\Script\Scene\SceneInitManager.cs" />
+    <Compile Include="Assets\Script\Scene\WorldSpaceTextManager.cs" />
     <Compile Include="Assets\Script\SceneDirector.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />
     <Compile Include="Assets\Script\ScriptPrint.cs" />
