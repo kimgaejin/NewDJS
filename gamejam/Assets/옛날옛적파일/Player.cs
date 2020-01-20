@@ -472,6 +472,7 @@ public class Player : MonoBehaviour {
 
     public void MoveRight()
     {
+        if (isDead) return;
         //rigid.AddForce(Vector2.right * moveSpeed);
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 
@@ -483,6 +484,8 @@ public class Player : MonoBehaviour {
 
     public void MoveLeft()
     {
+        if (isDead) return;
+
         //rigid.AddForce(Vector2.left * moveSpeed);
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         key_down = 'A';
