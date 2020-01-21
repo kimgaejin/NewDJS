@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
+public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public ScriptPrint scriptPrint;
 
@@ -17,11 +17,17 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
     private Color normalColor;
     private Color blackColor;
 
+    private int SKIP_SPEED_LEVEL = 1;
+    private int skipSpeed;
+    private bool isTouch = false;
+    private int ntimer = 0;
+
     public void Init()
     {
         curImageStringList = new List<string>();
         normalColor = new Color(1, 1, 1, 1);
         blackColor = new Color(0, 0, 0, 1);
+        skipSpeed = 5 * SKIP_SPEED_LEVEL;
     }
 
     public void Link(GameObject scriptPanel)
@@ -41,9 +47,28 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler
         gmTraslucencyBg.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (isTouch)
+        {
+            ntimer++;
+            if (ntimer % skipSpeed == 0)
+            {
+                Talk();
+            }
+        }
+    }
+
     public virtual void OnPointerDown(PointerEventData ped)
     {
+        isTouch = true;
         Talk();
+    }
+
+    public virtual void OnPointerUp(PointerEventData ped)
+    {
+        isTouch = false;
+        ntimer = 0;
     }
 
     public void Talk()
