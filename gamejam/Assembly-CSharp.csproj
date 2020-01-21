@@ -68,7 +68,9 @@
     <Compile Include="Assets\Script\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\BlackOnTouch.cs" />
     <Compile Include="Assets\Script\ButtonToMenu.cs" />
+    <Compile Include="Assets\Script\CameraCollision.cs" />
     <Compile Include="Assets\Script\CanvasObjects\WorldText.cs" />
+    <Compile Include="Assets\Script\Components\SetChildsTransparency.cs" />
     <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\DirectionConst.cs" />
