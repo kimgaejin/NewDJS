@@ -19,11 +19,6 @@ public class CameraCollision : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        transform.parent = transform.parent.parent;
-    }
-
     private void FixedUpdate()
     {
         Vector2 velocity = (tfPlayer.position - transform.position) * 5;
@@ -45,10 +40,12 @@ public class CameraCollision : MonoBehaviour
             {
                 try
                 {
-                    if (coll.name.Contains("Jump"))
+                    if (coll.name.Contains("JumpCollider"))
                     {
                         Debug.Log("CAMERA JUMP!");
-                        transform.position = tfPlayer.position;
+                        Transform jumpColliderParent = coll.transform.parent;
+                        Transform jumpDestination = jumpColliderParent.Find("JumpDestination");
+                        transform.position = jumpDestination.position;
                         break;
                     }
                 }
