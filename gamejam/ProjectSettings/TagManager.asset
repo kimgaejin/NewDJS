@@ -64,6 +64,7 @@ TagManager:
   - 43
   - 44
   - 45
+  - Trigger
   layers:
   - Default
   - TransparentFX

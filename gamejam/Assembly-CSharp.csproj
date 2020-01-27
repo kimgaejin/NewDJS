@@ -105,6 +105,7 @@
     <Compile Include="Assets\Script\Objects\DangerInAir.cs" />
     <Compile Include="Assets\Script\Objects\Deletor.cs" />
     <Compile Include="Assets\Script\Objects\Destroier.cs" />
+    <Compile Include="Assets\Script\Objects\DropBrick_3.cs" />
     <Compile Include="Assets\Script\PlayerBodyPoint.cs" />
     <Compile Include="Assets\Script\Portal.cs" />
     <Compile Include="Assets\Script\Portal_IO.cs" />

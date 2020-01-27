@@ -12,6 +12,19 @@ public class SetChildsTransparency : MonoBehaviour
         {
             try
             {
+                foreach (Transform childTrans in trans)
+                {
+                    try
+                    {
+                        Color ccolor = childTrans.GetComponent<SpriteRenderer>().color;
+                        ccolor = new Color(ccolor.r, ccolor.b, ccolor.b, transparency);
+                        childTrans.GetComponent<SpriteRenderer>().color = ccolor;
+                    }
+                    catch
+                    {
+
+                    }
+                }
                 Color color = trans.GetComponent<SpriteRenderer>().color;
                 color = new Color(color.r, color.b, color.b, transparency);
                 trans.GetComponent<SpriteRenderer>().color = color;

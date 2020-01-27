@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
         // 죽으면 조작 불가
         if (isDead) return;
 
-        if (rigid.velocity.y < -100) Die();
+        if (rigid.velocity.y < -40) Die();
 
         // 점프(키보드입력)
         if (Input.GetKeyDown(KeyCode.J))
