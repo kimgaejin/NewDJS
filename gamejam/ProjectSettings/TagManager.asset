@@ -76,9 +76,9 @@ TagManager:
   - 
   - 
   - Camera
-  - 
-  - 
-  - 
+  - Player
+  - NotPlayer
+  - IgnorePlayer
   - 
   - 
   - 
