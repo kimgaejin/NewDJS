@@ -27,7 +27,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
         curImageStringList = new List<string>();
         normalColor = new Color(1, 1, 1, 1);
         blackColor = new Color(0, 0, 0, 1);
-        skipSpeed = 5 * SKIP_SPEED_LEVEL;
+        skipSpeed = 25 * SKIP_SPEED_LEVEL;
     }
 
     public void Link(GameObject scriptPanel)
@@ -142,4 +142,18 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
         curImageStringList.Clear();        
     }
 
+    public void Skip()
+    {
+        StartCoroutine(CSkip());
+    }
+
+    IEnumerator CSkip()
+    {
+        WaitForSeconds wait01 = new WaitForSeconds(0.05f);
+        while (true)
+        {
+            Talk();
+            yield return wait01;
+        }
+    }
 }
