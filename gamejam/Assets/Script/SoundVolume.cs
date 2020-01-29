@@ -26,6 +26,7 @@ public class SoundVolume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("transform: " + transform.name);
         volume = soundvolume.value;
         Debug.Log("volume   " + volume);
         PlayerPrefs.SetFloat("Volume", volume); //

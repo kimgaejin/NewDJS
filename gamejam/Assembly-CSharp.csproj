@@ -115,6 +115,7 @@
     <Compile Include="Assets\Script\Save.cs" />
     <Compile Include="Assets\Script\Scene\AudioManager.cs" />
     <Compile Include="Assets\Script\Scene\SceneInitManager.cs" />
+    <Compile Include="Assets\Script\Scene\TitleSceneAudioManager.cs" />
     <Compile Include="Assets\Script\Scene\WorldSpaceTextManager.cs" />
     <Compile Include="Assets\Script\SceneDirector.cs" />
     <Compile Include="Assets\Script\ScriptCanvasManager.cs" />

@@ -5,28 +5,34 @@ using UnityEngine;
 public class StartingScreen : MonoBehaviour
 {
     // Outer References
-    private AudioManager audioManager;
+    private TitleSceneAudioManager audioManager;
 
     // Inner References
-    public GameObject Level_Panel;
-    public GameObject Panel;
-
+    private GameObject goLevelPanel;
+    private GameObject goButtonPanel;
+    private GameObject goOptionPanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        float volume;
+        // Panel GameObject 초기화
+        GameObject mainCanvas = GameObject.Find("Canvas");
+        goLevelPanel = mainCanvas.transform.Find("LevelPanel").gameObject;
+        goButtonPanel = mainCanvas.transform.Find("MainButtonPanel").gameObject;
+        goOptionPanel = mainCanvas.transform.Find("OptionPanel").gameObject;
 
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        // 오디오 초기화
+        float volume;
+        audioManager = GameObject.Find("AudioManager").GetComponent<TitleSceneAudioManager>();
         volume = PlayerPrefs.GetFloat("Volume"); //
         PlayerPrefs.SetFloat("Volume", volume); //
         audioManager.SetVolume(volume);
     }
 
     public void Game_Start() {
-        Panel.SetActive(false);
-        Level_Panel.SetActive(true);
+        goButtonPanel.SetActive(false);
+        goLevelPanel.SetActive(true);
         audioManager.PlayEffect("ClickButton");
     }
 
@@ -37,8 +43,23 @@ public class StartingScreen : MonoBehaviour
     }
 
     public void Back() {
-        Panel.SetActive(true);
-        Level_Panel.SetActive(false);
+        goButtonPanel.SetActive(true);
+        goLevelPanel.SetActive(false);
+        audioManager.PlayEffect("ClickButton");
+    }
+
+    public void OnOptionPanel()
+    {
+        goOptionPanel.SetActive(true);
+        goButtonPanel.SetActive(false);
+        goLevelPanel.SetActive(false);
+        audioManager.PlayEffect("ClickButton");
+    }
+
+    public void OffOptionPanel()
+    {
+        goOptionPanel.SetActive(false);
+        goButtonPanel.SetActive(true);
         audioManager.PlayEffect("ClickButton");
     }
 
