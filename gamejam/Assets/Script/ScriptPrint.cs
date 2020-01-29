@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScriptPrint : MonoBehaviour
 {
@@ -34,14 +32,19 @@ public class ScriptPrint : MonoBehaviour
         scenario = new List<Dictionary<string, object>>();
         List<Dictionary<string, object>> data = CSVReader.Read("Scenario/Scenario", 1);
 
-        Debug.Log("출발 " + data.Count.ToString());
+        Debug.Log("챕터번호: " + chapterName);
+        Debug.Log("그룹번호: " + dialogue_group.ToString());
+
+        Debug.Log(data.Count.ToString() + " 개의 대사를 읽음.");
         for (var i = 0; i < data.Count; i++)
         {
-            if ( data[i]["chapter"].ToString() != chapterName ) continue;
+            string sChapterName = ((int)data[i]["chapter"]).ToString("D2");
+
+            if ( sChapterName != chapterName ) continue;
             if ( data[i]["dialogue_group"].ToString() != dialogue_group) continue;
             if ( data[i]["is_active"].ToString() != "1" ) continue;
 
-            if (i >= 1)
+            if (scenario.Count >= 1)
             {
                 // 현재 대사가 마지막 인덱스 대사보다 우선순위가 낮다면 자기 자리를 찾아간다.
                 int j = scenario.Count;
@@ -57,7 +60,10 @@ public class ScriptPrint : MonoBehaviour
             {
                 scenario.Insert(0, data[i]);
             }
+            Debug.Log(scenario[scenario.Count-1]["dialogue"].ToString());
+
         }
+        Debug.Log(scenario.Count.ToString() + " 개의 대사를 추려냄.");
 
         for (var i = 0; i < scenario.Count; i++)
         {
@@ -78,6 +84,7 @@ public class ScriptPrint : MonoBehaviour
         {
             if (isShown == false)
             {
+                Debug.Log("대사출력");
                 isShown = true;
                 scriptCanvasObj.SetActive(true);
                 scriptCanvasObj.GetComponent<ScriptCanvasManager>().scriptPrint = this;
