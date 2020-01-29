@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\CameraCollision.cs" />
     <Compile Include="Assets\Script\CanvasObjects\WorldText.cs" />
     <Compile Include="Assets\Script\Components\SetChildsTransparency.cs" />
+    <Compile Include="Assets\Script\CSVReader\CSVReader.cs" />
     <Compile Include="Assets\Script\DevelopmentDebugingKey.cs" />
     <Compile Include="Assets\Script\dieblock.cs" />
     <Compile Include="Assets\Script\DirectionConst.cs" />

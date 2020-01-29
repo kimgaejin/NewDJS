@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ScriptPrint : MonoBehaviour
 {
-    [Header("Size 정한 후 대사 입력")]
-    [Header("대화의 주체는 'book', 'lib' 만 가능합니다")]
+    public string dialogue_group;
 
-    [Header("예제")]
-    [Header("book)안녕 클레오파트라")]
-    public string [] scripts;
-
+    private List<Dictionary<string, object>> scenario;
     private GameObject scriptCanvasObj;
     private ScriptCanvasManager scriptCanvasManager;
     private SceneInitManager sceneInitManager;
@@ -27,11 +24,52 @@ public class ScriptPrint : MonoBehaviour
 
     public void Start()
     {
+        string chapterName = SceneManager.GetActiveScene().name;
+        if (chapterName.Equals("Chapter1")) chapterName = "10";
+        else if (chapterName.Equals("Chapter2")) chapterName = "01";
+        else if (chapterName.Equals("Chapter3")) chapterName = "02";
+        else if (chapterName.Equals("Chapter4")) chapterName = "03";
+        else if (chapterName.Equals("Chapter5")) chapterName = "04";
+
+        scenario = new List<Dictionary<string, object>>();
+        List<Dictionary<string, object>> data = CSVReader.Read("Scenario/Scenario", 1);
+
+        Debug.Log("출발 " + data.Count.ToString());
+        for (var i = 0; i < data.Count; i++)
+        {
+            if ( data[i]["chapter"].ToString() != chapterName ) continue;
+            if ( data[i]["dialogue_group"].ToString() != dialogue_group) continue;
+            if ( data[i]["is_active"].ToString() != "1" ) continue;
+
+            if (i >= 1)
+            {
+                // 현재 대사가 마지막 인덱스 대사보다 우선순위가 낮다면 자기 자리를 찾아간다.
+                int j = scenario.Count;
+                while (j >= 1 && (int)(scenario[j-1]["group_order"]) > (int)(data[i]["group_order"]))
+                {
+                    j--;
+                }
+                // j가 0이거나 자신보다 우선순위가 높은 대사를 찾아냄
+                if (j == 0) scenario.Insert(0, data[i]);
+                else scenario.Insert(j, data[i]);
+            }
+            else
+            {
+                scenario.Insert(0, data[i]);
+            }
+        }
+
+        for (var i = 0; i < scenario.Count; i++)
+        {
+            Debug.Log(scenario[i]["dialogue"]);
+        }
+
         sceneInitManager = GameObject.Find("SceneInitManager").GetComponent<SceneInitManager>();
         scriptCanvasObj = sceneInitManager.GetGMScriptCanvas();
         if (scriptCanvasObj) Debug.Log("couldn't find ScriptPrint:scriptCanvasObj");
         scriptText = scriptCanvasObj.transform.Find("ScriptPanel").GetChild(0).GetComponent<Text>();
-        maxInd = scripts.Length;
+        maxInd = scenario.Count;
+        //maxInd = scripts.Length;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +92,27 @@ public class ScriptPrint : MonoBehaviour
         curInd++;
         if (curInd < maxInd)
         {
+            string curScript = scenario[curInd]["dialogue"].ToString();
+            curImageString = scenario[curInd]["speaker"].ToString();
+
+            //curImageString = GetImageCode(curScript);
+            //curScript = GetScriptOnly(curScript);
+            curScript = GetEnteredString(curScript);
+            scriptText.text = curScript.ToString();
+        }
+        else
+        {
+            scriptCanvasManager.PageDone();
+            scriptCanvasObj.SetActive(false);
+        }
+    }
+
+    /*
+    public void TurnPage()
+    {
+        curInd++;
+        if (curInd < maxInd)
+        {
             string curScript = scripts[curInd];
 
             curImageString = GetImageCode(curScript);
@@ -67,7 +126,7 @@ public class ScriptPrint : MonoBehaviour
             scriptCanvasObj.SetActive(false);
         }
     }
-
+    */
     public string GetScriptOnly(string scripts)
     {
         string[] values = scripts.Split(')');
@@ -100,7 +159,7 @@ public class ScriptPrint : MonoBehaviour
             }
         }
 
-        Debug.Log(scripts);
+        //Debug.Log(scripts);
         return scripts;
     }
 

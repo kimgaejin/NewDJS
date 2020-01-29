@@ -40,7 +40,6 @@ public class MouseEventOnLevel : MonoBehaviour
 
     private void PlaceEffect()
     {
-        Debug.Log("click");
         NextCurEffect();
         effects[curEffect].transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (effectAnims[curEffect]) effectAnims[curEffect].SetTrigger("Click");

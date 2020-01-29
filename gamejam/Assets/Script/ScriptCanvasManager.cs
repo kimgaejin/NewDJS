@@ -24,6 +24,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void Init()
     {
+        
         curImageStringList = new List<string>();
         normalColor = new Color(1, 1, 1, 1);
         blackColor = new Color(0, 0, 0, 1);
@@ -79,7 +80,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
             scriptPrint.TurnPage();
 
             string curImage = scriptPrint.GetCurImageString();
-            Debug.Log("curImage: " + curImage);
+            //Debug.Log("curImage: " + curImage);
             foreach (string cur in curImageStringList)
             {
                 SetColor(cur, blackColor);
@@ -87,7 +88,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
 
             switch (curImage)
             {
-                case "book":
+                case "0": // book
 
                     if (curImageStringList.Contains("book"))
                     {
@@ -99,7 +100,7 @@ public class ScriptCanvasManager : MonoBehaviour, IPointerDownHandler, IPointerU
                         NormalBook.gameObject.SetActive(true);
                     }
                     break;
-                case "lib":
+                case "1": // librarian
                     if (curImageStringList.Contains("lib"))
                     {
                         SetColor("lib", normalColor);

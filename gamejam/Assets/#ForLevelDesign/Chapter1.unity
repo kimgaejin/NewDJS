@@ -562,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 6803514943133055717, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -106.8
+      value: -95.61
       objectReference: {fileID: 0}
     - target: {fileID: 6803514943133055717, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
         type: 3}
@@ -577,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 8458064782418737087, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.777781
+      value: 1.3444434
       objectReference: {fileID: 0}
     - target: {fileID: 8458064782418737087, guid: f8bd3d7d5be06a04fb1ef8de38a94c34,
         type: 3}
@@ -11579,6 +11579,11 @@ PrefabInstance:
       value: "lib)\uB124 ooo. \uAF2D \uB9CE\uC740 \uC0AC\uB78C\uB4E4\uC774 \uCC3E\uB294
         \uCC45\uC774 \uB418\uC168\uC73C\uBA74 \uC88B\uACA0\uB124\uC694. \uB098\uC911\uC5D0
         \uB610 \uBD10\uC694."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258994318498420112, guid: 8441322de1ee62b48af159d21e536f7f,
+        type: 3}
+      propertyPath: dialogue_group
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6317983166174948219, guid: 8441322de1ee62b48af159d21e536f7f,
         type: 3}
