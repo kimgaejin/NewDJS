@@ -5,6 +5,8 @@ using UnityEngine;
 public class MouseEventOnLevel : MonoBehaviour
 {
     private Transform transform;
+    private Transform tfPlayer;
+
     private Transform[] effects;
     private Animator[] effectAnims;
     private int effectSize;
@@ -13,6 +15,7 @@ public class MouseEventOnLevel : MonoBehaviour
     private void Awake()
     {
         transform = this.GetComponent<Transform>();
+        tfPlayer = GameObject.Find("Player").transform;
 
         effectSize = this.transform.childCount;
         effects = new Transform[effectSize];
@@ -72,10 +75,15 @@ public class MouseEventOnLevel : MonoBehaviour
 
         if (lever)
         {
+            Debug.DrawRay(transform.position, Vector3.right * 3);
             if (Vector3.Distance(transform.position, lever.transform.position) < lever.DISTANCE_WITH_PLAYER)
             {
                 lever.Switch();
                 return true;
+            }
+            else // 레버는 맞는데 거리가 안되는 경우
+            {
+
             }
         }
 
