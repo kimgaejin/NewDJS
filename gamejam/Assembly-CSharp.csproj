@@ -103,6 +103,7 @@
     <Compile Include="Assets\Script\Objects\Cooler.cs" />
     <Compile Include="Assets\Script\Objects\Crack.cs" />
     <Compile Include="Assets\Script\Objects\Creator.cs" />
+    <Compile Include="Assets\Script\Objects\Creator_One.cs" />
     <Compile Include="Assets\Script\Objects\DangerInAir.cs" />
     <Compile Include="Assets\Script\Objects\Deletor.cs" />
     <Compile Include="Assets\Script\Objects\Destroier.cs" />

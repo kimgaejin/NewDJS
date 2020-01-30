@@ -15,6 +15,14 @@ public class Deletor : MonoBehaviour
         if (collision.tag == "platform") return;
         if (collision.tag == "Player") return;
 
-        Destroy(collision.gameObject);
+        Transform tfCollisionParent = collision.transform.parent;
+        if (tfCollisionParent.GetComponent<Creator_One>())
+        {
+            tfCollisionParent.GetComponent<Creator_One>().Create();
+        }
+        else
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

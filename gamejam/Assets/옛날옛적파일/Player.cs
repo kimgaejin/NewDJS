@@ -381,7 +381,8 @@ public class Player : MonoBehaviour {
         // transform.position = new Vector3(-2.2f, 4, 0);
         this.transform.position = Stage_pos;
         isDead = false;
-        rigid.isKinematic = false;
+        //rigid.isKinematic = false;
+        rigid.bodyType = RigidbodyType2D.Dynamic;
         rigid.velocity = Vector2.zero;
     }
 
@@ -402,6 +403,7 @@ public class Player : MonoBehaviour {
 
             isDead = true;
             anim.enabled = false;
+            rigid.bodyType = RigidbodyType2D.Static;
 
             Color dec = spr.color / 20;
             dec.a = 0;
