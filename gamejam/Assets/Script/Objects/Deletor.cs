@@ -15,14 +15,13 @@ public class Deletor : MonoBehaviour
         if (collision.tag == "platform") return;
         if (collision.tag == "Player") return;
 
-        Transform tfCollisionParent = collision.transform.parent;
-        if (tfCollisionParent.GetComponent<Creator_One>())
+        if (collision.tag == "DynamicObject")
         {
-            tfCollisionParent.GetComponent<Creator_One>().Create();
-        }
-        else
-        {
-            collision.gameObject.SetActive(false);
+            Transform tfCollision = collision.transform;
+            if (tfCollision.GetComponent<Creator_Child>())
+            {
+                tfCollision.GetComponent<Creator_Child>().Undo();
+            }
         }
     }
 }

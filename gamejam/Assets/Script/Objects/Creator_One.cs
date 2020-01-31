@@ -14,8 +14,11 @@ public class Creator_One : MonoBehaviour
         Create();
     }
 
+
     public void Create()
     {
+        Debug.Log("Creator_One Create");
+
         tfTarget.gameObject.SetActive(true);
         tfTarget.position = transform.position + new Vector3(0.3f, 0 , 0);
         Rigidbody2D targetRigid = tfTarget.GetComponent<Rigidbody2D>();

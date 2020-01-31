@@ -1,7 +1,35 @@
 fileFormatVersion: 2
 guid: 2abf356f55a06f846bec4bc417c1e1bf
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: HumanitiesBookSpr
+    21300002: OldBookSpr
+    21300004: ScienceBookSpr
+    21300006: WarmHoleSpr_1
+    21300008: "\uCE90\uB9AD\uD1301_8"
+    21300010: EffectTrembleSpr_1
+    21300012: EffectTrembleSpr_2
+    21300014: TrembleBook
+    21300016: "\uCE90\uB9AD\uD1301_12"
+    21300018: WarmSpr
+    21300020: WarmHoleSpr_2
+    21300022: DeadBookWarm_2
+    21300024: DeadBookWarm_1
+    21300026: DeadBookWarm_3
+    21300028: WarmHoleSpr_3
+    21300030: DeadBookInkSpr_2
+    21300032: InkMonsterSpr
+    21300034: DeadBookInkSpr_1
+    21300036: "\uCE90\uB9AD\uD1301_22"
+    21300038: "\uCE90\uB9AD\uD1301_23"
+    21300040: "\uCE90\uB9AD\uD1301_24"
+    21300042: "\uCE90\uB9AD\uD1301_25"
+    21300044: "\uCE90\uB9AD\uD1301_26"
+    21300046: InkEvidenceSpr
+    21300048: "\uCE90\uB9AD\uD1301_28"
+    21300050: "\uCE90\uB9AD\uD1301_29"
+    21300052: "\uCE90\uB9AD\uD1301_30"
+    21300054: "\uCE90\uB9AD\uD1301_31"
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +68,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +97,422 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HumanitiesBookSpr
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1381
+        width: 288
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899ba531640fc9341bb81a63b456497b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldBookSpr
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1158
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f165f5f71a9037843a236a686906cb0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScienceBookSpr
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 1062
+        width: 295
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13a702f96832f8438a53de4f4d0547e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarmHoleSpr_1
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1036
+        width: 120
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7337949834210a24294e3a3b8565bf7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCE90\uB9AD\uD1301_8"
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1110
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2277939630c940f45a688e122bbcf59d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EffectTrembleSpr_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1052
+        width: 60
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd824482953af1489ca54edcc38486b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EffectTrembleSpr_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1065
+        width: 50
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73aa309aa6e94cb4d9e5f2c74297ae95
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrembleBook
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 903
+        width: 199
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6d2a11fd2e3154ba6db622b4d1386e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCE90\uB9AD\uD1301_12"
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 843
+        width: 141
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce3521691496c24c87a9e503f00fbde
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarmSpr
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 778
+        width: 515
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8425a3a63785538408d023e2f4041e72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarmHoleSpr_2
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 766
+        width: 121
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839b62a86a85bef40810e1018e59aa2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadBookWarm_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 735
+        width: 120
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6deb86eb0e4894946852b7dea157bc27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadBookWarm_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 655
+        width: 261
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549b86e9d6249e64097ef0e2bb7b034b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadBookWarm_3
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 683
+        width: 62
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6702b6a55fd064d8bc91ab44eaf1ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarmHoleSpr_3
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 482
+        width: 121
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e751fe7cdfac24485502fdfbe12440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadBookInkSpr_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 377
+        width: 396
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1467107a0c1d4a9409ffc786b9fea641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InkMonsterSpr
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 302
+        width: 380
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbece084a56325448dd6d8bc0b116d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadBookInkSpr_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 96
+        width: 160
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8196770819bfceb47b9566b0b35a4e15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InkEvidenceSpr
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 167
+        width: 191
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c3b200cfb33cf4ea6b2b1ef4970e9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

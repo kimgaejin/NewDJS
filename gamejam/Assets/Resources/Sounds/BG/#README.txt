@@ -3,8 +3,15 @@ https://www.youtube.com/channel/UCCyocglAxHrnSfCMHqHeMMg
 
 게임 내에 크레딧으로 출처 표기가 필요하다.
 
+#252 P!EN - Rain On My Hand - 장병헌
+조금 웅장하고 장난스러운 빠른 피아노/트럼본? 곡. 과학챕터 딱이군
+한글 넣어놓기 조금 그래서 제작자이름 뺐음. 크레딧은 꼭 추가 필요
+
 #254 Mike Leite - A.L.O.N.E.
 어두운 피아노 + 뭔지모를 뚱뚱뚱뚱. 암울할 때 넣기.
+
+#261 PiN - Da Capo
+새소리. 봄날토끼느낌. 엄청밝음. 완전 엔딩정도 아니면 안쓸듯
 
 #264 50meru - Vega
 조금 어두운 피아노 + 국악. 2,3,4 중 적당히
