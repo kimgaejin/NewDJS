@@ -8,6 +8,10 @@ public class AudioManager : MonoBehaviour
     private AudioSource audio;
     private AudioSource BGMAudio;
 
+    private float stopTime;
+    private Coroutine stopCoroutine;
+    private bool activeStopCoroutine;
+
     public void Awake()
     {
         audio = GetComponent<AudioSource>();
@@ -46,5 +50,36 @@ public class AudioManager : MonoBehaviour
     {
         audio.volume = volume_;
         BGMAudio.volume = volume_;
+    }
+
+    public void SetBGMVolume(float volume_)
+    {
+        BGMAudio.volume = volume_;
+    }
+
+    public void StopBG(float time)
+    {
+        stopTime = time;
+        if (activeStopCoroutine) StopCoroutine(stopCoroutine);
+        stopCoroutine = StartCoroutine(StopBG());
+    }
+
+    private IEnumerator StopBG()
+    {
+        WaitForSeconds waitTime = new WaitForSeconds(stopTime);
+
+        while (true)
+        {
+            activeStopCoroutine = true;
+            SetBGMVolume(0);
+
+            yield return waitTime;
+
+            float volume = PlayerPrefs.GetFloat("Volume");
+            SetBGMVolume(volume);
+
+            activeStopCoroutine = false;
+            yield break;
+        }
     }
 }

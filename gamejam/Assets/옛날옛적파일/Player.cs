@@ -235,12 +235,12 @@ public class Player : MonoBehaviour {
             key_down = '9';
         }
 
- 
+         /*
         if (Input.GetKeyDown(KeyCode.F))
         {
             Light();
         }
-
+        */
         befPos = transform.position;
     }
     //기본적인 틀
@@ -404,6 +404,11 @@ public class Player : MonoBehaviour {
             isDead = true;
             anim.enabled = false;
             rigid.bodyType = RigidbodyType2D.Static;
+            if (audioManager)
+            {
+                audioManager.StopBG(3.0f);
+                audioManager.PlayEffect("Record dj Scratch Sound Effect");
+            }
 
             Color dec = spr.color / 20;
             dec.a = 0;

@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-F:/#MakingGames/UntitledBookBuilds/20200131_v11/UntitledBook_v11_1920.apk
+F:/#MakingGames/UntitledBookBuilds/20200201_v12/UntitledBook_v12.apk
 SceneListBegin?
 Assets/#ForLevelDesign/UI.unity
 Assets/#ForLevelDesign/Chapter1.unity
@@ -104,6 +104,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 b5eb08b578a2f2d80bb106cbe65ab501 Cinemachine.dll:Cinemachine.CinemachineStoryboard
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MouseEventOnLevel
 7ef4b463dee3fe5326b5dff22ffda98e Cinemachine.dll:.CinemachineCameraOffset
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Creator_Child
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.flag
 413eaac52d44c6769f5936f99092364f Assembly-CSharp.dll:.Dropping
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EffectManager
@@ -268,4 +269,3 @@ d34a2afac4d80805685a37becc4a82ab Assembly-CSharp.dll:.Destroier
 2792936179724025482dc04d68a47ca7 Cinemachine.dll:Cinemachine.CinemachineClearShot
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SceneInitManager
 74dcf9c3ad3fb6ca4c98cae82e3289c8 Assembly-CSharp.dll:.Portal
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Creator_Child

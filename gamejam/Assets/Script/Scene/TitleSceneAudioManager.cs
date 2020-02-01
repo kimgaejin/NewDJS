@@ -35,7 +35,7 @@ public class TitleSceneAudioManager : MonoBehaviour
         clip = (AudioClip)Resources.Load(path, typeof(AudioClip));
         if (clip == null) Debug.Log("coudn't find sound path " + path);
         audio.clip = clip;
-        audio.Play();
+        audio.PlayOneShot(clip);
     }
 
     public void PlayBG(string name)

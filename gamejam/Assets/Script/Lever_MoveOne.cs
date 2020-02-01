@@ -7,11 +7,11 @@ public class Lever_MoveOne : MonoBehaviour
 {
     // 플레이어가 터치하면 동작되는 레버.
     // 플레이어와의 거리는 고정합니다.
-
-    
     [Header("수정 ㄴ, 플레이어와 물체간 유효거리")]
     public float DISTANCE_WITH_PLAYER = 3.0f;
     [Space(10)]
+
+    private AudioManager audioManager;
 
     private Transform pointsParent;
     private Vector3[] points;
@@ -73,6 +73,8 @@ public class Lever_MoveOne : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
         {   // 오브젝트가 이동할 경로인 points에 대한 초기화
             pointsParent = this.transform.Find("Points");
 
@@ -299,6 +301,8 @@ public class Lever_MoveOne : MonoBehaviour
     public void Switch()
     {
         isExcuting = !isExcuting;
+        audioManager.PlayEffect("Lever-Marianne_Gagnon-206547513");
+
         if (isExcuting)
         {
             isLeverRight = true;

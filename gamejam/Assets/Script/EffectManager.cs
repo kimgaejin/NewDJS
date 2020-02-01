@@ -7,7 +7,7 @@ public class EffectManager : MonoBehaviour
     // Outer Reference
     private Transform tfPlayer;
     private GameObject gmPlayer;
-
+    private AudioManager audioManager;
 
     // Inner Reference
     private Transform[] effects;
@@ -29,6 +29,8 @@ public class EffectManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
         tfPlayer = GameObject.Find("Player").transform;
         gmPlayer = GameObject.Find("Player");
 
@@ -126,6 +128,8 @@ public class EffectManager : MonoBehaviour
             }
             else // 레버는 맞는데 거리가 안되는 경우
             {
+                if (audioManager)
+                    audioManager.PlayEffect("SmallPong");
                 CircleEffect();
                 Effect_TooFar();
             }
@@ -142,6 +146,8 @@ public class EffectManager : MonoBehaviour
             }
             else // 레버는 맞는데 거리가 안되는 경우
             {
+                if (audioManager)
+                    audioManager.PlayEffect("SmallPong");
                 CircleEffect();
                 Effect_TooFar();
 
@@ -159,6 +165,8 @@ public class EffectManager : MonoBehaviour
             }
             else // 레버는 맞는데 거리가 안되는 경우
             {
+                if (audioManager)
+                    audioManager.PlayEffect("SmallPong");
                 CircleEffect();
                 Effect_TooFar();
 

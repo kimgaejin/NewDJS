@@ -12,6 +12,8 @@ public class LevelScreen : MonoBehaviour
     public int stage4;
     public int stage5;
 
+    private TitleSceneAudioManager titleAudioManager;
+
     private bool isClicked;
     private string sceneNameToGo;
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class LevelScreen : MonoBehaviour
         stage4 = PlayerPrefs.GetInt("Stage4"); //게임 시작시 현재까지 깬 스테이지 로
         stage5 = PlayerPrefs.GetInt("Stage5"); //게임 시작시 현재까지 깬 스테이지 로
 
+        titleAudioManager = GameObject.Find("AudioManager").GetComponent<TitleSceneAudioManager>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,8 @@ public class LevelScreen : MonoBehaviour
             }
 
             StartCoroutine("GoToScene");
+            if (titleAudioManager)
+                titleAudioManager.PlayEffect("Ding Sound Effect");
         }
 
     }

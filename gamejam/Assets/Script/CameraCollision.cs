@@ -42,7 +42,6 @@ public class CameraCollision : MonoBehaviour
                 {
                     if (coll.name.Contains("JumpCollider"))
                     {
-                        Debug.Log("CAMERA JUMP!");
                         Transform jumpColliderParent = coll.transform.parent;
                         Transform jumpDestination = jumpColliderParent.Find("JumpDestination");
                         transform.position = jumpDestination.position;

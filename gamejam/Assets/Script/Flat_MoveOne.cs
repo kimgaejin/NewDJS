@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flat_MoveOne : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     private Vector3[] points;
     private Transform target;
     private Animator anim;
@@ -89,6 +91,8 @@ public class Flat_MoveOne : MonoBehaviour
             Transform graphic = transform.GetChild(0);
             anim = graphic.GetComponent<Animator>();
         }
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void FixedUpdate()
@@ -143,6 +147,8 @@ public class Flat_MoveOne : MonoBehaviour
             {
                 anim.SetTrigger("press");
                 isPressed = true;
+                if (audioManager)
+                    audioManager.PlayEffect("Button_Press-Marianne_Gagnon-779186363");
             }
         }
     }
@@ -160,6 +166,8 @@ public class Flat_MoveOne : MonoBehaviour
             {
                 anim.SetTrigger("depress");
                 isPressed = false;
+                if (audioManager)
+                    audioManager.PlayEffect("Button_Press-Marianne_Gagnon-779186363");
             }
         }
     }

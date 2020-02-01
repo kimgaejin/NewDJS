@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Save : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     private int stage;
     Animator animator;
     bool passed;
@@ -45,6 +47,8 @@ public class Save : MonoBehaviour
                 animator.SetBool("passed", true);
             }
         }
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         //Debug.Log(stage);
     }
 
@@ -57,6 +61,9 @@ public class Save : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag.Equals("Player"))  
         {
+            if (audioManager)
+                audioManager.PlayEffect("Ding Sound Effect");
+
             if (stage / 10 == 0)
             {
                 PlayerPrefs.SetInt("Stage1", stage); // 플레그 접촉시 스테이지 저장
